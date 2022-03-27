@@ -27,17 +27,17 @@ router.post("/login", async (req, res) => {
     let user = "";
     if (userType === "Student") {
       user = await Student.findOne({
-        username: req.body.username,
+        email: req.body.email,
         password: req.body.password,
       });
     } else if (userType === "Company") {
       user = await Company.findOne({
-        username: req.body.username,
+        email: req.body.email,
         password: req.body.password,
       });
     } else {
       user = await Admin.findOne({
-        username: req.body.username,
+        email: req.body.email,
         password: req.body.password,
       });
     }
