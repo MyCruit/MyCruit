@@ -25,33 +25,75 @@ code {
 }
 
 .logo {
-  height: 32px;
-  margin: 16px;
-  color: white;
+  height: 80px;
+  background: rgba(249, 250, 251, 0.72) !important;
 }
 
-.site-layout .site-layout-background {
-  background: #fff;
+.logo h1 {
+  color: black !important;
+  font-size: 30px;
+  font-weight: bold !important;
+  text-align: center !important;
+  padding: 50px !important;
+}
+
+.ant-layout-header {
+  background: rgba(249, 250, 251, 0.72) !important;
+  height: 80px !important;
 }
 
 .ant-layout-sider {
   height: 100vh !important;
+  background: #f9fafb !important;
+  border-right: 0.5px dashed rgb(230, 230, 230);
+  min-width: 250px !important;
 }
 
-.ant-layout-header span svg {
-  width: 25px !important;
-  height: 22px !important;
-  margin-left: 10px !important;
+.ant-menu {
+  background: #f9fafb !important;
+  border-right: none !important;
+  padding-top: 50px !important;
 }
 
-.logo h1 {
-  color: white !important;
-  font-size: 30px;
+.ant-menu-item {
+  background: #f9fafb !important;
+  color: #00ab55 !important;
+  padding-left: 50px !important;
+}
+
+.anticon {
+  font-size: 20px !important;
+}
+
+.ant-menu-item a {
+  font-size: 15px !important;
+  font-weight: bold !important;
+}
+
+.ant-menu-item-selected {
+  background: #e5f3ee !important;
+  border-right: 4px solid #00ab55 !important;
+}
+
+.ant-menu-item-selected a {
+  color: #00ab55 !important;
+}
+
+.ant-menu-item-active {
+  background: #edeff1 !important;
+}
+
+.ant-menu-item-active a {
+  color: #00ab55 !important;
+}
+
+.ant-menu-item-selected a:hover {
+  color: #00ab55 !important;
 }
 
 .ant-layout-content {
-  margin: 0px !important;
-  padding: 10px !important;
+  background: rgba(249, 250, 251, 0.72) !important;
+  padding: 35px !important;
 }
 
 .sweet-loading {
@@ -73,17 +115,27 @@ p {
   padding: 2px !important;
   font-size: 16px !important;
 }
+
 .bs {
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  background-color: white !important;
 }
+
 .job-div {
   border-radius: 15px !important;
 }
 
 button {
-  background-color: #001529 !important;
-  color: white !important;
+  background-color: #00ab55 !important;
+  color: black !important;
   border-radius: 5px !important;
+  border: none !important;
+}
+
+button:hover {
+  background-color: #e5f3ee !important;
+  border: 2px solid #00ab55 !important;
 }
 
 .login {

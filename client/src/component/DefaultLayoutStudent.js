@@ -2,37 +2,24 @@ import { Layout, Menu } from "antd";
 import React from "react";
 
 import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
+  BookOutlined,
   UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  LogoutOutlined,
+  CarryOutOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
+
 import { Link } from "react-router-dom";
-
 const { Header, Sider, Content } = Layout;
-
 class DefaultLayoutStudent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      collapsed: false,
-    };
   }
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
 
   render() {
     return (
-      <Layout>
+      <Layout theme="light">
         <Sider
-          trigger={null}
-          collapsible
-          collapsed={this.state.collapsed}
           style={{
             position: "sticky",
             overflow: "auto",
@@ -41,33 +28,29 @@ class DefaultLayoutStudent extends React.Component {
           }}
         >
           <div className="logo">
-            {this.state.collapsed ? <h1>MC</h1> : <h1>MyCruit</h1>}
+            <h1>MyCruit</h1>
           </div>
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={[window.location.pathname]}
-          >
-            <Menu.Item key="/" icon={<UserOutlined />}>
+          <Menu defaultSelectedKeys={[window.location.pathname]}>
+            <Menu.Item key="/" icon={<HomeOutlined />}>
               <Link to="/">Home</Link>
             </Menu.Item>
-            <Menu.Item key="/profile" icon={<VideoCameraOutlined />}>
+            <Menu.Item key="/profile" icon={<UserOutlined />}>
               <Link to="/profile">Profile</Link>
             </Menu.Item>
-            <Menu.Item key="/resume" icon={<VideoCameraOutlined />}>
+            <Menu.Item key="/resume" icon={<BookOutlined />}>
               <Link to="/resume">Resume</Link>
             </Menu.Item>
-            <Menu.Item key="/appliedJobs" icon={<UploadOutlined />}>
+            <Menu.Item key="/appliedJobs" icon={<CarryOutOutlined />}>
               <Link to="/appliedJobs">Applied Jobs</Link>
             </Menu.Item>
-            <Menu.Item key="/logout" icon={<UploadOutlined />}>
+            <Menu.Item key="/logout" icon={<LogoutOutlined />}>
               <Link to="/login">Logout</Link>
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout className="site-layout">
+
+        <Layout>
           <Header
-            className="site-layout-background"
             style={{
               padding: 0,
               position: "sticky",
@@ -75,25 +58,8 @@ class DefaultLayoutStudent extends React.Component {
               top: 0,
               zIndex: 9999,
             }}
-          >
-            {React.createElement(
-              this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-              {
-                className: "trigger",
-                onClick: this.toggle,
-              }
-            )}
-          </Header>
-          <Content
-            className="site-layout-background"
-            style={{
-              margin: "24px 16px",
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-            {this.props.children}
-          </Content>
+          ></Header>
+          <Content>{this.props.children}</Content>
         </Layout>
       </Layout>
     );
