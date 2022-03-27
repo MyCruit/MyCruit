@@ -7,6 +7,7 @@ const { Option } = Select;
 function Login() {
   const dispatch = useDispatch();
   function login(values) {
+    console.log("onFinish");
     dispatch(loginUser(values));
   }
   return (

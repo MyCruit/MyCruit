@@ -25,6 +25,7 @@ function App() {
   }, []);
   const category = "Student";
   const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div className="App">
       {loader && (
@@ -38,7 +39,9 @@ function App() {
           <Route
             path="/"
             element={
-              user.category === "Student" ? (
+              !user ? (
+                <Login />
+              ) : user.category === "Student" ? (
                 <HomeStudent />
               ) : user.category === "Company" ? (
                 <HomeCompany />
@@ -50,7 +53,9 @@ function App() {
           <Route
             path="/profile"
             element={
-              user.category === "Student" ? (
+              !user ? (
+                <Login />
+              ) : user.category === "Student" ? (
                 <ProfileStudent />
               ) : (
                 <ProfileCompany />
