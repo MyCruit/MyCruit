@@ -39,11 +39,24 @@ function Register() {
                 <Input />
               </Form.Item>
               <Form.Item
+                label="Email"
+                name="email"
+                rules={[
+                  { required: true },
+                  {
+                    type: "email",
+                    message: "Please enter valid Email!",
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
                 label="Password"
                 name="password"
                 rules={[{ required: true }]}
               >
-                <Input />
+                <Input.Password />
               </Form.Item>
 
               <Form.Item
@@ -51,11 +64,16 @@ function Register() {
                 name="confirmPassword"
                 rules={[{ required: true }]}
               >
-                <Input />
+                <Input.Password />
               </Form.Item>
 
               <Button htmlType="submit">Register</Button>
             </Form>
+            <div>
+              <h6>
+                Already have an account? <a href="/login">Login</a>{" "}
+              </h6>
+            </div>
           </Col>
         </Row>
       </div>

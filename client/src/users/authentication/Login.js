@@ -29,9 +29,15 @@ function Login() {
               </Select>
             </Form.Item>
             <Form.Item
-              label="Username"
-              name="username"
-              rules={[{ required: true }]}
+              label="Email"
+              name="email"
+              rules={[
+                { required: true },
+                {
+                  type: "email",
+                  message: "Please enter valid Email!",
+                },
+              ]}
             >
               <Input />
             </Form.Item>
@@ -40,11 +46,16 @@ function Login() {
               name="password"
               rules={[{ required: true }]}
             >
-              <Input />
+              <Input.Password />
             </Form.Item>
 
             <Button htmlType="submit">Login</Button>
           </Form>
+          <div>
+            <h6>
+              Don't have an account? <a href="/register">Register</a>{" "}
+            </h6>
+          </div>
         </Col>
       </Row>
     </div>
