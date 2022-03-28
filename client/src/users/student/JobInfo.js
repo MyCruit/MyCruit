@@ -15,42 +15,24 @@ function JobInfo() {
         {job && (
           <div>
             <p>
-              <b>Title</b> : {job.title}
+              <b>Profile</b> : {job.jobProfile}
             </p>
             <p>
-              <b>Company</b> : {job.company}
-            </p>
-
-            <p>
-              <b>Small Description</b> : {job.smallDescription}
+              <b>Description</b> : {job.fullDescription}
             </p>
             <p>
-              <b>Full Description</b> : {job.fullDescription}
+              <b>Eligibility</b> : {job.eligibility}
             </p>
-            <p>
-              <b>Title</b> : {job.title}
-            </p>
-            <p>
-              <b>Skills Required</b> : {job.skillsRequired}
-            </p>
-            <p>
-              <b>Experience</b> : {job.experience}
-            </p>
-            <p>
-              <b>Minimum Qualification</b> : {job.minimumQualification}
-            </p>
-
             <hr />
-
             <p>
-              <b>Salary Range</b> : {job.salaryFrom} - {job.salaryTo}
+              <b>Salary</b> : {job.salary}
             </p>
             <p>
-              <b>Department</b> : {job.department}
+              <b>Job Type</b> : {job.jobType}
             </p>
-            <p>
-              <b>Company Profile</b> : {job.companyDescription}
-            </p>
+            {/* <p>
+              <b>About Company</b> : {job.companyDescription}
+            </p> */}
             <p>
               <b>Total Candidates applied</b> : {job.appliedCandidates.length}
             </p>

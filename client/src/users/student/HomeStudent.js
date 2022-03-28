@@ -15,20 +15,16 @@ function HomeStudent() {
             return (
               <Col lg={12} sm={24}>
                 <div className="job-div bs m-4 p-3">
-                  <h4>{job.title}</h4>
-                  <p>{job.company}</p>
+                  <h4>{job.jobProfile}</h4>
+                  {/* <p>{job.company}</p> */}
                   <hr />
                   <p>{job.smallDescription}</p>
                   <div className="flex">
                     <p>
-                      Salary :{" "}
-                      <b>
-                        {job.salaryFrom} - {job.salaryTo}
-                      </b>{" "}
-                      ,{" "}
+                      Salary : <b>{job.salary}</b> ,{" "}
                     </p>
                     <p style={{ marginLeft: 20 }}>
-                      Experience : <b>{job.experience} Years</b>{" "}
+                      Job Type : <b>{job.jobType} </b>{" "}
                     </p>
                   </div>
                   <hr />
