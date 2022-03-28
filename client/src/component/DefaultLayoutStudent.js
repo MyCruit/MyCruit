@@ -1,33 +1,32 @@
 import { Layout, Menu } from "antd";
 import React from "react";
-
+import pic from "../img/logo.png";
 import {
   BookOutlined,
   UserOutlined,
   LogoutOutlined,
   CarryOutOutlined,
   HomeOutlined,
+  UnorderedListOutlined,
 } from "@ant-design/icons";
 
 import { Link } from "react-router-dom";
 const { Header, Sider, Content } = Layout;
 class DefaultLayoutStudent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <Layout theme="light">
+      <Layout className="layout">
         <Sider
+          breakpoint="lg"
+          collapsedWidth="0"
           style={{
             position: "sticky",
-            overflow: "auto",
             height: "100%",
             top: 0,
           }}
         >
           <div className="logo">
+            <img src={pic} alt="Logo"></img>
             <h1>MyCruit</h1>
           </div>
           <Menu defaultSelectedKeys={[window.location.pathname]}>
@@ -54,7 +53,6 @@ class DefaultLayoutStudent extends React.Component {
             style={{
               padding: 0,
               position: "sticky",
-              overflow: "auto",
               top: 0,
               zIndex: 9999,
             }}

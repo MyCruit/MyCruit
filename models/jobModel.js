@@ -6,7 +6,13 @@ const jobSchema = new mongoose.Schema(
     salary: { type: String, required: true },
     jobType: { type: String, required: true },
     smallDescription: { type: String, required: true },
-    fullDescription: { type: String, required: true },
+    fullDescription: {
+      type: {
+        descrption: { type: String },
+        documents: { type: [Buffer] },
+      },
+      required: true,
+    },
     eligibility: {
       type: {
         yop: { type: String, default: "" },

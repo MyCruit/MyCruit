@@ -8,57 +8,48 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.trigger {
-  padding: 0px 24 px;
-  font-size: 18px;
-  line-height: 64px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.trigger:hover {
-  color: #1890ff;
+.ant-layout-header {
+  background: rgba(249, 250, 251, 0.72) !important;
+  height: 64px !important;
 }
 
 .logo {
-  height: 80px;
+  height: 64px;
   background: rgba(249, 250, 251, 0.72) !important;
+  display: flex;
+  padding: 35px 15px 75px;
+  text-align: center;
 }
 
 .logo h1 {
   color: black !important;
   font-size: 30px;
   font-weight: bold !important;
-  text-align: center !important;
-  padding: 50px !important;
 }
 
-.ant-layout-header {
-  background: rgba(249, 250, 251, 0.72) !important;
-  height: 80px !important;
+.logo img {
+  width: 40px;
+  height: 40px;
 }
 
 .ant-layout-sider {
   height: 100vh !important;
   background: #f9fafb !important;
-  border-right: 0.5px dashed rgb(230, 230, 230);
-  min-width: 250px !important;
+  border-right: 1px dashed rgb(202, 202, 202);
 }
 
 .ant-menu {
   background: #f9fafb !important;
   border-right: none !important;
-  padding-top: 50px !important;
 }
 
 .ant-menu-item {
   background: #f9fafb !important;
-  color: #00ab55 !important;
-  padding-left: 50px !important;
+  padding-left: 30px !important;
+  color: #5e60ce !important;
 }
 
 .anticon {
@@ -71,12 +62,12 @@ code {
 }
 
 .ant-menu-item-selected {
-  background: #e5f3ee !important;
-  border-right: 4px solid #00ab55 !important;
+  background: #dfe0f7 !important;
+  border-right: 4px solid #5e60ce !important;
 }
 
 .ant-menu-item-selected a {
-  color: #00ab55 !important;
+  color: #5e60ce !important;
 }
 
 .ant-menu-item-active {
@@ -84,16 +75,25 @@ code {
 }
 
 .ant-menu-item-active a {
-  color: #00ab55 !important;
-}
-
-.ant-menu-item-selected a:hover {
-  color: #00ab55 !important;
+  color: #5e60ce !important;
 }
 
 .ant-layout-content {
   background: rgba(249, 250, 251, 0.72) !important;
   padding: 35px !important;
+}
+
+.layout button {
+  color: white !important;
+  border-radius: 5px !important;
+  border: none !important;
+  font-weight: bold !important;
+  background-color: #5e60ce;
+}
+
+.layout button:hover {
+  color: black !important;
+  background-color: #dfe0f7;
 }
 
 .sweet-loading {
@@ -126,22 +126,60 @@ p {
   border-radius: 15px !important;
 }
 
-button {
-  background-color: #00ab55 !important;
-  color: black !important;
-  border-radius: 5px !important;
-  border: none !important;
+.authButton {
+  background: #5e60ce;
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: block;
+  width: 100px;
+  color: #fff;
+  font-weight: bold;
 }
 
-button:hover {
-  background-color: #e5f3ee !important;
-  border: 2px solid #00ab55 !important;
+.authButton:hover {
+  color: black !important;
+  background-color: #dfe0f7;
 }
 
 .login {
-  padding-top: 100px !important;
+  padding: 68px;
+  background: linear-gradient(
+    90deg,
+    rgba(94, 96, 206, 1) 0%,
+    rgba(223, 224, 247, 1) 50%,
+    rgba(94, 96, 206, 1) 100%
+  );
+}
+
+.authForm {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.authPic {
+  background-color: #dfe0f7 !important;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.authPic h3 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.authLogo {
+  width: 60px;
+  height: 60px;
 }
 
 .register {
-  padding-top: 100px !important;
+  background: linear-gradient(
+    90deg,
+    rgba(94, 96, 206, 1) 0%,
+    rgba(223, 224, 247, 1) 50%,
+    rgba(94, 96, 206, 1) 100%
+  );
+  padding: 68px;
 }
