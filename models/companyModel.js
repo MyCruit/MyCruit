@@ -10,7 +10,7 @@ const companySchema = new mongoose.Schema(
     companyLogo: { type: Buffer },
     contactNumber: { type: String, default: "" },
     about: { type: String, default: "" },
-    location: { type: String, default: "" },
+    address: { type: String, default: "" },
     postedJobs: [],
   },
   { timestamps: true }

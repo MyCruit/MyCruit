@@ -23,6 +23,7 @@ const jobSchema = new mongoose.Schema(
       required: true,
     },
     companyid: { type: String, required: true },
+    location: { type: String, default: "" },
     appliedCandidates: { type: [], required: true },
   },
   {

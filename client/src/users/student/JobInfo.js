@@ -17,12 +17,12 @@ function JobInfo() {
             <p>
               <b>Profile</b> : {job.jobProfile}
             </p>
-            <p>
+            {/* <p>
               <b>Description</b> : {job.fullDescription}
             </p>
             <p>
               <b>Eligibility</b> : {job.eligibility}
-            </p>
+            </p> */}
             <hr />
             <p>
               <b>Salary</b> : {job.salary}
