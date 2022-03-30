@@ -11,6 +11,8 @@ code {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Default Layout */
+
 .ant-layout-header {
   background: rgba(249, 250, 251, 0.72) !important;
   height: 64px !important;
@@ -18,7 +20,6 @@ code {
 
 .logo {
   height: 64px;
-  background: rgba(249, 250, 251, 0.72) !important;
   display: flex;
   padding: 35px 15px 75px;
   text-align: center;
@@ -37,17 +38,17 @@ code {
 
 .ant-layout-sider {
   height: 100vh !important;
-  background: #f9fafb !important;
+  background: #fafafb !important;
   border-right: 1px dashed rgb(202, 202, 202);
 }
 
 .ant-menu {
-  background: #f9fafb !important;
+  background: #fafafb !important;
   border-right: none !important;
 }
 
 .ant-menu-item {
-  background: #f9fafb !important;
+  background: #fafafb !important;
   padding-left: 30px !important;
   color: #5e60ce !important;
 }
@@ -83,33 +84,40 @@ code {
   padding: 35px !important;
 }
 
-.layout button {
+.ant-btn {
   color: white !important;
   border-radius: 5px !important;
   border: none !important;
   font-weight: bold !important;
-  background-color: #5e60ce;
+  background-color: #5e60ce !important;
 }
 
-.layout button:hover {
+.ant-btn :hover {
   color: black !important;
-  background-color: #dfe0f7;
 }
+
+.ant-layout-sider-zero-width-trigger {
+  background: #5e60ce !important;
+}
+
+/* Loader */
 
 .sweet-loading {
   position: fixed !important;
-  top: 30% !important;
+  top: 50% !important;
   height: 100% !important;
   width: 100% !important;
   z-index: 9999;
 }
 
-.flex {
+/* Home Page of Student */
+
+.homeStudent .flex {
   display: flex !important;
   align-items: center !important;
 }
 
-p {
+.homeStudent p {
   font-weight: 500 !important;
   margin: 2px !important;
   padding: 2px !important;
@@ -122,9 +130,11 @@ p {
   background-color: white !important;
 }
 
-.job-div {
+.homeStudent .job-div {
   border-radius: 15px !important;
 }
+
+/* Login & Registration */
 
 .authButton {
   background: #5e60ce;
@@ -174,6 +184,10 @@ p {
   height: 60px;
 }
 
+.ant-form-item {
+  margin-bottom: 30px !important;
+}
+
 .register {
   background: linear-gradient(
     90deg,
@@ -182,4 +196,41 @@ p {
     rgba(94, 96, 206, 1) 100%
   );
   padding: 68px;
+}
+
+/* Profile Page of Student */
+.basicProfile {
+  display: block;
+  margin-left: 40%;
+  margin-right: 60%;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 8px double black;
+}
+
+.ant-steps {
+  width: 80% !important;
+  margin-left: 80px !important;
+}
+
+.steps-content {
+  min-height: 200px;
+  width: 80%;
+  margin-top: 16px;
+  margin-left: 80px;
+  padding-top: 80px;
+  text-align: center;
+  background-color: #dfe0f7;
+  border: 1px dashed #e9e9e9;
+  border-radius: 2px;
+}
+
+.steps-action {
+  margin-top: 24px;
+  float: right;
+  margin-right: 170px;
 }

@@ -15,7 +15,7 @@ const { Header, Sider, Content } = Layout;
 class DefaultLayoutStudent extends React.Component {
   render() {
     return (
-      <Layout className="layout">
+      <Layout>
         <Sider
           breakpoint="lg"
           collapsedWidth="0"
