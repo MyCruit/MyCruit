@@ -13,12 +13,11 @@ const studentSchema = new mongoose.Schema(
     firstName: { type: String, default: "" },
     lastName: { type: String, default: "" },
     contactNumber: { type: String, default: "" },
-    dob: { type: Date, default: "" },
+    dob: { type: String, default: "" },
     gender: { type: String, default: "" },
     profilePhoto: {
-      type: String,
-      default:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFs62iow439BwRx4Q1MxhLIhgyLN0AEfI80UPqyLio1--NXlDtmQiqoowzbgj41WLVpGo&usqp=CAU",
+      type: Buffer,
+      default: "",
     },
     collegeMail: { type: String, default: "" },
     resume: { type: Buffer },
