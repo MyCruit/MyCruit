@@ -7,6 +7,7 @@ const Admin = require("../models/adminModel");
 router.post("/register", async (req, res) => {
   try {
     const userType = req.body.category;
+
     if (userType === "Student") {
       const newStudent = new Student(req.body);
       const student = await newStudent.save();
