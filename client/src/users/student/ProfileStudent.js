@@ -1,20 +1,25 @@
 import React from "react";
 import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
 import { Steps, Button, message } from "antd";
+import { FaUser, FaGraduationCap } from "react-icons/fa";
+import { AiFillLayout } from "react-icons/ai";
 
 const { Step } = Steps;
 const steps = [
   {
-    title: "First",
+    title: "Personal Details",
     content: "First-content",
+    icon: <FaUser />,
   },
   {
-    title: "Second",
+    title: "Education",
     content: "Second-content",
+    icon: <FaGraduationCap style={{ fontSize: "32px" }} />,
   },
   {
-    title: "Last",
+    title: "Resume",
     content: "Last-content",
+    icon: <AiFillLayout />,
   },
 ];
 function ProfileStudent() {
@@ -33,7 +38,7 @@ function ProfileStudent() {
       <DefaultLayoutStudent>
         <Steps current={current}>
           {steps.map((item) => (
-            <Step key={item.title} title={item.title} />
+            <Step key={item.title} title={item.title} icon={item.icon} />
           ))}
         </Steps>
 

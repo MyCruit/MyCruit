@@ -92,7 +92,7 @@ code {
   background-color: #5e60ce !important;
 }
 
-.ant-btn :hover {
+.ant-btn:hover {
   color: black !important;
 }
 
@@ -110,14 +110,12 @@ code {
   z-index: 9999;
 }
 
-/* Home Page of Student */
-
-.homeStudent .flex {
+.flex {
   display: flex !important;
   align-items: center !important;
 }
 
-.homeStudent p {
+p {
   font-weight: 500 !important;
   margin: 2px !important;
   padding: 2px !important;
@@ -130,7 +128,7 @@ code {
   background-color: white !important;
 }
 
-.homeStudent .job-div {
+.job-div {
   border-radius: 15px !important;
 }
 
@@ -215,6 +213,20 @@ code {
 .ant-steps {
   width: 80% !important;
   margin-left: 80px !important;
+}
+
+.ant-steps-item-custom.ant-steps-item-process
+  .ant-steps-item-icon
+  .ant-steps-icon {
+  color: #5e60ce !important;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon .ant-steps-icon {
+  color: #5e60ce !important;
+}
+
+.ant-steps-item-title:after {
+  background-color: #5e60ce !important;
 }
 
 .steps-content {

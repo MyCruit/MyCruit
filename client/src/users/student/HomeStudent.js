@@ -8,7 +8,7 @@ import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
 function HomeStudent() {
   const { jobs } = useSelector((state) => state.jobReducer);
   return (
-    <div className="homeStudent">
+    <div>
       <DefaultLayoutStudent>
         <Row gutter={16}>
           {jobs.map((job) => {

@@ -2,12 +2,11 @@ import { Layout, Menu } from "antd";
 import React from "react";
 import pic from "../img/logo.png";
 import {
-  BookOutlined,
+  LayoutOutlined,
   UserOutlined,
   LogoutOutlined,
   CarryOutOutlined,
   HomeOutlined,
-  UnorderedListOutlined,
 } from "@ant-design/icons";
 
 import { Link } from "react-router-dom";
@@ -36,7 +35,7 @@ class DefaultLayoutStudent extends React.Component {
             <Menu.Item key="/profile" icon={<UserOutlined />}>
               <Link to="/profile">Profile</Link>
             </Menu.Item>
-            <Menu.Item key="/resume" icon={<BookOutlined />}>
+            <Menu.Item key="/resume" icon={<LayoutOutlined />}>
               <Link to="/resume">Resume</Link>
             </Menu.Item>
             <Menu.Item key="/appliedJobs" icon={<CarryOutOutlined />}>
@@ -54,7 +53,7 @@ class DefaultLayoutStudent extends React.Component {
               padding: 0,
               position: "sticky",
               top: 0,
-              zIndex: 9999,
+              zIndex: 9998,
             }}
           ></Header>
           <Content>{this.props.children}</Content>
