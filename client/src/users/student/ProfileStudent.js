@@ -62,7 +62,7 @@ function ProfileStudent() {
             <Form.Item
               label="First Name"
               name="firstName"
-              rules={[{ required: true, message: "First Name is required" }]}
+              rules={[{ required: true, message: "First name is required" }]}
             >
               <Input />
             </Form.Item>
