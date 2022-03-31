@@ -10,11 +10,11 @@ router.post("/register", async (req, res) => {
 
     if (userType === "Student") {
       const newStudent = new Student(req.body);
-      const student = await newStudent.save();
+      await newStudent.save();
       res.send("Student Account Created successfully!");
     } else {
       const newCompany = new Company(req.body);
-      const company = await newCompany.save();
+      await newCompany.save();
       res.send("Company Account Created successfully!");
     }
   } catch (error) {
@@ -49,6 +49,18 @@ router.post("/login", async (req, res) => {
     }
   } catch (error) {
     return res.status(404).json(error);
+  }
+});
+
+router.post("/update", async (req, res) => {
+  try {
+    await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
+
+    const student = await Student.findOne({ _id: req.body._id });
+
+    res.send(student);
+  } catch (error) {
+    return res.status(400).json({ error });
   }
 });
 
