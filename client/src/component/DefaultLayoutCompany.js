@@ -53,7 +53,7 @@ class DefaultLayoutCompany extends React.Component {
                 okText="Quit"
                 cancelText="Cancel"
               >
-                <Link to="/login">Logout</Link>
+                <Link to="">Logout</Link>
               </Popconfirm>
             </Menu.Item>
           </Menu>

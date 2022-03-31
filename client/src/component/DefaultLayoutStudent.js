@@ -12,6 +12,7 @@ import {
 
 import { Link } from "react-router-dom";
 const { Header, Sider, Content } = Layout;
+
 const onConfirm = (e) => {
   window.location = "/login";
   window.localStorage.clear();
@@ -55,7 +56,7 @@ class DefaultLayoutStudent extends React.Component {
                 okText="Quit"
                 cancelText="Cancel"
               >
-                Logout
+                <Link to="">Logout</Link>
               </Popconfirm>
             </Menu.Item>
           </Menu>
