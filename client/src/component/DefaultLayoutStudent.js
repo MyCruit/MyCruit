@@ -12,12 +12,11 @@ import {
 
 import { Link } from "react-router-dom";
 const { Header, Sider, Content } = Layout;
-const onConfirm = (e) => 
-    {
-      window.location = "/login";
-      window.localStorage.clear();
-      console.log(e);
-    }
+const onConfirm = (e) => {
+  window.location = "/login";
+  window.localStorage.clear();
+  console.log(e);
+};
 class DefaultLayoutStudent extends React.Component {
   render() {
     return (
@@ -49,8 +48,13 @@ class DefaultLayoutStudent extends React.Component {
               <Link to="/appliedJobs">Applied Jobs</Link>
             </Menu.Item>
             <Menu.Item key="/logout" icon={<LogoutOutlined />}>
-              <Popconfirm title="Are you sure you want to quit?" placement="right"  onConfirm={onConfirm} okText="Quit"
-   cancelText="No">
+              <Popconfirm
+                title="Are you sure you want to quit?"
+                placement="right"
+                onConfirm={onConfirm}
+                okText="Quit"
+                cancelText="Cancel"
+              >
                 Logout
               </Popconfirm>
             </Menu.Item>

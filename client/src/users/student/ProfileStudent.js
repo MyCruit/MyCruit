@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
-import {
-  Steps,
-  Button,
-  message,
-  Upload,
-  Col,
-  Form,
-  Input,
-  Row,
-  Select,
-  DatePicker,
-} from "antd";
+import { FaUser, FaGraduationCap } from "react-icons/fa";
+import { AiFillLayout } from "react-icons/ai";
+import { Steps, Button, message, Form, Input, Select, DatePicker } from "antd";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../redux/action/usersAction";
 
@@ -34,14 +25,17 @@ function ProfileStudent() {
     {
       title: "Personal Details",
       content: personalDetails(),
+      icon: <FaUser />,
     },
     {
       title: "Education",
       content: educationDetails(),
+      icon: <FaGraduationCap style={{ fontSize: "32px" }} />,
     },
     {
       title: "Resume",
       content: resume(),
+      icon: <AiFillLayout />,
     },
   ];
   const [personalInfo, setPersonalInfo] = useState();
@@ -68,14 +62,14 @@ function ProfileStudent() {
         <Form.Item
           label="First Name"
           name="firstName"
-          rules={[{ required: true, message: "First name is required" }]}
+          rules={[{ required: true, message: "First Name is required" }]}
         >
           <Input />
         </Form.Item>
         <Form.Item
           label="Last Name"
           name="lastName"
-          rules={[{ required: true, message: "Last name is required" }]}
+          rules={[{ required: true, message: "Last Name is required" }]}
         >
           <Input />
         </Form.Item>
@@ -84,14 +78,14 @@ function ProfileStudent() {
         <Form.Item
           label="Date of Birth"
           name="dob"
-          rules={[{ required: true, message: "Date of birth is required" }]}
+          rules={[{ required: true, message: "Date of Birth is required" }]}
         >
           <DatePicker />
         </Form.Item>
         <Form.Item
           label="Gender"
           name="gender"
-          rules={[{ required: true, message: "gender is required" }]}
+          rules={[{ required: true, message: "Gender is required" }]}
         >
           <Select placeholder="Select a Gender">
             <Option value="F">Female</Option>
@@ -107,10 +101,10 @@ function ProfileStudent() {
           <Input />
         </Form.Item>
         <Form.Item
-          label="College E-mail"
+          label="College Email"
           name="collegeMail"
           rules={[
-            { required: true, message: "College E-mail is required" },
+            { required: true, message: "College Email is required" },
             {
               type: "email",
               message: "Please enter valid Email!",
@@ -127,7 +121,7 @@ function ProfileStudent() {
           <Input.TextArea />
         </Form.Item>
         <Form.Item
-          label="Abour"
+          label="About"
           name="about"
           rules={[{ required: true, message: "About is required" }]}
         >
@@ -149,7 +143,7 @@ function ProfileStudent() {
         <Form.Item
           label="Institue"
           name="institute"
-          rules={[{ required: true, message: "Institution name is required" }]}
+          rules={[{ required: true, message: "Institution Name is required" }]}
         >
           <Input />
         </Form.Item>
@@ -169,27 +163,31 @@ function ProfileStudent() {
           rules={[{ required: true, message: "Branch is required" }]}
         >
           <Select placeholder="Select a Branch">
-            <Option value="CSE">Computer Science</Option>
+            <Option value="CSE">Computer Science Engineering</Option>
             <Option value="IT">Information Technology</Option>
-            <Option value="EEE">EEE</Option>
-            <Option value="EI">EI</Option>
-            <Option value="ECE">ECE</Option>
-            <Option value="MT">Mechatronics</Option>
-            <Option value="BT">BioTech</Option>
+            <Option value="EEE">Electrical and Electronics Engineering</Option>
+            <Option value="EI">
+              Electronics and Instrumentation Engineering
+            </Option>
+            <Option value="ECE">
+              Electronics and Communication Engineering
+            </Option>
+            <Option value="MT">Mechatronics Engineering</Option>
+            <Option value="BT">Biotechnology Engineering</Option>
             <Option value="CE">Chemical Engineering</Option>
           </Select>
         </Form.Item>
         <Form.Item
-          label="Year of Starting"
+          label="Starting Year"
           name="yos"
-          rules={[{ required: true, message: "Year of starting is required" }]}
+          rules={[{ required: true, message: "Starting Year is required" }]}
         >
           <Input />
         </Form.Item>
         <Form.Item
-          label="Year of Passing (Expected)"
+          label="Passing Year (or expected)"
           name="yop"
-          rules={[{ required: true, message: "Year of passing is required" }]}
+          rules={[{ required: true, message: "Passing Year is required" }]}
         >
           <Input />
         </Form.Item>
