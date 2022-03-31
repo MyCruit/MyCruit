@@ -1,6 +1,7 @@
 import { Layout, Menu } from "antd";
 import React from "react";
 import pic from "../img/logo.png";
+import Popconfirm from "antd/lib/popconfirm";
 import {
   BookOutlined,
   UserOutlined,
@@ -12,6 +13,12 @@ import {
 
 import { Link } from "react-router-dom";
 const { Header, Sider, Content } = Layout;
+const onConfirm = (e) => 
+    {
+      window.location = "/login";
+      window.localStorage.clear();
+      console.log(e);
+    }
 class DefaultLayoutStudent extends React.Component {
   render() {
     return (
@@ -43,7 +50,10 @@ class DefaultLayoutStudent extends React.Component {
               <Link to="/appliedJobs">Applied Jobs</Link>
             </Menu.Item>
             <Menu.Item key="/logout" icon={<LogoutOutlined />}>
-              <Link to="/login">Logout</Link>
+              <Popconfirm title="Are you sure you want to quit?" placement="right"  onConfirm={onConfirm} okText="Quit"
+   cancelText="No">
+                Logout
+              </Popconfirm>
             </Menu.Item>
           </Menu>
         </Sider>
