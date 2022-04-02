@@ -1,9 +1,8 @@
 import "antd/dist/antd.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-
 import HomeStudent from "./users/student/HomeStudent";
 import ProfileStudent from "./users/student/ProfileStudent";
 import JobInfo from "./users/student/JobInfo";
@@ -16,15 +15,14 @@ import AppliedJobs from "./users/student/AppliedJobs";
 import Resume from "./users/student/Resume";
 import Post from "./users/company/Post";
 import ProfileCompany from "./users/company/ProfileCompany";
-
+const user = JSON.parse(localStorage.getItem("user"));
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllJobs());
   }, []);
-  const category = "Student";
-  const user = JSON.parse(localStorage.getItem("user"));
+
   console.log(user);
   return (
     <div className="App">
@@ -74,3 +72,11 @@ function App() {
   );
 }
 export default App;
+
+// export function ProtectedRoute(props) {
+//   if (!user) {
+//     return <Navigate replace to="/login" />;
+//   } else {
+//     return <Route {...props} />;
+//   }
+// }

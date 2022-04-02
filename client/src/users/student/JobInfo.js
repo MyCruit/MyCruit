@@ -9,6 +9,7 @@ function JobInfo() {
   const params = useParams();
   const { jobs } = useSelector((state) => state.jobReducer);
   const job = jobs.find((job) => job._id == params.id);
+  const userid = JSON.parse(localStorage.getItem("user"))._id;
   return (
     <div>
       <DefaultLayoutStudent>
@@ -40,7 +41,11 @@ function JobInfo() {
             <hr />
 
             <div className="flex justify-content-between">
-              <Button>Apply Now</Button>
+              {userid == job.companyid ? (
+                <Button>Applied Candidates</Button>
+              ) : (
+                <Button>Apply Now</Button>
+              )}
               <p>
                 <b>Posted on</b> {moment(job.createdAt).format("MMM DD yyyy")}
               </p>

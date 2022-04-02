@@ -54,11 +54,16 @@ router.post("/login", async (req, res) => {
 
 router.post("/update", async (req, res) => {
   try {
-    await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
-
-    const student = await Student.findOne({ _id: req.body._id });
-
-    res.send(student);
+    const userType = req.body.category;
+    let user = "";
+    if (userType === "Student") {
+      await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
+      user = await Student.findOne({ _id: req.body._id });
+    } else {
+      await Company.findOneAndUpdate({ _id: req.body._id }, req.body);
+      user = await Company.findOne({ _id: req.body._id });
+    }
+    res.send(user);
   } catch (error) {
     return res.status(400).json({ error });
   }

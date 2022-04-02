@@ -36,8 +36,9 @@ export const loginUser = (values) => async (dispatch) => {
 
 export const updateUser = (values) => async (dispatch) => {
   const userid = JSON.parse(localStorage.getItem("user"))._id;
-
+  const usercategory = JSON.parse(localStorage.getItem("user")).category;
   values._id = userid;
+  values.category = usercategory;
 
   dispatch({ type: "LOADING", payload: true });
 

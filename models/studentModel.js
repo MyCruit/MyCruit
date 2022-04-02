@@ -29,7 +29,6 @@ const studentSchema = new mongoose.Schema(
         course: { type: String, default: "" },
         branch: { type: String, default: "" },
         currentYear: { type: String, default: "" },
-        currentSem: { type: String, default: "" },
         yos: { type: String, default: "" },
         yop: { type: String, default: "" },
         cgpa: { type: String, default: "" },

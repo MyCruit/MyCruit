@@ -246,3 +246,7 @@ p {
   float: right;
   margin-right: 170px;
 }
+
+.ant-message{
+  z-index: 9999 !important;
+}

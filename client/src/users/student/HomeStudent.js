@@ -18,7 +18,6 @@ function HomeStudent() {
                   <h4>{job.jobProfile}</h4>
                   {/* <p>{job.company}</p> */}
                   <hr />
-                  <p>{job.smallDescription}</p>
                   <div className="flex">
                     <p>
                       Salary : <b>{job.salary}</b> ,{" "}
@@ -30,7 +29,7 @@ function HomeStudent() {
                   <hr />
 
                   <div className="flex justify-content-between">
-                    <Link to={`/Jobs/${job._id}`}>
+                    <Link to={`/jobs/${job._id}`}>
                       <Button>View</Button>
                     </Link>
                     <p>
