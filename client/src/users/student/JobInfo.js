@@ -1,15 +1,29 @@
 import { Button } from "antd";
 import moment from "moment";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
+import { applyJob } from "../../redux/action/jobAction";
 
 function JobInfo() {
   const params = useParams();
   const { jobs } = useSelector((state) => state.jobReducer);
   const job = jobs.find((job) => job._id == params.id);
   const userid = JSON.parse(localStorage.getItem("user"))._id;
+
+  const appliedCandidates = job.appliedCandidates;
+
+  const alreadyApplied = appliedCandidates.find(
+    (candidate) => candidate.userid == userid
+  );
+
+  const dispatch = useDispatch();
+
+  function applyNow() {
+    dispatch(applyJob(job));
+  }
+
   return (
     <div>
       <DefaultLayoutStudent>
@@ -43,8 +57,12 @@ function JobInfo() {
             <div className="flex justify-content-between">
               {userid == job.companyid ? (
                 <Button>Applied Candidates</Button>
+              ) : alreadyApplied ? (
+                <Button className="" disabled>
+                  Already Applied
+                </Button>
               ) : (
-                <Button>Apply Now</Button>
+                <Button onClick={applyNow}>Apply Now</Button>
               )}
               <p>
                 <b>Posted on</b> {moment(job.createdAt).format("MMM DD yyyy")}

@@ -22,7 +22,10 @@ function ProfileCompany() {
         <Form layout="vertical" onFinish={onFinalFinish} initialValues={user}>
           <Row gutter={16}>
             <Col lg={8} sm={24}>
-              <Form.Item label="Company Logo" name="companyLogo"></Form.Item>
+              {/* <Form.Item label="Company Logo" name="companyLogo"></Form.Item> */}
+              <Form.Item label="Company email" name="email">
+                <Input disabled={true} bordered={false} />
+              </Form.Item>
             </Col>
             <Col lg={8} sm={24}>
               <Form.Item
