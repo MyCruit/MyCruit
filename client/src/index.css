@@ -41,7 +41,7 @@ code {
   height: 100vh !important;
   background: rgba(249, 250, 251) !important;
   min-width: 0px !important;
-  flex-basis: 140px !important;
+  flex-basis: 150px !important;
 }
 
 .ant-menu {

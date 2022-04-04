@@ -9,6 +9,7 @@ import { updateUser } from "../../redux/action/usersAction";
 const { Step } = Steps;
 const { Option } = Select;
 const user = JSON.parse(localStorage.getItem("user"));
+
 function ProfileStudent() {
   const [current, setCurrent] = React.useState(0);
 
