@@ -1,6 +1,6 @@
 import React from "react";
-import DefaultLayoutCompany from "../../component/DefaultLayoutCompany";
-import { useSelector, useDispatch } from "react-redux";
+import DefaultLayout from "../../component/DefaultLayout";
+import { useSelector } from "react-redux";
 import { Card } from "antd";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ function HomeCompany() {
 
   return (
     <div>
-      <DefaultLayoutCompany>
+      <DefaultLayout>
         <Card title="Jobs Posted by You">
           {userPostedJobs.map((job) => {
             return (
@@ -37,7 +37,7 @@ function HomeCompany() {
             );
           })}
         </Card>
-      </DefaultLayoutCompany>
+      </DefaultLayout>
     </div>
   );
 }

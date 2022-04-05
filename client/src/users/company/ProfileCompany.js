@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultLayoutCompany from "../../component/DefaultLayoutCompany";
+import DefaultLayout from "../../component/DefaultLayout";
 import { Button, Form, Input, Row, Col } from "antd";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../redux/action/usersAction";
@@ -15,7 +15,7 @@ function ProfileCompany() {
 
   return (
     <div>
-      <DefaultLayoutCompany>
+      <DefaultLayout>
         <div>
           <h1>Company Details</h1>
         </div>
@@ -75,7 +75,7 @@ function ProfileCompany() {
           </Row>
           <Button htmlType="submit">Update</Button>
         </Form>
-      </DefaultLayoutCompany>
+      </DefaultLayout>
     </div>
   );
 }

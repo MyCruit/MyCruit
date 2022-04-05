@@ -20,7 +20,7 @@ const studentSchema = new mongoose.Schema(
       default: "",
     },
     collegeMail: { type: String, default: "" },
-    resume: { type: Buffer },
+    resume: { type: String },
     about: { type: String, default: "" },
     address: { type: String, default: "" },
     education: {

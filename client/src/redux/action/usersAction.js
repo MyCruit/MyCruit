@@ -34,6 +34,18 @@ export const loginUser = (values) => async (dispatch) => {
   }
 };
 
+export const getAllStudents = () => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    const response = await axios.get("/api/users/getallstudents");
+    dispatch({ type: "GET_ALL_STUDENTS", payload: response.data });
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "LOADING", payload: false });
+  }
+};
+
 export const updateUser = (values) => async (dispatch) => {
   const userid = JSON.parse(localStorage.getItem("user"))._id;
   const usercategory = JSON.parse(localStorage.getItem("user")).category;

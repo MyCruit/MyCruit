@@ -35,9 +35,10 @@ export const applyJob = (job) => async (dispatch) => {
   const user = JSON.parse(localStorage.getItem("user"));
   dispatch({ type: "LOADING", payload: true });
   try {
-    await axios.post("/api/jobs/applyjob", { job, user });
+    const userDetails = await axios.post("/api/jobs/applyjob", { job, user });
     dispatch({ type: "LOADING", payload: false });
     message.success("Job applied Successfully");
+    localStorage.setItem("user", JSON.stringify(userDetails.data));
     setTimeout(() => {
       window.location.reload();
     }, 1000);

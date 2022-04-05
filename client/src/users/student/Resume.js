@@ -4,7 +4,7 @@ import Education from "../components/Education";
 import Projects from "../components/Projects";
 import Experience from "../components/Experience";
 import Extras from "../components/Extras";
-import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
+import DefaultLayout from "../../component/DefaultLayout";
 
 class Resume extends Component {
   state = {
@@ -211,7 +211,7 @@ class Resume extends Component {
     switch (step) {
       case 1:
         return (
-          <DefaultLayoutStudent>
+          <DefaultLayout>
             <div className="App mt-3">
               <div className="container col-lg-10 mx-auto text-center">
                 <Profile
@@ -221,11 +221,11 @@ class Resume extends Component {
                 />
               </div>
             </div>
-          </DefaultLayoutStudent>
+          </DefaultLayout>
         );
       case 2:
         return (
-          <DefaultLayoutStudent>
+          <DefaultLayout>
             <div className="App mt-3">
               <div className="container col-lg-10 mx-auto text-center">
                 <Education
@@ -236,11 +236,11 @@ class Resume extends Component {
                 />
               </div>
             </div>
-          </DefaultLayoutStudent>
+          </DefaultLayout>
         );
       case 3:
         return (
-          <DefaultLayoutStudent>
+          <DefaultLayout>
             <div className="App mt-3">
               <div className="container col-lg-8 mx-auto text-center">
                 <Projects
@@ -251,11 +251,11 @@ class Resume extends Component {
                 />
               </div>
             </div>
-          </DefaultLayoutStudent>
+          </DefaultLayout>
         );
       case 4:
         return (
-          <DefaultLayoutStudent>
+          <DefaultLayout>
             <div className="App mt-3">
               <div className="container col-lg-10 mx-auto text-center">
                 <Experience
@@ -266,11 +266,11 @@ class Resume extends Component {
                 />
               </div>
             </div>
-          </DefaultLayoutStudent>
+          </DefaultLayout>
         );
       case 5:
         return (
-          <DefaultLayoutStudent>
+          <DefaultLayout>
             <div className="App mt-3">
               <div className="container col-lg-10 mx-auto text-center">
                 <Extras
@@ -280,13 +280,13 @@ class Resume extends Component {
                 />
               </div>
             </div>
-          </DefaultLayoutStudent>
+          </DefaultLayout>
         );
       default:
         return (
-          <DefaultLayoutStudent>
+          <DefaultLayout>
             <div />
-          </DefaultLayoutStudent>
+          </DefaultLayout>
         );
     }
   }

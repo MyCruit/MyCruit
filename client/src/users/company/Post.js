@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultLayoutCompany from "../../component/DefaultLayoutCompany";
+import DefaultLayout from "../../component/DefaultLayout";
 import { Button, Form, Select, Input, Row, Col, Checkbox } from "antd";
 import { useDispatch } from "react-redux";
 import { postJob } from "../../redux/action/jobAction";
@@ -14,7 +14,7 @@ function Post() {
   }
   return (
     <div>
-      <DefaultLayoutCompany>
+      <DefaultLayout>
         <div>
           <h1>Job Details</h1>
         </div>
@@ -124,7 +124,7 @@ function Post() {
           </Row>
           <Button htmlType="submit">Post</Button>
         </Form>
-      </DefaultLayoutCompany>
+      </DefaultLayout>
     </div>
   );
 }

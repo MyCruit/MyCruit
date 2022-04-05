@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
+import React, { useState } from "react";
+import DefaultLayout from "../../component/DefaultLayout";
 import { FaUser, FaGraduationCap } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
 import { Steps, Button, message, Form, Input, Select, Row, Col } from "antd";
@@ -253,7 +253,7 @@ function ProfileStudent() {
 
   return (
     <div>
-      <DefaultLayoutStudent>
+      <DefaultLayout>
         <Steps current={current}>
           {steps.map((item) => (
             <Step key={item.title} title={item.title} icon={item.icon} />
@@ -278,7 +278,7 @@ function ProfileStudent() {
             </Button>
           )}
         </div>
-      </DefaultLayoutStudent>
+      </DefaultLayout>
     </div>
   );
 }
