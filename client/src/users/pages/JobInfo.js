@@ -85,12 +85,19 @@ function JobInfo() {
             <p>
               <b>Profile</b> : {job.jobProfile}
             </p>
-            {/* <p>
-          <b>Description</b> : {job.fullDescription}
-        </p>
-        <p>
-          <b>Eligibility</b> : {job.eligibility}
-        </p> */}
+            <p>
+              <b>Company</b> : {company.companyName}
+            </p>
+            <p>
+              <b>Description</b> : {job.fullDescription}
+            </p>
+            <p>
+              <b>Eligibility</b>
+              <p>Minimum CGPA : {job.eligibility.cgpa}</p>
+              <p>Year of Passing : {job.eligibility.yop}</p>
+              <p>Course : {job.eligibility.course}</p>
+              <p>Branches : {`${job.eligibility.branch}`} </p>
+            </p>
             <hr />
             <p>
               <b>Salary</b> : {job.salary}
@@ -98,9 +105,6 @@ function JobInfo() {
             <p>
               <b>Job Type</b> : {job.jobType}
             </p>
-            {/* <p>
-          <b>About Company</b> : {job.companyDescription}
-        </p> */}
             <p>
               <b>Total Candidates applied</b> : {job.appliedCandidates.length}
             </p>
