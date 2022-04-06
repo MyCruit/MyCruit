@@ -9,7 +9,6 @@ function Post() {
   const dispatch = useDispatch();
 
   function onFinalFinish(values) {
-    console.log(values);
     dispatch(postJob(values));
   }
   return (

@@ -24,11 +24,18 @@ function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllJobs());
-    dispatch(getAllStudents());
-    dispatch(getAllCompanies());
+    const getAll = async () => {
+      const allcompanies = await getAllCompanies();
+      dispatch(allcompanies);
+      const allstudents = await getAllStudents();
+      dispatch(allstudents);
+      const alljobs = await getAllJobs();
+      dispatch(alljobs);
+    };
+
+    getAll();
   }, []);
-  console.log(user);
+
   return (
     <div className="App">
       {loader && (

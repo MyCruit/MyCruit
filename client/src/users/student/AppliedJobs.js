@@ -7,13 +7,11 @@ import { Link } from "react-router-dom";
 
 function AppliedJobs() {
   const user = JSON.parse(localStorage.getItem("user"));
-  const alljobs = useSelector((state) => state.jobReducer).jobs; //fetching data of all the jobs from database.
-  const userAppliedJobs = user.appliedJobs; //storing id of all the jobs a user have applied to.
-  console.log(userAppliedJobs);
+  const { jobs } = useSelector((state) => state.jobReducer);
   return (
     <div>
       <DefaultLayout>
-        {userAppliedJobs.length === 0 ? (
+        {user.appliedJobs.length === 0 ? (
           <Result
             status="403"
             title="Oops!!!"
@@ -28,9 +26,8 @@ function AppliedJobs() {
           <h3>Your Applications</h3>
         )}
 
-        {userAppliedJobs.map((job) => {
-          const appliedJob = alljobs.find((jobs) => jobs._id == job.jobid); //finding job with the same id as stored in users appliedJobs(for every job using map)
-          // console.log(appliedJob);
+        {user.appliedJobs.map((job) => {
+          const appliedJob = jobs.find((i) => i._id == job.jobid);
           return (
             <Link to={`/jobs/${appliedJob._id}`}>
               <Card
@@ -46,7 +43,6 @@ function AppliedJobs() {
               >
                 <div>
                   <p>{appliedJob.jobType}</p>
-                  <p>{appliedJob.smallDescription}</p>
                 </div>
               </Card>
             </Link>
