@@ -2,17 +2,30 @@ import React, { useState } from "react";
 import DefaultLayout from "../../component/DefaultLayout";
 import { FaUser, FaGraduationCap } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
-import { Steps, Button, message, Form, Input, Select, Row, Col } from "antd";
+import {
+  Steps,
+  Button,
+  message,
+  Form,
+  Input,
+  Select,
+  Row,
+  Col,
+  Upload,
+} from "antd";
 import { useDispatch } from "react-redux";
-import { updateUser } from "../../redux/action/usersAction";
+import { updateUser, updateResume } from "../../redux/action/usersAction";
+import { UploadOutlined } from "@ant-design/icons";
 
 const { Step } = Steps;
 const { Option } = Select;
 const user = JSON.parse(localStorage.getItem("user"));
+console.log(user);
 
 function ProfileStudent() {
   const [current, setCurrent] = React.useState(0);
-
+  const [file, setFile] = useState("");
+  const [disable, setDisable] = useState(true);
   const next = () => {
     setCurrent(current + 1);
   };
@@ -239,14 +252,55 @@ function ProfileStudent() {
     );
   }
 
+  const handleUpdate = () => {
+    let formdata = new FormData();
+    formdata.append("resume", file);
+    dispatch(updateResume(formdata));
+  };
+
+  function _arrayBufferToBase64(buffer) {
+    var binary = "";
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  }
+
   function resume() {
+    if (user.resume) {
+      var base64 = _arrayBufferToBase64(user.resume.data);
+    }
     return (
       <Form layout="vertical">
         <Form.Item label="Upload Your Resume">
           <Form.Item name="resume"></Form.Item>
         </Form.Item>
-
-        <Button htmlType="submit">Submit</Button>
+        {user.resume ? (
+          <iframe src={`data:application/pdf;base64,${base64}`} />
+        ) : (
+          <div>No Resume Uploaded</div>
+        )}
+        <Upload
+          name="resume"
+          accept="application/pdf"
+          maxCount={1}
+          beforeUpload={(file) => {
+            setFile(file);
+            setDisable(false);
+          }}
+          fileList={file === "" ? [] : [file]}
+        >
+          <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        </Upload>
+        <Button
+          htmlType="submit"
+          onClick={() => handleUpdate()}
+          disabled={disable}
+        >
+          Update
+        </Button>
       </Form>
     );
   }
