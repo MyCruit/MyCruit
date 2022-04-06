@@ -9,6 +9,7 @@ import JobInfo from "./users/pages/JobInfo";
 import StudentInfo from "./users/pages/StudentInfo";
 import { getAllJobs } from "./redux/action/jobAction";
 import { getAllStudents } from "./redux/action/usersAction";
+import { getAllCompanies } from "./redux/action/usersAction";
 import Register from "./users/pages/Register";
 import Login from "./users/pages/Login";
 import HomeCompany from "./users/company/HomeCompany";
@@ -25,6 +26,7 @@ function App() {
   useEffect(() => {
     dispatch(getAllJobs());
     dispatch(getAllStudents());
+    dispatch(getAllCompanies());
   }, []);
   console.log(user);
   return (

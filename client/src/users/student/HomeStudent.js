@@ -7,23 +7,29 @@ import DefaultLayout from "../../component/DefaultLayout";
 
 function HomeStudent() {
   const { jobs } = useSelector((state) => state.jobReducer);
+  const { companies } = useSelector((state) => state.userReducer);
   return (
     <div>
       <DefaultLayout>
         <Row gutter={16}>
           {jobs.map((job) => {
+            const company = companies.find(
+              (company) => company._id === job.companyid
+            );
+
             return (
               <Col lg={12} sm={24}>
                 <div className="job-div bs m-4 p-3">
                   <h4>{job.jobProfile}</h4>
-                  {/* <p>{job.company}</p> */}
+
+                  <p>{company.companyName}</p>
                   <hr />
                   <div className="flex">
-                    <p>
-                      Salary : <b>{job.salary}</b> ,{" "}
-                    </p>
                     <p style={{ marginLeft: 20 }}>
-                      Job Type : <b>{job.jobType} </b>{" "}
+                      Job Type : <b>{job.jobType} </b>,{" "}
+                    </p>
+                    <p>
+                      Salary : <b>{job.salary}</b>{" "}
                     </p>
                   </div>
                   <hr />

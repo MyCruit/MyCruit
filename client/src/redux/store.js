@@ -3,12 +3,12 @@ import thunk from "redux-thunk";
 import { jobReducer } from "./reducers/jobReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { loaderReducer } from "./reducers/loaderReducer";
-import { studentReducer } from "./reducers/studentReducer";
+import { userReducer } from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
   jobReducer: jobReducer,
   loaderReducer: loaderReducer,
-  studentReducer: studentReducer,
+  userReducer: userReducer,
 });
 
 const store = createStore(

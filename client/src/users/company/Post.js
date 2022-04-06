@@ -85,16 +85,17 @@ function Post() {
                     <br />
                     <Checkbox value="IT">Information Technology</Checkbox>
                     <br />
+                    <Checkbox value="ECE">
+                      Electronics and Communication
+                    </Checkbox>
+                    <br />
                     <Checkbox value="EEE">Electrical and Electronics</Checkbox>
                     <br />
                     <Checkbox value="EI">
                       Electronics and Instrumentation
                     </Checkbox>
                     <br />
-                    <Checkbox value="ECE">
-                      Electronics and Communication
-                    </Checkbox>
-                    <br />
+
                     <Checkbox value="MT">Mechatronics</Checkbox>
                     <br />
                     <Checkbox value="BT">Biotechnology</Checkbox>

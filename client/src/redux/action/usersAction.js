@@ -37,8 +37,20 @@ export const loginUser = (values) => async (dispatch) => {
 export const getAllStudents = () => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   try {
-    const response = await axios.get("/api/users/getallstudents");
-    dispatch({ type: "GET_ALL_STUDENTS", payload: response.data });
+    const students = await axios.get("/api/users/getallstudents");
+    dispatch({ type: "GET_ALL_STUDENTS", payload: students.data });
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "LOADING", payload: false });
+  }
+};
+
+export const getAllCompanies = () => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    const companies = await axios.get("/api/users/getallcompanies");
+    dispatch({ type: "GET_ALL_COMPANIES", payload: companies.data });
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
     console.log(error);
@@ -63,7 +75,7 @@ export const updateUser = (values) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("something went wrong , please try later");
+    message.error("Something went Wrong , Please try Later");
     dispatch({ type: "LOADING", payload: false });
   }
 };
@@ -75,9 +87,13 @@ export const updateResume = (formdata) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   try {
     const user = await axios.post("/api/users/resume", formdata);
+    localStorage.setItem("user", JSON.stringify(user.data));
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("something went wrong , please try later");
+    message.error("Something went Wrong , Please try Later");
     dispatch({ type: "LOADING", payload: false });
   }
 };

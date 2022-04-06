@@ -157,7 +157,7 @@ function ProfileStudent() {
             <Form.Item
               label="About"
               required
-              rules={[{ required: true }]}
+              rules={[{ required: true, message: "About is required" }]}
               name="about"
             >
               <Input.TextArea />
@@ -167,7 +167,7 @@ function ProfileStudent() {
             <Form.Item
               label="Address"
               required
-              rules={[{ required: true }]}
+              rules={[{ required: true, message: "Address is required" }]}
               name="address"
             >
               <Input.TextArea />
@@ -218,15 +218,16 @@ function ProfileStudent() {
               <Select placeholder="Select a Branch">
                 <Option value="CSE">Computer Science Engineering</Option>
                 <Option value="IT">Information Technology</Option>
+                <Option value="ECE">
+                  Electronics and Communication Engineering
+                </Option>
                 <Option value="EEE">
                   Electrical and Electronics Engineering
                 </Option>
                 <Option value="EI">
                   Electronics and Instrumentation Engineering
                 </Option>
-                <Option value="ECE">
-                  Electronics and Communication Engineering
-                </Option>
+
                 <Option value="MT">Mechatronics Engineering</Option>
                 <Option value="BT">Biotechnology Engineering</Option>
                 <Option value="CE">Chemical Engineering</Option>
@@ -341,9 +342,7 @@ function ProfileStudent() {
           )}
 
           {current === steps.length - 1 && (
-            <Button onClick={() => message.success("Processing complete!")}>
-              Done
-            </Button>
+            <Button onClick={() => message.success("Completed!")}>Done</Button>
           )}
         </div>
       </DefaultLayout>

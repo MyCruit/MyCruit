@@ -12,11 +12,9 @@ router.post("/register", async (req, res) => {
     if (userType === "Student") {
       const newStudent = new Student(req.body);
       await newStudent.save();
-      res.send("Student Account Created successfully!");
     } else {
       const newCompany = new Company(req.body);
       await newCompany.save();
-      res.send("Company Account Created successfully!");
     }
   } catch (error) {
     return res.status(404).json(error);
@@ -46,7 +44,7 @@ router.post("/login", async (req, res) => {
     if (user) {
       res.send(user);
     } else {
-      return res.status(404).json({ message: "Invalid credentials" });
+      return res.status(404).json(error);
     }
   } catch (error) {
     return res.status(404).json(error);
@@ -57,6 +55,15 @@ router.get("/getallstudents", async (req, res) => {
   try {
     const students = await Student.find();
     res.send(students);
+  } catch (error) {
+    return res.status(404).json({ error });
+  }
+});
+
+router.get("/getallcompanies", async (req, res) => {
+  try {
+    const companies = await Company.find();
+    res.send(companies);
   } catch (error) {
     return res.status(404).json({ error });
   }
@@ -94,14 +101,13 @@ const upload = multer({
 router.post("/resume", upload.single("resume"), async (req, res) => {
   try {
     // await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
-    const user = await Student.findOneAndUpdate(
+    await Student.findOneAndUpdate(
       { _id: req.body._id },
       {
         resume: req.file.buffer,
       }
     );
-
-    console.log(user);
+    const user = await Student.findOne({ _id: req.body._id });
     res.send(user);
   } catch (error) {
     return res.status(400).json({ error });

@@ -5,7 +5,7 @@ import DefaultLayout from "../../component/DefaultLayout";
 
 function StudentInfo() {
   const params = useParams();
-  const { students } = useSelector((state) => state.studentReducer);
+  const { students } = useSelector((state) => state.userReducer);
   const student = students.find((student) => student._id == params.id);
   return (
     <DefaultLayout>

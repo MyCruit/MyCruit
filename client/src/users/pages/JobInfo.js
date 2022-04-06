@@ -9,9 +9,11 @@ import { applyJob } from "../../redux/action/jobAction";
 function JobInfo() {
   const params = useParams();
   const { jobs } = useSelector((state) => state.jobReducer);
-  const { students } = useSelector((state) => state.studentReducer);
+  const { students } = useSelector((state) => state.userReducer);
+  const { companies } = useSelector((state) => state.userReducer);
   const job = jobs.find((job) => job._id == params.id);
   const userid = JSON.parse(localStorage.getItem("user"))._id;
+  const company = companies.find((company) => company._id == job.companyid);
 
   const dispatch = useDispatch();
 
