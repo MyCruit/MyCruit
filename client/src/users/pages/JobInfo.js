@@ -2,7 +2,7 @@ import { Button, Modal, Table } from "antd";
 import moment from "moment";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import DefaultLayout from "../../component/DefaultLayout";
 import { applyJob } from "../../redux/action/jobAction";
 
@@ -12,7 +12,6 @@ function JobInfo() {
   const { students } = useSelector((state) => state.studentReducer);
   const job = jobs.find((job) => job._id == params.id);
   const userid = JSON.parse(localStorage.getItem("user"))._id;
-  const user = JSON.parse(localStorage.getItem("user"));
 
   const dispatch = useDispatch();
 
@@ -39,6 +38,11 @@ function JobInfo() {
       {
         title: "Full Name",
         dataIndex: "fullName",
+        render: (text, data) => {
+          return (
+            <Link to={`/students/${data.candidateid}`}>{data.fullName}</Link>
+          );
+        },
       },
       {
         title: "College Id",
@@ -60,6 +64,7 @@ function JobInfo() {
         fullName: user.firstName + " " + user.lastName,
         collegeId: user.collegeid,
         email: user.email,
+        candidateid: user._id,
       };
 
       candidatesDatasource.push(obj);

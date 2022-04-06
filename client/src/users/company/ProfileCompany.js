@@ -17,17 +17,26 @@ function ProfileCompany() {
     <div>
       <DefaultLayout>
         <div>
-          <h1>Company Details</h1>
+          <h3>Company Details</h3>
         </div>
         <Form layout="vertical" onFinish={onFinalFinish} initialValues={user}>
           <Row gutter={16}>
-            <Col lg={8} sm={24}>
+            <Col lg={12} sm={24}>
               {/* <Form.Item label="Company Logo" name="companyLogo"></Form.Item> */}
               <Form.Item label="Company email" name="email">
-                <Input disabled={true} bordered={false} />
+                <Input disabled={true} />
               </Form.Item>
             </Col>
-            <Col lg={8} sm={24}>
+            <Col lg={12} sm={24}>
+              <Form.Item
+                label="Username"
+                name="username"
+                rules={[{ required: true, message: "Username is required" }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col lg={12} sm={24}>
               <Form.Item
                 label="Company Name"
                 name="companyName"
@@ -38,7 +47,7 @@ function ProfileCompany() {
                 <Input />
               </Form.Item>
             </Col>
-            <Col lg={8} sm={24}>
+            <Col lg={12} sm={24}>
               <Form.Item
                 label="Contact Number"
                 name="contactNumber"

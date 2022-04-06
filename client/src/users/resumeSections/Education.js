@@ -19,7 +19,7 @@ const styles = (theme) => ({
   },
 });
 
-class Profile extends Component {
+class Education extends Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -259,4 +259,4 @@ class Profile extends Component {
   }
 }
 
-export default withStyles(styles)(Profile);
+export default withStyles(styles)(Education);

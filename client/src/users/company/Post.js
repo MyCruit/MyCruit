@@ -20,7 +20,7 @@ function Post() {
         </div>
         <Form layout="vertical" onFinish={onFinalFinish}>
           <Row gutter={16}>
-            <Col lg={8} sm={24}>
+            <Col lg={12} sm={24}>
               <Form.Item
                 label="Profile"
                 name="jobProfile"
@@ -29,7 +29,7 @@ function Post() {
                 <Input />
               </Form.Item>
             </Col>
-            <Col lg={8} sm={24}>
+            <Col lg={12} sm={24}>
               <Form.Item
                 label="Type"
                 name="jobType"
@@ -44,7 +44,7 @@ function Post() {
                 </Select>
               </Form.Item>
             </Col>
-            <Col lg={8} sm={24}>
+            <Col lg={12} sm={24}>
               <Form.Item
                 label="Salary(or Stipend)"
                 name="salary"
@@ -53,7 +53,7 @@ function Post() {
                 <Input />
               </Form.Item>
             </Col>
-            <Col lg={8} sm={24}>
+            <Col lg={12} sm={24}>
               <Form.Item
                 label="Location"
                 rules={[{ required: true, message: "Location is required" }]}

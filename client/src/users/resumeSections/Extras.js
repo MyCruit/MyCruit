@@ -20,7 +20,7 @@ const styles = (theme) => ({
   },
 });
 
-class Experience extends Component {
+class Extras extends Component {
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -310,4 +310,4 @@ class Experience extends Component {
   }
 }
 
-export default withStyles(styles)(Experience);
+export default withStyles(styles)(Extras);

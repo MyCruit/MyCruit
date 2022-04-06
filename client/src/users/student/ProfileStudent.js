@@ -59,7 +59,21 @@ function ProfileStudent() {
         initialValues={user}
       >
         <Row gutter={16}>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
+            <Form.Item label="Email" name="email">
+              <Input disabled={true} />
+            </Form.Item>
+          </Col>
+          <Col lg={12} sm={24}>
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[{ required: true, message: "Username is required" }]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="First Name"
               name="firstName"
@@ -68,7 +82,7 @@ function ProfileStudent() {
               <Input />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="Last Name"
               name="lastName"
@@ -77,7 +91,7 @@ function ProfileStudent() {
               <Input />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="Date of Birth"
               name="dob"
@@ -86,7 +100,7 @@ function ProfileStudent() {
               <Input placeholder="dd/mm/yyyy" />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="Gender"
               name="gender"
@@ -99,7 +113,7 @@ function ProfileStudent() {
               </Select>
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="College Email"
               name="collegeMail"
@@ -114,7 +128,7 @@ function ProfileStudent() {
               <Input />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="College Id"
               name="collegeid"
@@ -123,9 +137,9 @@ function ProfileStudent() {
               <Input />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          {/* <Col lg={8} sm={24}>
             <Form.Item label="Profile Photo" name="profilePhoto"></Form.Item>
-          </Col>
+          </Col> */}
           <Col lg={24} sm={24}>
             <Form.Item
               label="About"
