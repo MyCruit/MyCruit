@@ -42,7 +42,12 @@ function JobInfo() {
         dataIndex: "fullName",
         render: (text, data) => {
           return (
-            <Link to={`/students/${data.candidateid}`}>{data.fullName}</Link>
+            <Link
+              to={`/students/${data.candidateid}`}
+              style={{ color: "#5e60ce" }}
+            >
+              {data.fullName}
+            </Link>
           );
         },
       },
@@ -82,25 +87,34 @@ function JobInfo() {
       <DefaultLayout>
         {job && (
           <div>
+            <Link to={`/company/${company._id}`} style={{ color: "#5e60ce" }}>
+              <p>
+                <b>Company : {company.companyName}</b>
+              </p>
+            </Link>
             <p>
               <b>Profile</b> : {job.jobProfile}
-            </p>
-            {/* <p>
-          <b>Description</b> : {job.fullDescription}
-        </p>
-        <p>
-          <b>Eligibility</b> : {job.eligibility}
-        </p> */}
-            <hr />
-            <p>
-              <b>Salary</b> : {job.salary}
             </p>
             <p>
               <b>Job Type</b> : {job.jobType}
             </p>
-            {/* <p>
-          <b>About Company</b> : {job.companyDescription}
-        </p> */}
+            <p>
+              <b>Description</b> : {job.fullDescription}
+            </p>
+            <p>
+              <b>Eligibility</b>
+              <p>Minimum CGPA : {job.eligibility.cgpa}</p>
+              <p>Year of Passing : {job.eligibility.yop}</p>
+              <p>Course : {job.eligibility.course}</p>
+              <p>Branches : {`${job.eligibility.branch}`} </p>
+            </p>
+            <hr />
+            <p>
+              <b>Location</b> : {job.location}
+            </p>
+            <p>
+              <b>Salary</b> : {job.salary}
+            </p>
             <p>
               <b>Total Candidates applied</b> : {job.appliedCandidates.length}
             </p>

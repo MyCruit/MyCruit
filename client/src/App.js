@@ -7,6 +7,7 @@ import HomeStudent from "./users/student/HomeStudent";
 import ProfileStudent from "./users/student/ProfileStudent";
 import JobInfo from "./users/pages/JobInfo";
 import StudentInfo from "./users/pages/StudentInfo";
+import CompanyInfo from "./users/pages/CompanyInfo";
 import { getAllJobs } from "./redux/action/jobAction";
 import { getAllStudents } from "./redux/action/usersAction";
 import { getAllCompanies } from "./redux/action/usersAction";
@@ -77,6 +78,7 @@ function App() {
           <Route path="/appliedJobs" element={<AppliedJobs />} />
           <Route path="/jobs/:id" element={<JobInfo />} />
           <Route path="/students/:id" element={<StudentInfo />} />
+          <Route path="/company/:id" element={<CompanyInfo />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>

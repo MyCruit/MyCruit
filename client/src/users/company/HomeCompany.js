@@ -10,7 +10,6 @@ function HomeCompany() {
   const alljobs = useSelector((state) => state.jobReducer).jobs;
   const userid = JSON.parse(localStorage.getItem("user"))._id;
   const userPostedJobs = alljobs.filter((job) => job.companyid == userid);
-
   return (
     <div>
       <DefaultLayout>
@@ -26,7 +25,7 @@ function HomeCompany() {
             }
           />
         ) : (
-          <h3>Jobs Posted by your company</h3>
+          <h3></h3>
         )}
 
         {userPostedJobs.map((job) => {
