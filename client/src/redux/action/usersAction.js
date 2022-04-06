@@ -81,7 +81,7 @@ export const updateUser = (values) => async (dispatch) => {
 };
 
 export const updateResume = (formdata) => async (dispatch) => {
-  console.log(formdata);
+  // console.log(formdata);
   const userid = JSON.parse(localStorage.getItem("user"))._id;
   formdata.append("_id", userid);
   dispatch({ type: "LOADING", payload: true });

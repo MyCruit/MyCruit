@@ -94,6 +94,11 @@ code {
 
 /* Antd Button */
 
+.MuiButton-containedSecondary {
+  color: #fff;
+  background-color: #5e60ce !important;
+}
+
 .ant-btn {
   color: white !important;
   border-radius: 5px !important;

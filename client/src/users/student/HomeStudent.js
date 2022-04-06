@@ -7,7 +7,8 @@ import DefaultLayout from "../../component/DefaultLayout";
 
 function HomeStudent() {
   const { jobs } = useSelector((state) => state.jobReducer);
-  const { companies } = useSelector((state) => state.userReducer);
+  const { companies } = useSelector((state) => state.companyReducer);
+
   return (
     <div>
       <DefaultLayout>
@@ -27,18 +28,19 @@ function HomeStudent() {
         )}
         <Row gutter={16}>
           {jobs.map((job) => {
-            const company = companies.find(
+            console.log(companies);
+            let response = companies.find(
               (company) => company._id === job.companyid
             );
-
+            console.log(response);
             return (
               <Col lg={12} sm={24}>
                 <div className="job-div bs m-4 p-3">
                   <h4>{job.jobProfile}</h4>
 
-                  {/* <p>
-                    <b>{company.companyName}</b>
-                  </p> */}
+                  <p>
+                    <b>{response.companyName}</b>
+                  </p>
                   <hr />
                   <div className="flex">
                     <p style={{ marginLeft: 20 }}>

@@ -9,8 +9,8 @@ import { applyJob } from "../../redux/action/jobAction";
 function JobInfo() {
   const params = useParams();
   const { jobs } = useSelector((state) => state.jobReducer);
-  const { students } = useSelector((state) => state.userReducer);
-  const { companies } = useSelector((state) => state.userReducer);
+  const { students } = useSelector((state) => state.studentReducer);
+  const { companies } = useSelector((state) => state.companyReducer);
   const job = jobs.find((job) => job._id == params.id);
   const userid = JSON.parse(localStorage.getItem("user"))._id;
   const company = companies.find((company) => company._id == job.companyid);
@@ -131,7 +131,7 @@ function JobInfo() {
                 <Button onClick={applyNow}>Apply Now</Button>
               )}
               <p>
-                <b>Posted on</b> {moment(job.createdAt).format("MMM DD yyyy")}
+                <b>Posted on:</b> {moment(job.createdAt).format("MMM DD yyyy")}
               </p>
             </div>
           </div>
