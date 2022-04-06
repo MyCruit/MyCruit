@@ -55,3 +55,17 @@ export const updateUser = (values) => async (dispatch) => {
     dispatch({ type: "LOADING", payload: false });
   }
 };
+
+export const updateResume = (formdata) => async (dispatch) => {
+  console.log(formdata);
+  const userid = JSON.parse(localStorage.getItem("user"))._id;
+  formdata.append("_id", userid);
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    const user = await axios.post("/api/users/resume", formdata);
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    message.error("something went wrong , please try later");
+    dispatch({ type: "LOADING", payload: false });
+  }
+};

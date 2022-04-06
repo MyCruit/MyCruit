@@ -3,6 +3,7 @@ const router = express.Router();
 const Student = require("../models/studentModel");
 const Company = require("../models/companyModel");
 const Admin = require("../models/adminModel");
+const multer = require("multer");
 
 router.post("/register", async (req, res) => {
   try {
@@ -63,6 +64,35 @@ router.post("/update", async (req, res) => {
       await Company.findOneAndUpdate({ _id: req.body._id }, req.body);
       user = await Company.findOne({ _id: req.body._id });
     }
+    res.send(user);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+});
+
+const upload = multer({
+  limits: {
+    // fileSize: 1000000,
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.endsWith(".pdf")) {
+      return cb(new Error("Provide an PDF"));
+    }
+    cb(undefined, true);
+  },
+});
+
+router.post("/resume", upload.single("resume"), async (req, res) => {
+  try {
+    // await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
+    const user = await Student.findOneAndUpdate(
+      { _id: req.body._id },
+      {
+        resume: req.file.buffer,
+      }
+    );
+
+    console.log(user);
     res.send(user);
   } catch (error) {
     return res.status(400).json({ error });

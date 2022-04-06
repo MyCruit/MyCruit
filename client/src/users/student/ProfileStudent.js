@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
 import { FaUser, FaGraduationCap } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
-import { Steps, Button, message, Form, Input, Select, Row, Col } from "antd";
+import { Steps, Button, message, Form, Input, Select, Row, Col, Upload } from "antd";
 import { useDispatch } from "react-redux";
-import { updateUser } from "../../redux/action/usersAction";
+import { updateUser, updateResume } from "../../redux/action/usersAction";
+import { UploadOutlined } from "@ant-design/icons";
+import { Document, Page } from "react-pdf";
 
 const { Step } = Steps;
 const { Option } = Select;
 const user = JSON.parse(localStorage.getItem("user"));
+console.log(user);
 
 function ProfileStudent() {
   const [current, setCurrent] = React.useState(0);
-
+  const [file, setFile] = useState("");
+  const [disable, setDisable] = useState(true);
   const next = () => {
     setCurrent(current + 1);
   };
@@ -53,45 +57,25 @@ function ProfileStudent() {
   //forms
   function personalDetails() {
     return (
-      <Form
-        layout="vertical"
-        onFinish={onPersonInfoSubmit}
-        initialValues={user}
-      >
+      <Form layout="vertical" onFinish={onPersonInfoSubmit} initialValues={user}>
         <Row gutter={16}>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="First Name"
-              name="firstName"
-              rules={[{ required: true, message: "First name is required" }]}
-            >
+            <Form.Item label="First Name" name="firstName" rules={[{ required: true, message: "First name is required" }]}>
               <Input />
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="Last Name"
-              name="lastName"
-              rules={[{ required: true, message: "Last Name is required" }]}
-            >
+            <Form.Item label="Last Name" name="lastName" rules={[{ required: true, message: "Last Name is required" }]}>
               <Input />
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="Date of Birth"
-              name="dob"
-              rules={[{ required: true, message: "Date of Birth is required" }]}
-            >
+            <Form.Item label="Date of Birth" name="dob" rules={[{ required: true, message: "Date of Birth is required" }]}>
               <Input placeholder="dd/mm/yyyy" />
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="Gender"
-              name="gender"
-              rules={[{ required: true, message: "Gender is required" }]}
-            >
+            <Form.Item label="Gender" name="gender" rules={[{ required: true, message: "Gender is required" }]}>
               <Select placeholder="Select a Gender">
                 <Option value="F">Female</Option>
                 <Option value="M">Male</Option>
@@ -115,11 +99,7 @@ function ProfileStudent() {
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="College Id"
-              name="collegeid"
-              rules={[{ required: true, message: "College Id is required" }]}
-            >
+            <Form.Item label="College Id" name="collegeid" rules={[{ required: true, message: "College Id is required" }]}>
               <Input />
             </Form.Item>
           </Col>
@@ -127,22 +107,12 @@ function ProfileStudent() {
             <Form.Item label="Profile Photo" name="profilePhoto"></Form.Item>
           </Col>
           <Col lg={24} sm={24}>
-            <Form.Item
-              label="About"
-              required
-              rules={[{ required: true }]}
-              name="about"
-            >
+            <Form.Item label="About" required rules={[{ required: true }]} name="about">
               <Input.TextArea />
             </Form.Item>
           </Col>
           <Col lg={24} sm={24}>
-            <Form.Item
-              label="Address"
-              required
-              rules={[{ required: true }]}
-              name="address"
-            >
+            <Form.Item label="Address" required rules={[{ required: true }]} name="address">
               <Input.TextArea />
             </Form.Item>
           </Col>
@@ -171,11 +141,7 @@ function ProfileStudent() {
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="Course"
-              name={["education", "course"]}
-              rules={[{ required: true, message: "Course is required" }]}
-            >
+            <Form.Item label="Course" name={["education", "course"]} rules={[{ required: true, message: "Course is required" }]}>
               <Select placeholder="Select a Course">
                 <Option value="B.tech">B. Tech</Option>
                 <Option value="M.Tech">M. Tech</Option>
@@ -183,23 +149,13 @@ function ProfileStudent() {
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="Branch"
-              name={["education", "branch"]}
-              rules={[{ required: true, message: "Branch is required" }]}
-            >
+            <Form.Item label="Branch" name={["education", "branch"]} rules={[{ required: true, message: "Branch is required" }]}>
               <Select placeholder="Select a Branch">
                 <Option value="CSE">Computer Science Engineering</Option>
                 <Option value="IT">Information Technology</Option>
-                <Option value="EEE">
-                  Electrical and Electronics Engineering
-                </Option>
-                <Option value="EI">
-                  Electronics and Instrumentation Engineering
-                </Option>
-                <Option value="ECE">
-                  Electronics and Communication Engineering
-                </Option>
+                <Option value="EEE">Electrical and Electronics Engineering</Option>
+                <Option value="EI">Electronics and Instrumentation Engineering</Option>
+                <Option value="ECE">Electronics and Communication Engineering</Option>
                 <Option value="MT">Mechatronics Engineering</Option>
                 <Option value="BT">Biotechnology Engineering</Option>
                 <Option value="CE">Chemical Engineering</Option>
@@ -207,29 +163,17 @@ function ProfileStudent() {
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="Starting Year"
-              name={["education", "yos"]}
-              rules={[{ required: true, message: "Starting Year is required" }]}
-            >
+            <Form.Item label="Starting Year" name={["education", "yos"]} rules={[{ required: true, message: "Starting Year is required" }]}>
               <Input placeholder="yyyy" />
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="Passing Year (expected)"
-              name={["education", "yop"]}
-              rules={[{ required: true, message: "Passing Year is required" }]}
-            >
+            <Form.Item label="Passing Year (expected)" name={["education", "yop"]} rules={[{ required: true, message: "Passing Year is required" }]}>
               <Input placeholder="yyyy" />
             </Form.Item>
           </Col>
           <Col lg={8} sm={24}>
-            <Form.Item
-              label="CGPA"
-              name={["education", "cgpa"]}
-              rules={[{ required: true, message: "CGPA is required" }]}
-            >
+            <Form.Item label="CGPA" name={["education", "cgpa"]} rules={[{ required: true, message: "CGPA is required" }]}>
               <Input />
             </Form.Item>
           </Col>
@@ -239,14 +183,38 @@ function ProfileStudent() {
     );
   }
 
+  const handleUpdate = () => {
+    let formdata = new FormData();
+    formdata.append("resume", file);
+    dispatch(updateResume(formdata));
+  };
+
   function resume() {
+    const url = window.URL.createObjectURL(new Blob([user.resume]));
+    console.log(url);
     return (
       <Form layout="vertical">
         <Form.Item label="Upload Your Resume">
           <Form.Item name="resume"></Form.Item>
         </Form.Item>
-
-        <Button htmlType="submit">Submit</Button>
+        <Document file={{ url }} onLoadSuccess={() => console.log("Success")}>
+          {/* <Page pageNumber={pageNumber} /> */}
+        </Document>
+        <Upload
+          name="resume"
+          accept="application/pdf"
+          maxCount={1}
+          beforeUpload={(file) => {
+            setFile(file);
+            setDisable(false);
+          }}
+          fileList={file === "" ? [] : [file]}
+        >
+          <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        </Upload>
+        <Button htmlType="submit" onClick={() => handleUpdate()} disabled={disable}>
+          Update
+        </Button>
       </Form>
     );
   }
@@ -268,15 +236,9 @@ function ProfileStudent() {
               Previous
             </Button>
           )}
-          {current < steps.length - 1 && (
-            <Button onClick={() => next()}>Next</Button>
-          )}
+          {current < steps.length - 1 && <Button onClick={() => next()}>Next</Button>}
 
-          {current === steps.length - 1 && (
-            <Button onClick={() => message.success("Processing complete!")}>
-              Done
-            </Button>
-          )}
+          {current === steps.length - 1 && <Button onClick={() => message.success("Processing complete!")}>Done</Button>}
         </div>
       </DefaultLayoutStudent>
     </div>
