@@ -249,3 +249,8 @@ p {
 .ant-message {
   z-index: 9999 !important;
 }
+
+/* cards */
+.ant-card{
+  border-radius: 15px !important;
+}

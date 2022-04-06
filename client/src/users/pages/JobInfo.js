@@ -82,11 +82,16 @@ function JobInfo() {
       <DefaultLayout>
         {job && (
           <div>
+            <Link to={`/company/${company._id}`} style={{ color: "#5e60ce" }}>
+              <p>
+                <b>Company : {company.companyName}</b>
+              </p>
+            </Link>
             <p>
               <b>Profile</b> : {job.jobProfile}
             </p>
             <p>
-              <b>Company</b> : {company.companyName}
+              <b>Job Type</b> : {job.jobType}
             </p>
             <p>
               <b>Description</b> : {job.fullDescription}
@@ -100,10 +105,10 @@ function JobInfo() {
             </p>
             <hr />
             <p>
-              <b>Salary</b> : {job.salary}
+              <b>Location</b> : {job.location}
             </p>
             <p>
-              <b>Job Type</b> : {job.jobType}
+              <b>Salary</b> : {job.salary}
             </p>
             <p>
               <b>Total Candidates applied</b> : {job.appliedCandidates.length}

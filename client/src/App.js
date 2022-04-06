@@ -18,6 +18,7 @@ import AppliedJobs from "./users/student/AppliedJobs";
 import Resume from "./users/student/Resume";
 import Post from "./users/company/Post";
 import ProfileCompany from "./users/company/ProfileCompany";
+import CompanyInfo from "./users/pages/CompanyInfo";
 
 const user = JSON.parse(localStorage.getItem("user"));
 function App() {
@@ -77,6 +78,7 @@ function App() {
           <Route path="/appliedJobs" element={<AppliedJobs />} />
           <Route path="/jobs/:id" element={<JobInfo />} />
           <Route path="/students/:id" element={<StudentInfo />} />
+          <Route path="/company/:id" element={<CompanyInfo />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
