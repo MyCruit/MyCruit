@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useState } from "react";
+import React, { useState } from "react";
 import DefaultLayout from "../../component/DefaultLayout";
 import { FaUser, FaGraduationCap } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
@@ -16,7 +16,6 @@ import {
 import { useDispatch } from "react-redux";
 import { updateUser, updateResume } from "../../redux/action/usersAction";
 import { UploadOutlined } from "@ant-design/icons";
-import { Document, Page } from "react-pdf";
 
 const { Step } = Steps;
 const { Option } = Select;
@@ -270,13 +269,19 @@ function ProfileStudent() {
   }
 
   function resume() {
-    const base64 = _arrayBufferToBase64(user.resume.data);
+    if (user.resume) {
+      var base64 = _arrayBufferToBase64(user.resume.data);
+    }
     return (
       <Form layout="vertical">
         <Form.Item label="Upload Your Resume">
           <Form.Item name="resume"></Form.Item>
         </Form.Item>
-        <iframe src={`data:application/pdf;base64,${base64}`} />
+        {user.resume ? (
+          <iframe src={`data:application/pdf;base64,${base64}`} />
+        ) : (
+          <div>No Resume Uploaded</div>
+        )}
         <Upload
           name="resume"
           accept="application/pdf"
