@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
-import {TextField, Button, Container} from '@material-ui/core';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import EmailIcon from '@material-ui/icons/Email';
-import PhoneIcon from '@material-ui/icons/Phone';
-import LanguageIcon from '@material-ui/icons/Language';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import {Row, Col} from 'react-bootstrap';
-import {Paper, withStyles, Grid} from '@material-ui/core';
+import React, { Component } from "react";
+import { TextField, Button, Container } from "@material-ui/core";
+import { Card, CardHeader, CardContent } from "@material-ui/core";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import EmailIcon from "@material-ui/icons/Email";
+import PhoneIcon from "@material-ui/icons/Phone";
+import LanguageIcon from "@material-ui/icons/Language";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { Row, Col } from "react-bootstrap";
+import { Paper, withStyles, Grid } from "@material-ui/core";
 
-const styles = theme => ({
+const styles = (theme) => ({
   margin: {
     margin: theme.spacing.unit * 1,
   },
@@ -25,14 +25,14 @@ const styles = theme => ({
 });
 
 class Profile extends Component {
-  continue = e => {
-    e.preventDefault ();
-    this.props.nextStep ();
+  continue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
   };
 
-  render () {
-    const {values} = this.props;
-    const {classes} = this.props;
+  render() {
+    const { values } = this.props;
+    const { classes } = this.props;
     return (
       <Paper className={classes.padding}>
         <Card>
@@ -47,7 +47,7 @@ class Profile extends Component {
                   variant="outlined"
                   name="firstname"
                   label="First Name"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.firstname}
                   onChange={this.props.handleChange}
@@ -58,7 +58,7 @@ class Profile extends Component {
                   margin="dense"
                   label="Last Name"
                   variant="outlined"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   name="lastname"
                   required
                   value={values.lastname}
@@ -73,7 +73,7 @@ class Profile extends Component {
                   variant="outlined"
                   name="email"
                   required
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.email}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -92,7 +92,7 @@ class Profile extends Component {
                   label="Phone Number"
                   variant="outlined"
                   name="phone"
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.phone}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -111,7 +111,7 @@ class Profile extends Component {
                   label="Your Website"
                   variant="outlined"
                   name="website"
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.website}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -129,7 +129,7 @@ class Profile extends Component {
                   label="GitHub"
                   variant="outlined"
                   name="github"
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.github}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -147,7 +147,7 @@ class Profile extends Component {
                   label="Linked In"
                   variant="outlined"
                   name="linkedin"
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.linkedin}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -165,7 +165,7 @@ class Profile extends Component {
                   label="Twitter"
                   variant="outlined"
                   name="twitter"
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.twitter}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -183,7 +183,7 @@ class Profile extends Component {
                   label="Facebook"
                   variant="outlined"
                   name="facebook"
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.facebook}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -201,7 +201,7 @@ class Profile extends Component {
                   label="Instagram"
                   variant="outlined"
                   name="instagram"
-                  style={{alignItems: 'left', width: '80%'}}
+                  style={{ alignItems: "left", width: "80%" }}
                   value={values.instagram}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -257,4 +257,4 @@ class Profile extends Component {
   }
 }
 
-export default withStyles (styles) (Profile);
+export default withStyles(styles)(Profile);

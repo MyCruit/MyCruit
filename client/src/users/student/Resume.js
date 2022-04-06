@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Profile from "../components/Profile";
-import Education from "../components/Education";
-import Projects from "../components/Projects";
-import Experience from "../components/Experience";
-import Extras from "../components/Extras";
+import Profile from "../resumeSections/Profile";
+import Education from "../resumeSections/Education";
+import Projects from "../resumeSections/Projects";
+import Experience from "../resumeSections/Experience";
+import Extras from "../resumeSections/Extras";
 import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
 
 class Resume extends Component {

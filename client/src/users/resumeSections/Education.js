@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {TextField, Button, Container, Divider} from '@material-ui/core';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import SchoolIcon from '@material-ui/icons/School';
-import DateRangeIcon from '@material-ui/icons/DateRange';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import {Row, Col} from 'react-bootstrap';
-import {Paper, withStyles, Grid} from '@material-ui/core';
-import 'date-fns';
+import React, { Component } from "react";
+import { TextField, Button, Container, Divider } from "@material-ui/core";
+import { Card, CardHeader, CardContent } from "@material-ui/core";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import SchoolIcon from "@material-ui/icons/School";
+import DateRangeIcon from "@material-ui/icons/DateRange";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { Row, Col } from "react-bootstrap";
+import { Paper, withStyles, Grid } from "@material-ui/core";
+import "date-fns";
 
-const styles = theme => ({
+const styles = (theme) => ({
   margin: {
     margin: theme.spacing.unit * 1.5,
   },
@@ -20,19 +20,19 @@ const styles = theme => ({
 });
 
 class Profile extends Component {
-  continue = e => {
-    e.preventDefault ();
-    this.props.nextStep ();
+  continue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
   };
 
-  back = e => {
-    e.preventDefault ();
-    this.props.prevStep ();
+  back = (e) => {
+    e.preventDefault();
+    this.props.prevStep();
   };
 
-  render () {
-    const {values} = this.props;
-    const {classes} = this.props;
+  render() {
+    const { values } = this.props;
+    const { classes } = this.props;
 
     return (
       <Paper className={classes.padding}>
@@ -48,7 +48,7 @@ class Profile extends Component {
                   variant="outlined"
                   name="college"
                   label="College/Unviersity"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.college}
                   onChange={this.props.handleChange}
@@ -68,7 +68,7 @@ class Profile extends Component {
                   name="fromyear1"
                   label="From Year"
                   type="date"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.fromyear1}
                   onChange={this.props.handleChange}
@@ -89,7 +89,7 @@ class Profile extends Component {
                   name="toyear1"
                   type="date"
                   label="To Year"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.toyear1}
                   onChange={this.props.handleChange}
@@ -108,7 +108,7 @@ class Profile extends Component {
                   margin="dense"
                   label="Qualification"
                   variant="outlined"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   name="qualification1"
                   required
                   value={values.qualification1}
@@ -121,7 +121,7 @@ class Profile extends Component {
                   margin="dense"
                   label="Description"
                   variant="outlined"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   name="description1"
                   required
                   value={values.description1}
@@ -139,7 +139,7 @@ class Profile extends Component {
                   variant="outlined"
                   name="school"
                   label="School"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.school}
                   onChange={this.props.handleChange}
@@ -159,7 +159,7 @@ class Profile extends Component {
                   name="fromyear2"
                   label="From Year"
                   type="date"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.fromyear2}
                   onChange={this.props.handleChange}
@@ -185,7 +185,7 @@ class Profile extends Component {
                   name="toyear2"
                   label="To Year"
                   type="date"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.toyear2}
                   onChange={this.props.handleChange}
@@ -204,7 +204,7 @@ class Profile extends Component {
                   margin="dense"
                   label="Qualification"
                   variant="outlined"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   name="qualification2"
                   required
                   value={values.qualification2}
@@ -217,7 +217,7 @@ class Profile extends Component {
                   margin="dense"
                   label="Description"
                   variant="outlined"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   name="description2"
                   required
                   value={values.description2}
@@ -259,4 +259,4 @@ class Profile extends Component {
   }
 }
 
-export default withStyles (styles) (Profile);
+export default withStyles(styles)(Profile);

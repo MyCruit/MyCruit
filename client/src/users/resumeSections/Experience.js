@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
-import {TextField, Button, Container, Divider} from '@material-ui/core';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
-import axios from 'axios';
-import {saveAs} from 'file-saver';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import DescriptionIcon from '@material-ui/icons/Description';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import TimelapseIcon from '@material-ui/icons/Timelapse';
-import EventSeatIcon from '@material-ui/icons/EventSeat';
-import BusinessIcon from '@material-ui/icons/Business';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import {Row, Col} from 'react-bootstrap';
-import {Paper, withStyles, Grid} from '@material-ui/core';
+import React, { Component } from "react";
+import { TextField, Button, Container, Divider } from "@material-ui/core";
+import { Card, CardHeader, CardContent } from "@material-ui/core";
+import axios from "axios";
+import { saveAs } from "file-saver";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import DescriptionIcon from "@material-ui/icons/Description";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import TimelapseIcon from "@material-ui/icons/Timelapse";
+import EventSeatIcon from "@material-ui/icons/EventSeat";
+import BusinessIcon from "@material-ui/icons/Business";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { Row, Col } from "react-bootstrap";
+import { Paper, withStyles, Grid } from "@material-ui/core";
 
-const styles = theme => ({
+const styles = (theme) => ({
   margin: {
     margin: theme.spacing.unit * 1.5,
   },
@@ -24,38 +24,38 @@ const styles = theme => ({
 });
 
 class Experience extends Component {
-  continue = e => {
-    e.preventDefault ();
-    this.props.nextStep ();
+  continue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
   };
 
-  back = e => {
-    e.preventDefault ();
-    this.props.prevStep ();
+  back = (e) => {
+    e.preventDefault();
+    this.props.prevStep();
   };
 
   createAndDownloadPDF = () => {
     axios
-      .post ('/create-pdf', this.props.values)
-      .then (() => {
+      .post("/create-pdf", this.props.values)
+      .then(() => {
         axios
-          .get ('fetch-pdf', {responseType: 'blob'})
-          .then (res => {
-            const pdfBlob = new Blob ([res.data], {type: 'application/pdf'});
-            saveAs (pdfBlob, `${this.props.values.firstname}'s Resume.pdf`);
+          .get("fetch-pdf", { responseType: "blob" })
+          .then((res) => {
+            const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+            saveAs(pdfBlob, `${this.props.values.firstname}'s Resume.pdf`);
           })
-          .catch (err => {
-            console.log (err);
+          .catch((err) => {
+            console.log(err);
           });
       })
-      .catch (err => {
-        console.log (err);
+      .catch((err) => {
+        console.log(err);
       });
   };
 
-  render () {
-    const {values} = this.props;
-    const {classes} = this.props;
+  render() {
+    const { values } = this.props;
+    const { classes } = this.props;
 
     return (
       <Paper className={classes.padding}>
@@ -85,7 +85,7 @@ class Experience extends Component {
                   variant="outlined"
                   name="institute1"
                   label="Institue/Organisation"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   required
                   value={values.institute1}
                   onChange={this.props.handleChange}
@@ -104,7 +104,7 @@ class Experience extends Component {
                   variant="outlined"
                   name="position1"
                   label="Position"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   required
                   value={values.position1}
                   onChange={this.props.handleChange}
@@ -124,7 +124,7 @@ class Experience extends Component {
                   variant="outlined"
                   name="duration1"
                   label="Duration"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   required
                   value={values.duration1}
                   onChange={this.props.handleChange}
@@ -143,7 +143,7 @@ class Experience extends Component {
                   margin="dense"
                   label="Description"
                   variant="outlined"
-                  style={{width: '97%'}}
+                  style={{ width: "97%" }}
                   name="experienceDescription1"
                   required
                   value={values.experienceDescription1}
@@ -182,7 +182,7 @@ class Experience extends Component {
                   variant="outlined"
                   name="institute2"
                   label="Institue/Organisation"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   required
                   value={values.institute2}
                   onChange={this.props.handleChange}
@@ -201,7 +201,7 @@ class Experience extends Component {
                   variant="outlined"
                   name="position2"
                   label="Position"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   required
                   value={values.position2}
                   onChange={this.props.handleChange}
@@ -221,7 +221,7 @@ class Experience extends Component {
                   variant="outlined"
                   name="duration2"
                   label="Duration"
-                  style={{width: '90%'}}
+                  style={{ width: "90%" }}
                   required
                   value={values.duration2}
                   onChange={this.props.handleChange}
@@ -240,7 +240,7 @@ class Experience extends Component {
                   margin="dense"
                   label="Description"
                   variant="outlined"
-                  style={{width: '97%'}}
+                  style={{ width: "97%" }}
                   rows={3}
                   name="experienceDescription2"
                   required
@@ -290,4 +290,4 @@ class Experience extends Component {
   }
 }
 
-export default withStyles (styles) (Experience);
+export default withStyles(styles)(Experience);

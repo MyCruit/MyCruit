@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import {TextField, Button, Container, Divider} from '@material-ui/core';
-import {Card, CardHeader, CardContent} from '@material-ui/core';
-import axios from 'axios';
-import {saveAs} from 'file-saver';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import LinkIcon from '@material-ui/icons/Link';
-import TitleIcon from '@material-ui/icons/Title';
-import DescriptionIcon from '@material-ui/icons/Description';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import {Row, Col} from 'react-bootstrap';
-import {Paper, withStyles, Grid} from '@material-ui/core';
+import React, { Component } from "react";
+import { TextField, Button, Container, Divider } from "@material-ui/core";
+import { Card, CardHeader, CardContent } from "@material-ui/core";
+import axios from "axios";
+import { saveAs } from "file-saver";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import LinkIcon from "@material-ui/icons/Link";
+import TitleIcon from "@material-ui/icons/Title";
+import DescriptionIcon from "@material-ui/icons/Description";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { Row, Col } from "react-bootstrap";
+import { Paper, withStyles, Grid } from "@material-ui/core";
 
-const styles = theme => ({
+const styles = (theme) => ({
   margin: {
     margin: theme.spacing.unit * 1.5,
   },
@@ -22,38 +22,38 @@ const styles = theme => ({
 });
 
 class Projects extends Component {
-  continue = e => {
-    e.preventDefault ();
-    this.props.nextStep ();
+  continue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
   };
 
-  back = e => {
-    e.preventDefault ();
-    this.props.prevStep ();
+  back = (e) => {
+    e.preventDefault();
+    this.props.prevStep();
   };
 
   createAndDownloadPDF = () => {
     axios
-      .post ('/create-pdf', this.state)
-      .then (() => {
+      .post("/create-pdf", this.state)
+      .then(() => {
         axios
-          .get ('fetch-pdf', {responseType: 'blob'})
-          .then (res => {
-            const pdfBlob = new Blob ([res.data], {type: 'application/pdf'});
-            saveAs (pdfBlob, 'Resume.pdf');
+          .get("fetch-pdf", { responseType: "blob" })
+          .then((res) => {
+            const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+            saveAs(pdfBlob, "Resume.pdf");
           })
-          .catch (err => {
-            console.log (err);
+          .catch((err) => {
+            console.log(err);
           });
       })
-      .catch (err => {
-        console.log (err);
+      .catch((err) => {
+        console.log(err);
       });
   };
 
-  render () {
-    const {values} = this.props;
-    const {classes} = this.props;
+  render() {
+    const { values } = this.props;
+    const { classes } = this.props;
 
     return (
       <Paper className={classes.padding}>
@@ -72,7 +72,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="title1"
                   label="Title"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.title1}
                   onChange={this.props.handleChange}
@@ -91,7 +91,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="link1"
                   label="Link"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.link1}
                   onChange={this.props.handleChange}
@@ -111,7 +111,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="projectDescription1"
                   label="Description"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.projectDescription1}
                   onChange={this.props.handleChange}
@@ -138,7 +138,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="title2"
                   label="Title"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.title2}
                   onChange={this.props.handleChange}
@@ -157,7 +157,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="link2"
                   label="Link"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.link2}
                   onChange={this.props.handleChange}
@@ -177,7 +177,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="projectDescription2"
                   label="Description"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   required
                   value={values.projectDescription2}
                   onChange={this.props.handleChange}
@@ -204,7 +204,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="title3"
                   label="Title"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   value={values.title3}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -222,7 +222,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="link3"
                   label="Link"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   value={values.link3}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -241,7 +241,7 @@ class Projects extends Component {
                   variant="outlined"
                   name="projectDescription3"
                   label="Description"
-                  style={{width: '80%'}}
+                  style={{ width: "80%" }}
                   value={values.projectDescription3}
                   onChange={this.props.handleChange}
                   InputProps={{
@@ -288,4 +288,4 @@ class Projects extends Component {
   }
 }
 
-export default withStyles (styles) (Projects);
+export default withStyles(styles)(Projects);
