@@ -12,9 +12,11 @@ router.post("/register", async (req, res) => {
     if (userType === "Student") {
       const newStudent = new Student(req.body);
       await newStudent.save();
+      res.send(newStudent);
     } else {
       const newCompany = new Company(req.body);
       await newCompany.save();
+      res.send(newCompany);
     }
   } catch (error) {
     return res.status(404).json(error);

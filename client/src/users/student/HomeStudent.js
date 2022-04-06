@@ -11,26 +11,25 @@ function HomeStudent() {
   return (
     <div>
       <DefaultLayout>
-        {/* {jobs.length === 0 ? (
+        {jobs.length === 0 ? (
           <Result
             status="403"
             title="Oops!!!"
             subTitle="No jobs found!"
             extra={
               <Link to="/profile">
-                <Button>Profile</Button>
-                <p>Until then Complete your Profile.</p>
+                <Button>Complete your Profile</Button>
               </Link>
             }
           />
         ) : (
           <p></p>
-        )} */}
+        )}
         <Row gutter={16}>
           {jobs.map((job) => {
-            // const company = companies.find(
-            //   (company) => company._id === job.companyid
-            // );
+            const company = companies.find(
+              (company) => company._id === job.companyid
+            );
 
             return (
               <Col lg={12} sm={24}>
