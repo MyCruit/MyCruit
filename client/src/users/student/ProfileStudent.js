@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useImperativeHandle, useState } from "react";
 import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
 import { FaUser, FaGraduationCap } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
@@ -189,17 +189,24 @@ function ProfileStudent() {
     dispatch(updateResume(formdata));
   };
 
+  function _arrayBufferToBase64(buffer) {
+    var binary = "";
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  }
+
   function resume() {
-    const url = window.URL.createObjectURL(new Blob([user.resume]));
-    console.log(url);
+    const base64 = _arrayBufferToBase64(user.resume.data);
     return (
       <Form layout="vertical">
         <Form.Item label="Upload Your Resume">
           <Form.Item name="resume"></Form.Item>
         </Form.Item>
-        <Document file={{ url }} onLoadSuccess={() => console.log("Success")}>
-          {/* <Page pageNumber={pageNumber} /> */}
-        </Document>
+        <iframe src={`data:application/pdf;base64,${base64}`} />
         <Upload
           name="resume"
           accept="application/pdf"
