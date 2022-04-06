@@ -52,6 +52,15 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/getallstudents", async (req, res) => {
+  try {
+    const students = await Student.find();
+    res.send(students);
+  } catch (error) {
+    return res.status(404).json({ error });
+  }
+});
+
 router.post("/update", async (req, res) => {
   try {
     const userType = req.body.category;

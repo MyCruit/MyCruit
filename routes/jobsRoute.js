@@ -45,7 +45,7 @@ router.post("/applyjob", async (req, res) => {
 
     await userDetails.save();
 
-    res.send("Job Applied Successfully");
+    res.send(userDetails);
   } catch (error) {
     res.send(error);
   }

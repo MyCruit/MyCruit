@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 import { Row, Col, Button } from "antd";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import DefaultLayoutStudent from "../../component/DefaultLayoutStudent";
+import DefaultLayout from "../../component/DefaultLayout";
 
 function HomeStudent() {
   const { jobs } = useSelector((state) => state.jobReducer);
   return (
     <div>
-      <DefaultLayoutStudent>
+      <DefaultLayout>
         <Row gutter={16}>
           {jobs.map((job) => {
             return (
@@ -41,7 +41,7 @@ function HomeStudent() {
             );
           })}
         </Row>
-      </DefaultLayoutStudent>
+      </DefaultLayout>
     </div>
   );
 }

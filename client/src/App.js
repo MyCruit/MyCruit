@@ -5,24 +5,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import HomeStudent from "./users/student/HomeStudent";
 import ProfileStudent from "./users/student/ProfileStudent";
-import JobInfo from "./users/student/JobInfo";
+import JobInfo from "./users/pages/JobInfo";
+import StudentInfo from "./users/pages/StudentInfo";
 import { getAllJobs } from "./redux/action/jobAction";
-import Register from "./users/authentication/Register";
-import Login from "./users/authentication/Login";
+import { getAllStudents } from "./redux/action/usersAction";
+import Register from "./users/pages/Register";
+import Login from "./users/pages/Login";
 import HomeCompany from "./users/company/HomeCompany";
 import HomeAdmin from "./users/admin/HomeAdmin";
 import AppliedJobs from "./users/student/AppliedJobs";
 import Resume from "./users/student/Resume";
 import Post from "./users/company/Post";
 import ProfileCompany from "./users/company/ProfileCompany";
+
 const user = JSON.parse(localStorage.getItem("user"));
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllJobs());
+    dispatch(getAllStudents());
   }, []);
-
   console.log(user);
   return (
     <div className="App">
@@ -64,6 +67,7 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/appliedJobs" element={<AppliedJobs />} />
           <Route path="/jobs/:id" element={<JobInfo />} />
+          <Route path="/students/:id" element={<StudentInfo />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
