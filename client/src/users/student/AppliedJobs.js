@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 function AppliedJobs() {
   const user = JSON.parse(localStorage.getItem("user"));
   const { jobs } = useSelector((state) => state.jobReducer);
+  const { companies } = useSelector((state) => state.companyReducer);
   return (
     <div>
       <DefaultLayout>
@@ -28,11 +29,14 @@ function AppliedJobs() {
 
         {user.appliedJobs.map((job) => {
           const appliedJob = jobs.find((i) => i._id == job.jobid);
+          const company = companies.find(
+            (company) => company._id == appliedJob.companyid
+          );
           return (
             <Link to={`/jobs/${appliedJob._id}`}>
               <Card
                 type="inner"
-                title={appliedJob.jobProfile}
+                title={`${company.companyName} - ${appliedJob.jobProfile}`}
                 extra={
                   <Link to={`/jobs/${appliedJob._id}`}>
                     {" "}
@@ -42,7 +46,8 @@ function AppliedJobs() {
                 className="m-4 bs"
               >
                 <div>
-                  <p>{appliedJob.jobType}</p>
+                  <p>Job Type : {appliedJob.jobType}</p>
+                  <p>Salary : {appliedJob.salary}</p>
                 </div>
               </Card>
             </Link>
