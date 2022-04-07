@@ -302,7 +302,6 @@ function ProfileStudent() {
           >
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
-          {/* <Form.Item name="resume"></Form.Item> */}
         </Form.Item>
         <div>
           {user.resume ? (
