@@ -7,6 +7,7 @@ import HomeStudent from "./users/student/HomeStudent";
 import ProfileStudent from "./users/student/ProfileStudent";
 import JobInfo from "./users/pages/JobInfo";
 import StudentInfo from "./users/pages/StudentInfo";
+import CompanyInfo from "./users/pages/CompanyInfo";
 import { getAllJobs } from "./redux/action/jobAction";
 import { getAllStudents } from "./redux/action/usersAction";
 import { getAllCompanies } from "./redux/action/usersAction";
@@ -18,7 +19,6 @@ import AppliedJobs from "./users/student/AppliedJobs";
 import Resume from "./users/student/Resume";
 import Post from "./users/company/Post";
 import ProfileCompany from "./users/company/ProfileCompany";
-import CompanyInfo from "./users/pages/CompanyInfo";
 
 const user = JSON.parse(localStorage.getItem("user"));
 function App() {

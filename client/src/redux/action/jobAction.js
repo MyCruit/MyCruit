@@ -31,6 +31,7 @@ export const postJob = (values) => async (dispatch) => {
   }
 };
 
+// applyjobs
 export const applyJob = (job) => async (dispatch) => {
   const user = JSON.parse(localStorage.getItem("user"));
   dispatch({ type: "LOADING", payload: true });

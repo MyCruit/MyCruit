@@ -91,6 +91,7 @@ function StudentInfo() {
             {student.education.cgpa}
           </p>
           <hr />
+          {/* resume */}
           <div>
             {student.resume ? (
               <iframe
