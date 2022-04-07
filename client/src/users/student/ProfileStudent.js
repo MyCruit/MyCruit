@@ -290,25 +290,31 @@ function ProfileStudent() {
     return (
       <Form layout="vertical">
         <Form.Item label="Upload Your Resume">
-          <Form.Item name="resume"></Form.Item>
+          <Upload
+            name="resume"
+            accept="application/pdf"
+            maxCount={1}
+            beforeUpload={(file) => {
+              setFile(file);
+              setDisable(false);
+            }}
+            fileList={file === "" ? [] : [file]}
+          >
+            <Button icon={<UploadOutlined />}>Click to Upload</Button>
+          </Upload>
+          {/* <Form.Item name="resume"></Form.Item> */}
         </Form.Item>
-        {user.resume ? (
-          <iframe src={`data:application/pdf;base64,${base64}`} />
-        ) : (
-          <div>No Resume Uploaded</div>
-        )}
-        <Upload
-          name="resume"
-          accept="application/pdf"
-          maxCount={1}
-          beforeUpload={(file) => {
-            setFile(file);
-            setDisable(false);
-          }}
-          fileList={file === "" ? [] : [file]}
-        >
-          <Button icon={<UploadOutlined />}>Click to Upload</Button>
-        </Upload>
+        <div>
+          {user.resume ? (
+            <iframe
+              src={`data:application/pdf;base64,${base64}`}
+              className="resume-iframe"
+            />
+          ) : (
+            <div>No Resume Uploaded</div>
+          )}
+        </div>
+
         <Button
           htmlType="submit"
           onClick={() => handleUpdate()}

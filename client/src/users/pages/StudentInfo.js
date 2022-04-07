@@ -7,6 +7,18 @@ function StudentInfo() {
   const params = useParams();
   const { students } = useSelector((state) => state.studentReducer);
   const student = students.find((student) => student._id == params.id);
+  function _arrayBufferToBase64(buffer) {
+    var binary = "";
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  }
+  if (student.resume) {
+    var base64 = _arrayBufferToBase64(student.resume.data);
+  }
   return (
     <DefaultLayout>
       {student && (
@@ -50,7 +62,6 @@ function StudentInfo() {
             <b>Address : </b>
             {student.address}
           </p>
-
           <hr />
           <h3>
             <b>Education</b>
@@ -79,6 +90,17 @@ function StudentInfo() {
             <b>CGPA : </b>
             {student.education.cgpa}
           </p>
+          <hr />
+          <div>
+            {student.resume ? (
+              <iframe
+                src={`data:application/pdf;base64,${base64}`}
+                className="resume-iframe"
+              />
+            ) : (
+              <div>No Resume Uploaded</div>
+            )}
+          </div>
         </div>
       )}
     </DefaultLayout>

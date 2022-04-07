@@ -254,3 +254,8 @@ p {
 .ant-card{
   border-radius: 15px !important;
 }
+
+.resume-iframe{
+  height: 500px ;
+  width: auto ;
+}

@@ -40,7 +40,7 @@ export const applyJob = (job) => async (dispatch) => {
     message.success("Job applied Successfully");
     localStorage.setItem("user", JSON.stringify(userDetails.data));
     setTimeout(() => {
-      window.location.reload();
+      window.location.href = "/";
     }, 1000);
   } catch (error) {
     console.log(error);
