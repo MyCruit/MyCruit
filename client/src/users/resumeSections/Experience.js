@@ -19,49 +19,45 @@ class Experience extends Component {
     return (
       <div className="bs p-5 m-5">
         <h3>Experience</h3>
-        <Form className="m-4" layout="vertical">
+        <Form className="m-4 mt-5" layout="vertical">
           <Row gutter={16}>
             <Col lg={24} align="left">
               <h5 className="mb-4 mt-2">Experience 1</h5>
             </Col>
             <Col lg={24} sm={24}>
-              <Form.Item
-                name="institute1"
-                label="Institue/Organisation"
-                value={values.institute1}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="Institue/Organisation">
+                <Input
+                  name="institute1"
+                  value={values.institute1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="position1"
-                label="Position"
-                value={values.position1}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="Position">
+                <Input
+                  name="position1"
+                  value={values.position1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="duration1"
-                label="Duration"
-                value={values.duration1}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="Duration">
+                <Input
+                  name="duration1"
+                  value={values.duration1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={24} sm={24}>
-              <Form.Item
-                label="Description"
-                name="experienceDescription1"
-                value={values.experienceDescription1}
-                onChange={this.props.handleChange}
-              >
-                <Input.TextArea />
+              <Form.Item label="Description">
+                <Input.TextArea
+                  name="experienceDescription1"
+                  value={values.experienceDescription1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
 
@@ -71,43 +67,39 @@ class Experience extends Component {
             </Col>
 
             <Col lg={24} sm={24}>
-              <Form.Item
-                name="institute2"
-                label="Institue/Organisation"
-                value={values.institute2}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="Institue/Organisation">
+                <Input
+                  name="institute2"
+                  value={values.institute2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="position2"
-                label="Position"
-                value={values.position2}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="Position">
+                <Input
+                  name="position2"
+                  value={values.position2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="duration2"
-                label="Duration"
-                value={values.duration2}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="Duration">
+                <Input
+                  name="duration2"
+                  value={values.duration2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={24} sm={24}>
-              <Form.Item
-                label="Description"
-                name="experienceDescription2"
-                value={values.experienceDescription2}
-                onChange={this.props.handleChange}
-              >
-                <Input.TextArea />
+              <Form.Item label="Description">
+                <Input.TextArea
+                  name="experienceDescription2"
+                  value={values.experienceDescription2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
           </Row>

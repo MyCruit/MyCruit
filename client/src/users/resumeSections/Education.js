@@ -19,124 +19,99 @@ class Education extends Component {
     return (
       <div className="bs p-5 m-5">
         <h3>Education</h3>
-        <Form className="m-4" layout="vertical">
+        <Form className="m-4 mt-5" layout="vertical">
           <Row gutter={16}>
             <Col lg={24} sm={24}>
-              <Form.Item
-                name="college"
-                label="College/Unviersity"
-                value={values.college}
-                onChange={this.props.handleChange}
-                rules={[
-                  { required: true, message: "College/University is required" },
-                ]}
-              >
-                <Input />
+              <Form.Item label="College/Unviersity">
+                <Input
+                  name="college"
+                  value={values.college}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="fromyear1"
-                label="From Year"
-                value={values.fromyear1}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Year is required" }]}
-              >
-                <Input />
+              <Form.Item label="From Year">
+                <Input
+                  name="fromyear1"
+                  value={values.fromyear1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="toyear1"
-                label="To Year"
-                value={values.toyear1}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Year is required" }]}
-              >
-                <Input />
+              <Form.Item label="To Year">
+                <Input
+                  name="toyear1"
+                  value={values.toyear1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={24} sm={24}>
-              <Form.Item
-                label="Qualification"
-                name="qualification1"
-                value={values.qualification1}
-                onChange={this.props.handleChange}
-                rules={[
-                  { required: true, message: "Qualification is required" },
-                ]}
-              >
-                <Input />
+              <Form.Item label="Qualification">
+                <Input
+                  name="qualification1"
+                  value={values.qualification1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={24} sm={24}>
-              <Form.Item
-                label="Description"
-                name="description1"
-                value={values.description1}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Description is required" }]}
-              >
-                <Input.TextArea />
+              <Form.Item label="Description">
+                <Input.TextArea
+                  name="description1"
+                  value={values.description1}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Divider />
             <Col lg={24} sm={24}>
-              <Form.Item
-                name="school"
-                label="School"
-                value={values.school}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "School is required" }]}
-              >
-                <Input />
+              <Form.Item label="School">
+                <Input
+                  name="school"
+                  value={values.school}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="fromyear2"
-                label="From Year"
-                value={values.fromyear2}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Year is required" }]}
-              >
-                <Input />
+              <Form.Item label="From Year">
+                <Input
+                  name="fromyear2"
+                  value={values.fromyear2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="toyear2"
-                label="To Year"
-                value={values.toyear2}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Year is required" }]}
-              >
-                <Input />
+              <Form.Item>
+                <Input
+                  name="toyear2"
+                  label="To Year"
+                  value={values.toyear2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={24} sm={24}>
-              <Form.Item
-                label="Qualification"
-                name="qualification2"
-                value={values.qualification2}
-                onChange={this.props.handleChange}
-                rules={[
-                  { required: true, message: "Qualification is required" },
-                ]}
-              >
-                <Input />
+              <Form.Item label="Qualification">
+                <Input
+                  name="qualification2"
+                  value={values.qualification2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
 
             <Col lg={24} sm={24}>
-              <Form.Item
-                label="Description"
-                name="description2"
-                value={values.description2}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Description is required" }]}
-              >
-                <Input.TextArea />
+              <Form.Item label="Description">
+                <Input.TextArea
+                  name="description2"
+                  value={values.description2}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
           </Row>

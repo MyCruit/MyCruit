@@ -13,72 +13,60 @@ class Profile extends Component {
     return (
       <div className="bs p-5 m-5">
         <h3>Personal Details</h3>
-        <Form className="m-4" layout="vertical">
+        <Form className="m-4 mt-5" layout="vertical">
           <Row gutter={16}>
             <Col lg={12} sm={24}>
-              <Form.Item
-                name="firstname"
-                label="First Name"
-                value={values.firstname}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "First Name is required" }]}
-              >
-                <Input />
+              <Form.Item label="First Name">
+                <Input
+                  name="firstname"
+                  value={values.firstname}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                label="Last Name"
-                name="lastname"
-                value={values.lastname}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Last Name is required" }]}
-              >
-                <Input />
+              <Form.Item label="Last Name">
+                <Input
+                  name="lastname"
+                  value={values.lastname}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                label="Email"
-                name="email"
-                value={values.email}
-                onChange={this.props.handleChange}
-                rules={[{ required: true, message: "Email is required" }]}
-              >
-                <Input />
+              <Form.Item label="Email">
+                <Input
+                  name="email"
+                  value={values.email}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                label="Phone Number"
-                name="phone"
-                value={values.phone}
-                onChange={this.props.handleChange}
-                rules={[
-                  { required: true, message: "Phone Number is required" },
-                ]}
-              >
-                <Input />
+              <Form.Item label="Phone Number">
+                <Input
+                  name="phone"
+                  value={values.phone}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                label="GitHub"
-                name="github"
-                value={values.github}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="GitHub">
+                <Input
+                  name="github"
+                  value={values.github}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item
-                label="Linked In"
-                name="linkedin"
-                value={values.linkedin}
-                onChange={this.props.handleChange}
-              >
-                <Input />
+              <Form.Item label="Linked In">
+                <Input
+                  name="linkedin"
+                  value={values.linkedin}
+                  onChange={this.props.handleChange}
+                />
               </Form.Item>
             </Col>
           </Row>

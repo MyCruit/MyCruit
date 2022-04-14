@@ -102,9 +102,9 @@ function ProfileStudent() {
               rules={[{ required: true, message: "Gender is required" }]}
             >
               <Select placeholder="Select a Gender">
-                <Option value="F">Female</Option>
-                <Option value="M">Male</Option>
-                <Option value="O">Other</Option>
+                <Option value="Female">Female</Option>
+                <Option value="Male">Male</Option>
+                <Option value="Other">Other</Option>
               </Select>
             </Form.Item>
           </Col>
@@ -344,7 +344,7 @@ function ProfileStudent() {
 
   return (
     <DefaultLayout>
-      <div className="profile1">
+      <div className="profile1 bs">
         <img className="bgImg" src={pic} />
         <h3 style={{ textTransform: "uppercase" }}>
           {user.firstName} {user.lastName}
@@ -362,7 +362,7 @@ function ProfileStudent() {
           <span>{user.education.institute}</span>
         </p>
       </div>
-      <div className="profile2 container">
+      <div className="profile2 bs">
         <div className="row">
           <h5 className="pt-3 color col">About</h5>
           <BiPencil
@@ -448,7 +448,7 @@ function ProfileStudent() {
           <PersonalDetails />
         </Modal>
       </div>
-      <div className="profile2 container">
+      <div className="profile2 bs">
         <div className="row">
           <h5 className="pt-3 color col">Education</h5>
           <BiPencil
@@ -493,7 +493,7 @@ function ProfileStudent() {
           <EducationDetails />
         </Modal>
       </div>
-      <div className="profile2 container">
+      <div className="profile2 bs">
         <h5 className="pt-3 color">Resume</h5>
         <hr className="pb-4" />
         <Resume />

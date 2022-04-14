@@ -37,17 +37,16 @@ function AppliedJobs() {
               <Col lg={24} sm={24}>
                 <div className="bs m-4 p-3">
                   <div className="flex justify-content-between">
-                    <h4>{appliedJob.jobProfile}</h4>
+                    <h4>{company.companyName}</h4>
+
                     <Link to={`/jobs/${appliedJob._id}`}>
                       {" "}
                       <RightOutlined style={{ color: "#5e60ce" }} />
                     </Link>
                   </div>
-
-                  <h5>{company.companyName}</h5>
-                  <hr />
-                  <h6>Job Type : {appliedJob.jobType}</h6>
-                  <h6>Salary : {appliedJob.salary}</h6>
+                  <h5>
+                    {appliedJob.jobProfile} - {appliedJob.jobType}
+                  </h5>
                 </div>
               </Col>
             </Row>

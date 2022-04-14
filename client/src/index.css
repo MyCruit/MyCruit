@@ -39,19 +39,19 @@ code {
 
 .ant-layout-sider {
   height: 100vh !important;
-  background: rgba(249, 250, 251) !important;
+  background: #fafafb !important;
   min-width: 0px !important;
   flex-basis: 150px !important;
 }
 
 .ant-menu {
-  background: rgba(249, 250, 251) !important;
+  background: #fafafb !important;
   border-right: none !important;
   margin-top: 50px !important;
 }
 
 .ant-menu-item {
-  background: rgba(249, 250, 251) !important;
+  background: #fafafb !important;
   padding-left: 30px !important;
   height: 70px !important;
   width: 140px !important;
@@ -88,7 +88,7 @@ code {
 /*Layout Content */
 
 .ant-layout-content {
-  background: rgba(249, 250, 251) !important;
+  background: #fafafb !important;
   padding: 35px !important;
 }
 
@@ -149,12 +149,12 @@ p {
 }
 
 .authForm {
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 10px 10px 0px !important;
 }
 
 .authPic {
   background-color: #dfe0f7 !important;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 10px 0px 0px 10px !important;
 }
 
 .authPic h3 {
@@ -189,9 +189,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
   width: 62.5rem;
-  border-radius: 8px;
   padding-bottom: 20px;
 }
 
@@ -199,9 +197,7 @@ p {
   margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
   width: 62.5rem;
-  border-radius: 8px;
   padding: 30px;
 }
 
