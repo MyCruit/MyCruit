@@ -1,7 +1,7 @@
-import { Layout, Menu } from "antd";
-import React from "react";
+import { Layout, Menu, Modal } from "antd";
+import React, { useState } from "react";
 import pic from "../img/logo.png";
-import Popconfirm from "antd/lib/popconfirm";
+import { RiErrorWarningLine } from "react-icons/ri";
 import {
   UserOutlined,
   LayoutOutlined,
@@ -15,12 +15,20 @@ import { Link } from "react-router-dom";
 const { Header, Sider, Content } = Layout;
 const user = JSON.parse(localStorage.getItem("user"));
 
-const onConfirm = (e) => {
-  window.location = "/login";
-  window.localStorage.clear();
-};
-
 const CompanyMenu = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    window.location = "/login";
+    window.localStorage.clear();
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   return (
     <Menu defaultSelectedKeys={[window.location.pathname]}>
       <Menu.Item key="/">
@@ -48,26 +56,49 @@ const CompanyMenu = () => {
         </Link>
       </Menu.Item>
       <Menu.Item key="/logout">
-        <Popconfirm
-          title="Are you sure you want to quit?"
-          placement="right"
-          onConfirm={onConfirm}
-          okText="Quit"
-          cancelText="Cancel"
+        <Link to="">
+          <div className="navbar" onClick={showModal}>
+            <LogoutOutlined className="navbar-icon m-1" />
+            <h6>Logout</h6>
+          </div>
+        </Link>
+        <Modal
+          title=""
+          closable={false}
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          style={{ top: 250 }}
+          width={400}
+          okText="Logout"
         >
-          <Link to="">
-            <div className="navbar">
-              <LogoutOutlined className="navbar-icon m-1" />
-              <h6>Logout</h6>
-            </div>
-          </Link>
-        </Popconfirm>
+          <div className="flex">
+            <RiErrorWarningLine
+              style={{ fontSize: 25, marginRight: 15, color: "#fab326" }}
+            />
+            <h6>Are you sure you want to Logout?</h6>
+          </div>
+        </Modal>
       </Menu.Item>
     </Menu>
   );
 };
 
 const StudentMenu = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    window.location = "/login";
+    window.localStorage.clear();
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <Menu defaultSelectedKeys={[window.location.pathname]}>
       <Menu.Item key="/">
@@ -103,20 +134,29 @@ const StudentMenu = () => {
         </Link>
       </Menu.Item>
       <Menu.Item key="/logout">
-        <Popconfirm
-          title="Are you sure you want to quit?"
-          placement="right"
-          onConfirm={onConfirm}
-          okText="Quit"
-          cancelText="Cancel"
+        <Link to="">
+          <div className="navbar" onClick={showModal}>
+            <LogoutOutlined className="navbar-icon m-1" />
+            <h6>Logout</h6>
+          </div>
+        </Link>
+        <Modal
+          title=""
+          closable={false}
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          style={{ top: 250 }}
+          width={400}
+          okText="Logout"
         >
-          <Link to="">
-            <div className="navbar">
-              <LogoutOutlined className="navbar-icon m-1" />
-              <h6>Logout</h6>
-            </div>
-          </Link>
-        </Popconfirm>
+          <div className="flex">
+            <RiErrorWarningLine
+              style={{ fontSize: 25, marginRight: 15, color: "#fab326" }}
+            />
+            <h6>Are you sure you want to Logout?</h6>
+          </div>
+        </Modal>
       </Menu.Item>
     </Menu>
   );
@@ -129,7 +169,6 @@ class DefaultLayout extends React.Component {
         <Header
           style={{
             padding: 0,
-            zIndex: 9999,
           }}
         >
           <div className="flex justify-content-between">

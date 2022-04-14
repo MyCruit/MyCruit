@@ -10,63 +10,61 @@ function HomeStudent() {
   const { companies } = useSelector((state) => state.companyReducer);
 
   return (
-    <div>
-      <DefaultLayout>
-        {jobs.length === 0 ? (
-          <Result
-            status="403"
-            title="Oops!!!"
-            subTitle="No jobs found!"
-            extra={
-              <Link to="/profile">
-                <Button>Complete your Profile</Button>
-              </Link>
-            }
-          />
-        ) : (
-          <p></p>
-        )}
-        <Row gutter={16}>
-          {jobs.map((job) => {
-            console.log(companies);
-            let response = companies.find(
-              (company) => company._id === job.companyid
-            );
-            console.log(response);
-            return (
-              <Col lg={12} sm={24}>
-                <div className="job-div bs m-4 p-3">
-                  <h4>{job.jobProfile}</h4>
+    <DefaultLayout>
+      {jobs.length === 0 ? (
+        <Result
+          status="403"
+          title="Oops!!!"
+          subTitle="No jobs found!"
+          extra={
+            <Link to="/profile">
+              <Button>Complete your Profile</Button>
+            </Link>
+          }
+        />
+      ) : (
+        <p></p>
+      )}
+      <Row gutter={16}>
+        {jobs.map((job) => {
+          console.log(companies);
+          let response = companies.find(
+            (company) => company._id === job.companyid
+          );
+          console.log(response);
+          return (
+            <Col lg={12} sm={24}>
+              <div className="bs m-4 p-3">
+                <h4>{job.jobProfile}</h4>
 
-                  <p>
-                    <b>{response.companyName}</b>
+                <p>
+                  <b>{response.companyName}</b>
+                </p>
+                <hr />
+                <div className="flex">
+                  <p style={{ marginLeft: 20 }}>
+                    Job Type : <b>{job.jobType} </b>,{" "}
                   </p>
-                  <hr />
-                  <div className="flex">
-                    <p style={{ marginLeft: 20 }}>
-                      Job Type : <b>{job.jobType} </b>,{" "}
-                    </p>
-                    <p>
-                      Salary : <b>{job.salary}</b>{" "}
-                    </p>
-                  </div>
-                  <hr />
-
-                  <div className="flex justify-content-between">
-                    <Link to={`/jobs/${job._id}`}>
-                      <Button>View</Button>
-                    </Link>
-                    <p>
-                      Posted on : {moment(job.createdAt).format("MMM DD yyyy")}
-                    </p>
-                  </div>
+                  <p>
+                    Salary : <b>{job.salary}</b>{" "}
+                  </p>
                 </div>
-              </Col>
-            );
-          })}
-        </Row>
-      </DefaultLayout>
-    </div>
+                <hr />
+
+                <div className="flex justify-content-between">
+                  <Link to={`/jobs/${job._id}`}>
+                    <Button>View</Button>
+                  </Link>
+                  <p>
+                    Posted on : {moment(job.createdAt).format("MMM DD yyyy")}
+                  </p>
+                </div>
+              </div>
+            </Col>
+          );
+        })}
+      </Row>
+    </DefaultLayout>
   );
 }
 

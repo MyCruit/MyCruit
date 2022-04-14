@@ -1,11 +1,7 @@
 import React from "react";
 
 function HomeAdmin() {
-  return (
-    <div>
-      <h1>Home Admin</h1>
-    </div>
-  );
+  return <h1>Home Admin</h1>;
 }
 
 export default HomeAdmin;

@@ -1,83 +1,65 @@
 import React, { useState } from "react";
 import DefaultLayout from "../../component/DefaultLayout";
-import { FaUser, FaGraduationCap } from "react-icons/fa";
-import { IoDocumentText } from "react-icons/io5";
-import {
-  Steps,
-  Button,
-  message,
-  Form,
-  Input,
-  Select,
-  Row,
-  Col,
-  Upload,
-} from "antd";
+import { BiPencil } from "react-icons/bi";
+import { UploadOutlined } from "@ant-design/icons";
+import { Button, Modal, Form, Input, Select, Row, Col, Upload } from "antd";
 import { useDispatch } from "react-redux";
 import { updateUser, updateResume } from "../../redux/action/usersAction";
-import { UploadOutlined } from "@ant-design/icons";
+import pic from "../../img/profile.png";
 
-const { Step } = Steps;
 const { Option } = Select;
+
 const user = JSON.parse(localStorage.getItem("user"));
-console.log(user);
 
 function ProfileStudent() {
-  const [current, setCurrent] = React.useState(0);
+  const dispatch = useDispatch();
+  const [isModalVisible1, setIsModalVisible1] = useState(false);
+  const [isModalVisible2, setIsModalVisible2] = useState(false);
   const [file, setFile] = useState("");
   const [disable, setDisable] = useState(true);
-  const next = () => {
-    setCurrent(current + 1);
-  };
 
-  const prev = () => {
-    setCurrent(current - 1);
-  };
-  const steps = [
-    {
-      title: "Personal Details",
-      content: personalDetails(),
-      icon: <FaUser />,
-    },
-    {
-      title: "Education",
-      content: educationDetails(),
-      icon: <FaGraduationCap style={{ fontSize: "32px" }} />,
-    },
-    {
-      title: "Resume",
-      content: resume(),
-      icon: <IoDocumentText />,
-    },
-  ];
-  const [personalInfo, setPersonalInfo] = useState();
-  const dispatch = useDispatch();
+  function showModal1() {
+    setIsModalVisible1(true);
+  }
+
+  function showModal2() {
+    setIsModalVisible2(true);
+  }
+
+  function handleOk1() {
+    setIsModalVisible1(false);
+  }
+
+  function handleOk2() {
+    setIsModalVisible2(false);
+  }
+
+  function handleCancel1() {
+    setIsModalVisible1(false);
+  }
+
+  function handleCancel2() {
+    setIsModalVisible2(false);
+  }
 
   function onPersonInfoSubmit(values) {
-    setPersonalInfo(values);
     dispatch(updateUser(values));
   }
 
-  function onFinalFinish(values) {
-    const finalObj = { ...personalInfo, ...values };
-    dispatch(updateUser(finalObj));
+  function onEduInfoSubmit(values) {
+    dispatch(updateUser(values));
   }
 
-  //forms
-  function personalDetails() {
+  function PersonalDetails() {
     return (
       <Form
+        id="myForm1"
         layout="vertical"
         onFinish={onPersonInfoSubmit}
         initialValues={user}
       >
         <Row gutter={16}>
-          <Col lg={12} sm={24}>
-            <Form.Item label="Email" name="email">
-              <Input disabled={true} />
-            </Form.Item>
-          </Col>
-          <Col lg={12} sm={24}>
+          <Col lg={24} sm={24}>
             <Form.Item
               label="Username"
               name="username"
@@ -90,7 +72,7 @@ function ProfileStudent() {
             <Form.Item
               label="First Name"
               name="firstName"
-              rules={[{ required: true, message: "First name is required" }]}
+              rules={[{ required: true, message: "First Name is required" }]}
             >
               <Input />
             </Form.Item>
@@ -104,7 +86,7 @@ function ProfileStudent() {
               <Input />
             </Form.Item>
           </Col>
-          <Col lg={12} sm={24}>
+          <Col lg={24} sm={24}>
             <Form.Item
               label="Date of Birth"
               name="dob"
@@ -113,7 +95,7 @@ function ProfileStudent() {
               <Input placeholder="dd/mm/yyyy" />
             </Form.Item>
           </Col>
-          <Col lg={12} sm={24}>
+          <Col lg={24} sm={24}>
             <Form.Item
               label="Gender"
               name="gender"
@@ -124,6 +106,15 @@ function ProfileStudent() {
                 <Option value="M">Male</Option>
                 <Option value="O">Other</Option>
               </Select>
+            </Form.Item>
+          </Col>
+          <Col lg={24} sm={24}>
+            <Form.Item
+              label="Contact No."
+              name="contactNumber"
+              rules={[{ required: true, message: "Contact No. is required" }]}
+            >
+              <Input />
             </Form.Item>
           </Col>
           <Col lg={12} sm={24}>
@@ -150,9 +141,7 @@ function ProfileStudent() {
               <Input />
             </Form.Item>
           </Col>
-          {/* <Col lg={8} sm={24}>
-            <Form.Item label="Profile Photo" name="profilePhoto"></Form.Item>
-          </Col> */}
+
           <Col lg={24} sm={24}>
             <Form.Item
               label="About"
@@ -160,7 +149,7 @@ function ProfileStudent() {
               rules={[{ required: true, message: "About is required" }]}
               name="about"
             >
-              <Input.TextArea />
+              <Input.TextArea showCount maxLength={200} />
             </Form.Item>
           </Col>
           <Col lg={24} sm={24}>
@@ -174,30 +163,34 @@ function ProfileStudent() {
             </Form.Item>
           </Col>
         </Row>
-        <Button htmlType="submit">Update</Button>
       </Form>
     );
   }
 
-  function educationDetails() {
+  function EducationDetails() {
     return (
-      <Form initialValues={user} layout="vertical" onFinish={onFinalFinish}>
+      <Form
+        id="myForm2"
+        initialValues={user}
+        layout="vertical"
+        onFinish={onEduInfoSubmit}
+      >
         <Row gutter={16}>
-          <Col lg={8} sm={24}>
+          <Col lg={24} sm={24}>
             <Form.Item
               label="Institue"
               name={["education", "institute"]}
               rules={[
                 {
                   required: true,
-                  message: "Institution Name is required",
+                  message: "Institute is required",
                 },
               ]}
             >
               <Input />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="Course"
               name={["education", "course"]}
@@ -209,32 +202,56 @@ function ProfileStudent() {
               </Select>
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="Branch"
               name={["education", "branch"]}
               rules={[{ required: true, message: "Branch is required" }]}
             >
               <Select placeholder="Select a Branch">
-                <Option value="CSE">Computer Science Engineering</Option>
-                <Option value="IT">Information Technology</Option>
-                <Option value="ECE">
+                <Option value="Computer Science Engineering">
+                  Computer Science Engineering
+                </Option>
+                <Option value="Information Technology">
+                  Information Technology
+                </Option>
+                <Option value="Electronics and Communication Engineering">
                   Electronics and Communication Engineering
                 </Option>
-                <Option value="EEE">
+                <Option value="Electrical and Electronics Engineering">
                   Electrical and Electronics Engineering
                 </Option>
-                <Option value="EI">
+                <Option value="Electronics and Instrumentation Engineering">
                   Electronics and Instrumentation Engineering
                 </Option>
 
-                <Option value="MT">Mechatronics Engineering</Option>
-                <Option value="BT">Biotechnology Engineering</Option>
-                <Option value="CE">Chemical Engineering</Option>
+                <Option value="Mechatronics Engineering">
+                  Mechatronics Engineering
+                </Option>
+                <Option value="Biotechnology Engineering">
+                  Biotechnology Engineering
+                </Option>
+                <Option value="Chemical Engineering">
+                  Chemical Engineering
+                </Option>
               </Select>
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={24} sm={24}>
+            <Form.Item
+              label="Current Year"
+              name={["education", "currentYear"]}
+              rules={[{ required: true, message: "Current Year is required" }]}
+            >
+              <Select placeholder="Select Current Year">
+                <Option value="I">I Year</Option>
+                <Option value="II">II Year</Option>
+                <Option value="III">III Year</Option>
+                <Option value="IV">IV Year</Option>
+              </Select>
+            </Form.Item>
+          </Col>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="Starting Year"
               name={["education", "yos"]}
@@ -243,7 +260,7 @@ function ProfileStudent() {
               <Input placeholder="yyyy" />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={12} sm={24}>
             <Form.Item
               label="Passing Year (expected)"
               name={["education", "yop"]}
@@ -252,7 +269,7 @@ function ProfileStudent() {
               <Input placeholder="yyyy" />
             </Form.Item>
           </Col>
-          <Col lg={8} sm={24}>
+          <Col lg={24} sm={24}>
             <Form.Item
               label="CGPA"
               name={["education", "cgpa"]}
@@ -262,7 +279,6 @@ function ProfileStudent() {
             </Form.Item>
           </Col>
         </Row>
-        <Button htmlType="submit">Update</Button>
       </Form>
     );
   }
@@ -283,7 +299,7 @@ function ProfileStudent() {
     return window.btoa(binary);
   }
 
-  function resume() {
+  function Resume() {
     if (user.resume) {
       var base64 = _arrayBufferToBase64(user.resume.data);
     }
@@ -327,32 +343,162 @@ function ProfileStudent() {
   }
 
   return (
-    <div>
-      <DefaultLayout>
-        <Steps current={current}>
-          {steps.map((item) => (
-            <Step key={item.title} title={item.title} icon={item.icon} />
-          ))}
-        </Steps>
-
-        <div className="steps-content">{steps[current].content}</div>
-
-        <div className="steps-action">
-          {current > 0 && (
-            <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
-              Previous
-            </Button>
-          )}
-          {current < steps.length - 1 && (
-            <Button onClick={() => next()}>Next</Button>
-          )}
-
-          {current === steps.length - 1 && (
-            <Button onClick={() => message.success("Completed!")}>Done</Button>
-          )}
+    <DefaultLayout>
+      <div className="profile1">
+        <img className="bgImg" src={pic} />
+        <h3 style={{ textTransform: "uppercase" }}>
+          {user.firstName} {user.lastName}
+        </h3>
+        <h5>
+          {user.education.yop} Passout Batch - {user.collegeid}
+        </h5>
+        <p>
+          <span>
+            {user.education.course} | {user.education.currentYear} Year
+          </span>
+          <br />
+          <span>{user.education.branch}</span>
+          <br />
+          <span>{user.education.institute}</span>
+        </p>
+      </div>
+      <div className="profile2 container">
+        <div className="row">
+          <h5 className="pt-3 color col">About</h5>
+          <BiPencil
+            className="mt-3 mr-3"
+            style={{ fontSize: 25, cursor: "pointer", color: "#666f73" }}
+            onClick={showModal1}
+          />
         </div>
-      </DefaultLayout>
-    </div>
+
+        <hr className="pb-4" />
+        <div className="row">
+          <h6 className="col-4 color">Username</h6>
+          <h6 className="col">{user.username}</h6>
+        </div>
+        <hr />
+        <div className="row">
+          <h6 className="col-4 color">Name</h6>
+          <h6 className="col">
+            {user.firstName} {user.lastName}
+          </h6>
+        </div>
+        <hr />
+        <div className="row">
+          <h6 className="col-4 color">Date of Birth</h6>
+          <h6 className="col">{user.dob}</h6>
+        </div>
+        <hr />
+        <div className="row">
+          <h6 className="col-4 color">Gender</h6>
+          <h6 className="col">{user.gender}</h6>
+        </div>
+        <hr />
+        <div className="row">
+          <h6 className="col-4 color">About</h6>
+          <h6 className="col">{user.about}</h6>
+        </div>
+        <hr />
+        <h5 className="pt-5 color">Contact Details</h5>
+
+        <hr className="pb-4" />
+        <div className="row">
+          <h6 className="col-4 color">Contact No.</h6>
+          <h6 className="col">{user.contactNumber}</h6>
+        </div>
+        <hr />
+        <div className="row">
+          <h6 className="col-4 color">Personal Email ID</h6>
+          <h6 className="col">{user.email}</h6>
+        </div>
+        <hr />
+        <div className="row">
+          <h6 className="col-4 color">College Email ID</h6>
+          <h6 className="col">{user.collegeMail}</h6>
+        </div>
+        <hr />
+        <h5 className="pt-5 color">Address</h5>
+        <hr className="pb-4" />
+        <div className="row">
+          <h6 className="col-4 color">Address</h6>
+          <h6 className="col">{user.address}</h6>
+        </div>
+        <hr />
+        <Modal
+          title="Update Personal Details"
+          closable={false}
+          visible={isModalVisible1}
+          onOk={handleOk1}
+          onCancel={handleCancel1}
+          style={{ top: 50 }}
+          width={800}
+          footer={[
+            <Button onClick={handleCancel1}>Cancel</Button>,
+            <Button
+              form="myForm1"
+              key="submit"
+              htmlType="submit"
+              onClick={handleOk1}
+            >
+              Update
+            </Button>,
+          ]}
+        >
+          <PersonalDetails />
+        </Modal>
+      </div>
+      <div className="profile2 container">
+        <div className="row">
+          <h5 className="pt-3 color col">Education</h5>
+          <BiPencil
+            className="mt-3 mr-3"
+            style={{ fontSize: 25, cursor: "pointer", color: "#666f73" }}
+            onClick={showModal2}
+          />
+        </div>
+        <hr className="pb-4" />
+        <div className="row">
+          <h5 className="col-8">{user.education.branch}</h5>
+          <h5 className="col">CGPA - {user.education.cgpa} </h5>
+        </div>
+        <h6>{user.education.institute}</h6>
+        <h6>
+          {user.education.course} | {user.education.currentYear} Year
+        </h6>
+        <h6>{user.collegeid}</h6>
+        <h6>
+          Jul {user.education.yos} - May {user.education.yop}
+        </h6>
+        <Modal
+          title="Update Education"
+          closable={false}
+          visible={isModalVisible2}
+          onOk={handleOk2}
+          onCancel={handleCancel2}
+          style={{ top: 50 }}
+          width={800}
+          footer={[
+            <Button onClick={handleCancel2}>Cancel</Button>,
+            <Button
+              form="myForm2"
+              key="submit"
+              htmlType="submit"
+              onClick={handleOk2}
+            >
+              Update
+            </Button>,
+          ]}
+        >
+          <EducationDetails />
+        </Modal>
+      </div>
+      <div className="profile2 container">
+        <h5 className="pt-3 color">Resume</h5>
+        <hr className="pb-4" />
+        <Resume />
+      </div>
+    </DefaultLayout>
   );
 }
 

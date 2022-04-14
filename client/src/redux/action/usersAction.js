@@ -68,7 +68,7 @@ export const updateUser = (values) => async (dispatch) => {
 
   try {
     const user = await axios.post("/api/users/update", values);
-    message.success("User updated successfully");
+    message.success("Profile updated successfully");
     localStorage.setItem("user", JSON.stringify(user.data));
     setTimeout(() => {
       window.location.reload();

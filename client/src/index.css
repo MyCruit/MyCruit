@@ -11,7 +11,7 @@ code {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Header */
+/*Layout Header */
 
 .ant-layout-header {
   background: #dfe0f7 !important;
@@ -35,7 +35,7 @@ code {
   height: 40px;
 }
 
-/* Sider */
+/*Layout Sider */
 
 .ant-layout-sider {
   height: 100vh !important;
@@ -85,7 +85,7 @@ code {
   color: #5e60ce !important;
 }
 
-/* Content */
+/*Layout Content */
 
 .ant-layout-content {
   background: rgba(249, 250, 251) !important;
@@ -93,11 +93,6 @@ code {
 }
 
 /* Antd Button */
-
-.MuiButton-containedSecondary {
-  color: #fff;
-  background-color: #5e60ce !important;
-}
 
 .ant-btn {
   color: white !important;
@@ -109,6 +104,7 @@ code {
 
 .ant-btn:hover {
   color: black !important;
+  border: 1px solid black !important;
 }
 
 /* Loader */
@@ -137,35 +133,13 @@ p {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   background-color: white !important;
-}
-
-.job-div {
   border-radius: 15px !important;
 }
 
 /* Login & Registration */
 
-.authButton {
-  background: #5e60ce;
-  border-radius: 8px;
-  padding: 10px;
-  border: none;
-  font-size: 15px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  display: block;
-  width: 100px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.authButton:hover {
-  color: black !important;
-  background-color: #dfe0f7;
-}
-
 .login {
-  padding: 68px;
+  padding: 68.5px;
   background: linear-gradient(
     90deg,
     rgba(94, 96, 206, 1) 0%,
@@ -211,50 +185,88 @@ p {
 
 /* Profile Page of Student */
 
-.ant-steps {
-  width: 80% !important;
-  margin-left: 80px !important;
+.profile1 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  width: 62.5rem;
+  border-radius: 8px;
+  padding-bottom: 20px;
 }
 
-.ant-steps-item-custom.ant-steps-item-process
-  .ant-steps-item-icon
-  .ant-steps-icon {
-  color: #5e60ce !important;
+.profile2 {
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  width: 62.5rem;
+  border-radius: 8px;
+  padding: 30px;
 }
 
-.ant-steps-item-finish .ant-steps-item-icon .ant-steps-icon {
-  color: #5e60ce !important;
+.color {
+  color: #666f73;
 }
 
-.ant-steps-item-title:after {
-  background-color: #5e60ce !important;
+.bgImg {
+  margin-bottom: 40px;
+  width: 62.5rem;
+  height: 150px;
+  border-radius: 8px 8px 0 0;
 }
 
-.steps-content {
-  min-height: 200px;
-  width: 80%;
-  margin-top: 16px;
-  margin-left: 80px;
-  padding: 1em;
-  text-align: left;
-  border-radius: 5px;
-}
-
-.steps-action {
-  margin-top: 24px;
-  float: right;
-  margin-right: 170px;
-}
-
-.ant-message {
-  z-index: 9999 !important;
+#myForm1 {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 65vh;
+  padding: 10px 40px 10px 10px !important;
 }
 
 .ant-card {
   border-radius: 15px !important;
 }
 
+.ant-modal-content {
+  border-radius: 10px !important;
+}
+
+.ant-modal-header {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.ant-input,
+.ant-input-password {
+  border-radius: 8px !important;
+}
+
+.ant-input:hover,
+.ant-input:focus,
+.ant-input-password:hover,
+.ant-input-password:focus-within {
+  border-color: black !important;
+  box-shadow: none !important;
+}
+
+.ant-select-focused .ant-select-selector,
+.ant-select-selector:focus,
+.ant-select-selector:active,
+.ant-select-selector:hover,
+.ant-select-open .ant-select-selector {
+  border-color: black !important;
+  box-shadow: none !important;
+}
+
+.ant-select-selector {
+  border-radius: 8px !important;
+}
+
+.ant-select-item-option-selected {
+  background-color: #d2d2d5 !important;
+}
+
 /* resume frame */
+
 .resume-iframe {
   height: 450px;
   width: auto;

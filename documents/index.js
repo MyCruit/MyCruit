@@ -1,66 +1,58 @@
 module.exports = (values) => {
-	const {
-		// Profile-Information
-		firstname,
-		lastname,
-		email,
-		phone,
-		website,
-		github,
-		linkedin,
-		twitter,
-		facebook,
-		instagram,
+  const {
+    // Profile-Information
+    firstname,
+    lastname,
+    email,
+    phone,
+    website,
+    github,
+    linkedin,
 
-		// Education Information
-		college,
-		fromyear1,
-		toyear1,
-		qualification1,
-		description1,
-		school,
-		fromyear2,
-		toyear2,
-		qualification2,
-		description2,
+    // Education Information
+    college,
+    fromyear1,
+    toyear1,
+    qualification1,
+    description1,
+    school,
+    fromyear2,
+    toyear2,
+    qualification2,
+    description2,
 
-		// Project Information...
-		title1,
-		link1,
-		projectDescription1,
-		title2,
-		link2,
-		projectDescription2,
-		title3,
-		link3,
-		projectDescription3,
+    // Project Information...
+    title1,
+    projectDescription1,
+    title2,
+    projectDescription2,
 
-		// Experience Information
-		institute1,
-		position1,
-		duration1,
-		experienceDescription1,
-		institute2,
-		position2,
-		duration2,
-		experienceDescription2,
+    // Experience Information
+    institute1,
+    position1,
+    duration1,
+    experienceDescription1,
+    institute2,
+    position2,
+    duration2,
+    experienceDescription2,
 
-		// Extra Information
-		skill1,
-		skill2,
-		skill3,
-		skill4,
-		skill5,
-		skill6,
-		interest1,
-		interest2,
-		interest3,
-		interest4,
-		interest5,
-		interest6,
-	} = values;
+    // Extra Information
+    skill1,
+    skill2,
+    skill3,
+    skill4,
+    skill5,
+    skill6,
+    interest1,
+    interest2,
+    interest3,
+    interest4,
+    interest5,
+    interest6,
+  } = values;
 
-	let htmlTemplate = `
+  let htmlTemplate = `
   <!DOCTYPE html>
     <html>
     <head>
@@ -343,35 +335,35 @@ module.exports = (values) => {
 			<p class="mb-1"><span style="padding-right:10px;"><i class="fas fa-envelope"></i></span>${email}</p>
 			<p class="mb-1"><span style="padding-right:10px;"><i class="fas fa-phone-square-alt"></i></span>${phone}</p>
 			`;
-	if (skill1 != "" || skill1 != null)
-		htmlTemplate += `<p class="rela-block caps side-header">Skills</p>
+  if (skill1 != "" || skill1 != null)
+    htmlTemplate += `<p class="rela-block caps side-header">Skills</p>
 				<p class="rela-block list-thing">${skill1}</p>`;
-	if (skill2 != "" || skill2 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${skill2}</p>`;
-	if (skill3 != "" || skill3 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${skill3}</p>`;
-	if (skill4 != "" || skill4 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${skill4}</p>`;
-	if (skill5 != "" || skill5 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${skill5}</p>`;
-	if (skill6 != "" || skill6 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${skill6}</p>`;
+  if (skill2 != "" || skill2 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${skill2}</p>`;
+  if (skill3 != "" || skill3 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${skill3}</p>`;
+  if (skill4 != "" || skill4 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${skill4}</p>`;
+  if (skill5 != "" || skill5 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${skill5}</p>`;
+  if (skill6 != "" || skill6 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${skill6}</p>`;
 
-	if (interest1 != "" || interest1 != null)
-		htmlTemplate += `<p class="rela-block caps side-header">Interests</p>
+  if (interest1 != "" || interest1 != null)
+    htmlTemplate += `<p class="rela-block caps side-header">Interests</p>
 				<p class="rela-block list-thing">${interest1}</p>`;
-	if (interest2 != "" || interest2 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${interest2}</p>`;
-	if (interest3 != "" || interest3 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${interest3}</p>`;
-	if (interest4 != "" || interest4 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${interest4}</p>`;
-	if (interest6 != "" || interest6 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${interest5}</p>`;
-	if (interest6 != "" || interest6 != null)
-		htmlTemplate += `<p class="rela-block list-thing">${interest6}</p>`;
+  if (interest2 != "" || interest2 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${interest2}</p>`;
+  if (interest3 != "" || interest3 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${interest3}</p>`;
+  if (interest4 != "" || interest4 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${interest4}</p>`;
+  if (interest6 != "" || interest6 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${interest5}</p>`;
+  if (interest6 != "" || interest6 != null)
+    htmlTemplate += `<p class="rela-block list-thing">${interest6}</p>`;
 
-	htmlTemplate += `
+  htmlTemplate += `
   			</div>
 			<div class="rela-block content-container">
 			<!--
@@ -381,9 +373,6 @@ module.exports = (values) => {
 			<div class="rela-block caps greyed">Profile</div>
 			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fas fa-globe"></i></span>${website}</p>
 			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-github"></i></span>${github}</p>
-			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-facebook"></i></span>${facebook}</p>
-			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-twitter-square"></i></span>${twitter}</p>
-			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-instagram"></i></span>${instagram}</p>
 			<p class="rela-block social mb-4"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-linkedin"></i></span>${linkedin}</p>			
 			
 			
@@ -408,17 +397,15 @@ module.exports = (values) => {
 
 			<div class="rela-block caps greyed">Projects</div>
             <h3>${title1}</h3>
-            <p class="light mt-1 mb-2" style="font-size:17px;"><span class="mr-2"><i class="fas fa-link"></i></span>${link1}</p>
-            <p class="justified" style="font-size:17px;">${experienceDescription1}</p>
+            <p class="justified" style="font-size:17px;">${projectDescription1}</p>
             
             <h3>${title2}</h3>
-            <p class="light mt-1 mb-2" style="font-size:17px;"><span class="mr-2"><i class="fas fa-link"></i></span>${link1}</p>
-            <p class="justified" style="font-size:17px;">${experienceDescription2}</p>
+            <p class="justified" style="font-size:17px;">${projectDescription2}</p>
 			
         </div>
     </div>
     </body>
     </html>
   `;
-	return htmlTemplate;
+  return htmlTemplate;
 };
