@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Job = require("../models/jobModel");
 const Student = require("../models/studentModel");
+const Company = require("../models/companyModel");
 
 router.get("/getalljobs", async (req, res) => {
   try {
@@ -13,10 +14,22 @@ router.get("/getalljobs", async (req, res) => {
 });
 
 router.post("/postjob", async (req, res) => {
+  const { user, values } = req.body;
+
   try {
-    const newjob = new Job(req.body);
+    const newjob = new Job(values);
     await newjob.save();
-    res.send(newjob);
+
+    const userDetails = await Company.findOne({ _id: user._id });
+
+    const postedJob = {
+      jobid: newjob._id,
+    };
+
+    userDetails.postedJobs.push(postedJob);
+
+    await userDetails.save();
+    res.send(userDetails);
   } catch (error) {
     return res.status(400).json({ error });
   }

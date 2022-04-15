@@ -7,9 +7,9 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 function HomeCompany() {
-  const alljobs = useSelector((state) => state.jobReducer).jobs;
-  const userid = JSON.parse(localStorage.getItem("user"))._id;
-  const userPostedJobs = alljobs.filter((job) => job.companyid == userid);
+  const { jobs } = useSelector((state) => state.jobReducer);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userPostedJobs = jobs.filter((job) => job.companyid == user._id);
   return (
     <DefaultLayout>
       {userPostedJobs.length === 0 ? (
@@ -52,32 +52,6 @@ function HomeCompany() {
               </Col>
             </Row>
           </Link>
-
-          // <Link to={`/jobs/${job._id}`}>
-          //   <Card
-          //     type="inner"
-          //     title={<h4>{job.jobProfile}</h4>}
-          //     extra={
-          //       <Link to={`/jobs/${job._id}`}>
-          //         <RightOutlined />
-          //       </Link>
-          //     }
-          //     className="m-4 bs"
-          //     hoverable={true}
-          //   >
-          //     <div className="flex justify-content-between">
-          //       <div>
-          //         <p>
-          //           Job Type : <b>{job.jobType}</b>
-          //         </p>
-          //         <p>
-          //           Applied Candidates : <b>{job.appliedCandidates.length}</b>
-          //         </p>
-          //
-          //       <p>Posted on : {moment(job.createdAt).format("MMM DD yyyy")}</p>
-          //     </div>
-          //   </Card>
-          // </Link>
         );
       })}
     </DefaultLayout>

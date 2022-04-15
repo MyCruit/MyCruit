@@ -27,11 +27,9 @@ function HomeStudent() {
       )}
       <Row gutter={16}>
         {jobs.map((job) => {
-          console.log(companies);
           let response = companies.find(
             (company) => company._id === job.companyid
           );
-          console.log(response);
           return (
             <Col lg={12} sm={24}>
               <div className="bs m-4 p-3">

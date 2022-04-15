@@ -28,10 +28,10 @@ function App() {
     const getAll = async () => {
       const allcompanies = await getAllCompanies();
       dispatch(allcompanies);
-      const allstudents = await getAllStudents();
-      dispatch(allstudents);
       const alljobs = await getAllJobs();
       dispatch(alljobs);
+      const allstudents = await getAllStudents();
+      dispatch(allstudents);
     };
 
     getAll();
