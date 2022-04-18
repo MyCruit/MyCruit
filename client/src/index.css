@@ -402,10 +402,18 @@ p {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
 .cardname {
   padding-top: 18px;
   height: 80px;
   text-align: center;
   background: white;
   border-radius: 0px 0px 10px 10px;
+}
+
+.card img {
+  margin-top: 10px;
+  width: 320px;
+  /* position: absolute;
+  top:10%; */
 }

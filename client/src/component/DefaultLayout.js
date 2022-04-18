@@ -172,10 +172,12 @@ class DefaultLayout extends React.Component {
           }}
         >
           <div className="flex justify-content-between">
-            <div className="logo">
-              <img src={pic} alt="Logo"></img>
-              <h1>MyCruit</h1>
-            </div>
+            <Link to="/">
+              <div className="logo">
+                <img src={pic} alt="Logo"></img>
+                <h1>MyCruit</h1>
+              </div>
+            </Link>
             <div>
               <h5 className="mr-5 mb-4">{user.username}</h5>
             </div>

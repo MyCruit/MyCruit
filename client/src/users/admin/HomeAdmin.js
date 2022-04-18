@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DefaultLayoutAdmin from "../../component/DefaultLayoutAdmin";
-import companyPic from "../../img/companyPic.png";
-import studentPic from "../../img/studentPic.png";
+import companyPic from "../../img/company.png";
+import studentPic from "../../img/student.png";
 
 function HomeAdmin() {
   return (

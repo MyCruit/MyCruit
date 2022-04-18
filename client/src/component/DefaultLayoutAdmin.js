@@ -25,10 +25,12 @@ class DefaultLayoutAdmin extends React.Component {
           }}
         >
           <div className="flex justify-content-between">
-            <div className="logo">
-              <img src={pic} alt="Logo"></img>
-              <h1>MyCruit</h1>
-            </div>
+            <Link to="/">
+              <div className="logo">
+                <img src={pic} alt="Logo"></img>
+                <h1>MyCruit</h1>
+              </div>
+            </Link>
             <div className="flex">
               <Link to="/home">
                 <h6 className="mr-5 mb-4">Home</h6>
