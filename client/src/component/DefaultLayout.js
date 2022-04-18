@@ -186,7 +186,6 @@ class DefaultLayout extends React.Component {
           <Sider
             style={{
               position: "sticky",
-              height: "100%",
               top: 0,
             }}
           >
