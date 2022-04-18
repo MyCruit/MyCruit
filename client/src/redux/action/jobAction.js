@@ -23,7 +23,7 @@ export const postJob = (values) => async (dispatch) => {
     message.success("Job Posted Successfully");
     localStorage.setItem("user", JSON.stringify(userDetails.data));
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/home";
     }, 1000);
   } catch (error) {
     console.log(error);
@@ -40,7 +40,7 @@ export const applyJob = (job) => async (dispatch) => {
     message.success("Job applied Successfully");
     localStorage.setItem("user", JSON.stringify(userDetails.data));
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/home";
     }, 1000);
   } catch (error) {
     console.log(error);

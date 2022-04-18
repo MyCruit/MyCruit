@@ -25,7 +25,7 @@ export const loginUser = (values) => async (dispatch) => {
     message.success("Login Successfully");
     localStorage.setItem("user", JSON.stringify(user.data));
     setTimeout(() => {
-      window.location.href = "/";
+      window.location.href = "/home";
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {

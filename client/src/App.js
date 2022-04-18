@@ -19,6 +19,7 @@ import AppliedJobs from "./users/student/AppliedJobs";
 import Resume from "./users/student/Resume";
 import Post from "./users/company/Post";
 import ProfileCompany from "./users/company/ProfileCompany";
+import MainPage from "./users/pages/MainPage";
 
 const user = JSON.parse(localStorage.getItem("user"));
 function App() {
@@ -47,8 +48,9 @@ function App() {
 
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<MainPage />} />
           <Route
-            path="/"
+            path="/home"
             element={
               !user ? (
                 <Login />

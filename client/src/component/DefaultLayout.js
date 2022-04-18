@@ -31,8 +31,8 @@ const CompanyMenu = () => {
   };
   return (
     <Menu defaultSelectedKeys={[window.location.pathname]}>
-      <Menu.Item key="/">
-        <Link to="/">
+      <Menu.Item key="/home">
+        <Link to="/home">
           <div className="navbar">
             <HomeOutlined className="navbar-icon m-1" />
             <h6>Home</h6>
@@ -101,8 +101,8 @@ const StudentMenu = () => {
 
   return (
     <Menu defaultSelectedKeys={[window.location.pathname]}>
-      <Menu.Item key="/">
-        <Link to="/">
+      <Menu.Item key="/home">
+        <Link to="/home">
           <div className="navbar">
             <HomeOutlined className="navbar-icon m-1" />
             <h6>Home</h6>
