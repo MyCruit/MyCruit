@@ -6,48 +6,69 @@ import { CaretRightOutlined } from "@ant-design/icons";
 
 function MainPage() {
   return (
-    <div className="main-page">
-      <div className="logo pt-5">
-        <img style={{ marginLeft: 50 }} src={logo} alt="Logo"></img>
-        <h1 style={{ marginRight: 250 }}>MyCruit</h1>
-        <Link to="" className="mr-5 mt-1">
-          <h4>Student</h4>
-        </Link>
-        <Link to="" className="mr-5 mt-1">
-          <h4>Company</h4>
-        </Link>
-        <Link to="" className="mr-5 mt-1">
-          <h4>About</h4>
-        </Link>
-        <Link to="" className="mt-1" style={{ marginRight: 150 }}>
-          <h4>FAQs</h4>
-        </Link>
-        <Link to="/register">
-          <button className="btn-y">Register</button>
-        </Link>
-        <Link to="/login">
-          <button className="btn-y">Login</button>
-        </Link>
-      </div>
-      <div>
-        <p className="main-title">
-          Browse. <br />
-          Apply. <br />
-          Prepare Your Future.
-        </p>
-
-        <p className="main-content">
-          Make campus recruitment processes digitized, <br />
-          smart and data driven to boost efficiencies and save costs.
-        </p>
-        <Link to="/register">
-          <button className="btn-y" style={{ marginLeft: 120, marginTop: 40 }}>
-            Get Started <CaretRightOutlined style={{ fontSize: 18 }} />
-          </button>
-        </Link>
-        <div className="main-pic">
-          <img src={mainPic}></img>
+    <div>
+      <div className="main-page pb-5">
+        <div className="logo pt-4">
+          <img style={{ marginLeft: 50 }} src={logo} alt="Logo"></img>
+          <h1 style={{ marginRight: 250 }}>MyCruit</h1>
+          <a href="#student" className="mr-5 mt-1">
+            <h4>Student</h4>
+          </a>
+          <a href="#company" className="mr-5 mt-1">
+            <h4>Company</h4>
+          </a>
+          <a href="#about" className="mr-5 mt-1">
+            <h4>About</h4>
+          </a>
+          <a href="#faq" className="mt-1" style={{ marginRight: 150 }}>
+            <h4>FAQs</h4>
+          </a>
+          <Link to="/register">
+            <button className="btn-y">Register</button>
+          </Link>
+          <Link to="/login">
+            <button className="btn-y">Login</button>
+          </Link>
         </div>
+
+        <div>
+          <p className="main-title">
+            Browse. <br />
+            Apply. <br />
+            Prepare Your Future.
+          </p>
+          <p className="main-content">
+            Make campus recruitment processes digitized, <br />
+            smart and data driven to boost efficiencies and save costs.
+          </p>
+          <Link to="/register">
+            <button
+              className="btn-y"
+              style={{ marginLeft: 120, marginTop: 40, marginBottom: 5 }}
+            >
+              Get Started <CaretRightOutlined style={{ fontSize: 18 }} />
+            </button>
+          </Link>
+          <div className="main-pic">
+            <img src={mainPic}></img>
+          </div>
+        </div>
+      </div>
+
+      <div className="main-student" id="student">
+        <h1>student</h1>
+      </div>
+      <div className="main-page" id="company">
+        <h1>company</h1>
+      </div>
+      <div className="main-student" id="about">
+        <h1>about</h1>
+      </div>
+      <div className="main-page" id="faq">
+        <h1>faqs</h1>
+      </div>
+      <div className="main-student">
+        <h1>footerd</h1>
       </div>
     </div>
   );
