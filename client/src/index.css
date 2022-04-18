@@ -368,6 +368,7 @@ p {
 
 /* admin page cards */
 .card{
+  
   max-width: 320px;
   margin-right:50px;
   background: #5e60ce5d;
@@ -383,4 +384,10 @@ p {
   text-align: center;
   background: white;
   border-radius: 0px 0px 10px 10px;
+}
+.card img{
+  margin-top:10px;
+  width: 320px;
+  /* position: absolute;
+  top:10%; */
 }
