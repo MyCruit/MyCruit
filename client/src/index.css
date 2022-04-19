@@ -14,7 +14,12 @@ code {
 /*Layout Header */
 
 .ant-layout-header {
-  background: #dfe0f7 !important;
+  background: linear-gradient(
+    59deg,
+    rgba(244, 231, 249, 1) 0%,
+    rgba(220, 179, 249, 1) 23%,
+    rgba(153, 77, 225, 1) 100%
+  ) !important;
   height: 64px !important;
 }
 
@@ -136,27 +141,6 @@ p {
   border-radius: 15px !important;
 }
 
-/* Main Page  */
-
-.main-page {
-  background: linear-gradient(
-    90deg,
-    rgba(172, 123, 253, 1) 15%,
-    rgba(146, 83, 248, 1) 29%,
-    rgba(142, 72, 244, 1) 42%,
-    rgba(153, 77, 225, 1) 60%,
-    rgba(179, 99, 174, 1) 80%,
-    rgba(196, 111, 139, 1) 90%,
-    rgba(206, 119, 114, 1) 100%
-  );
-  height: 105vh;
-  position: relative;
-}
-
-.main-page h4 {
-  color: #ead5f9;
-}
-
 .btn-y {
   background: linear-gradient(
     90deg,
@@ -208,13 +192,34 @@ p {
   box-shadow: none;
 } */
 
+/* Main Page  */
+
+.main-page {
+  background: linear-gradient(
+    90deg,
+    rgba(172, 123, 253, 1) 15%,
+    rgba(146, 83, 248, 1) 29%,
+    rgba(142, 72, 244, 1) 42%,
+    rgba(153, 77, 225, 1) 60%,
+    rgba(179, 99, 174, 1) 80%,
+    rgba(196, 111, 139, 1) 90%,
+    rgba(206, 119, 114, 1) 100%
+  );
+
+  position: relative;
+}
+
+.main-page h4 {
+  color: #ead5f9;
+}
+
 .main-title {
   color: white;
   font-weight: 800 !important;
   font-size: 80px !important;
   margin-left: 120px !important;
   line-height: 1.35;
-  margin-top: 40px !important;
+  margin-top: 45px !important;
   text-shadow: 3px 3px 10px rgba(74, 12, 112, 0.662);
 }
 
@@ -235,15 +240,27 @@ p {
   width: 500px;
 }
 
+.main-student {
+  background: linear-gradient(
+    75deg,
+    rgba(237, 239, 241, 1) 0%,
+    rgba(244, 231, 249, 1) 52%
+  );
+}
+
 /* Login & Registration */
 
 .login {
   padding: 68.5px;
   background: linear-gradient(
     90deg,
-    rgba(94, 96, 206, 1) 0%,
-    rgba(223, 224, 247, 1) 50%,
-    rgba(94, 96, 206, 1) 100%
+    rgba(172, 123, 253, 1) 15%,
+    rgba(146, 83, 248, 1) 29%,
+    rgba(142, 72, 244, 1) 42%,
+    rgba(153, 77, 225, 1) 60%,
+    rgba(179, 99, 174, 1) 80%,
+    rgba(196, 111, 139, 1) 90%,
+    rgba(206, 119, 114, 1) 100%
   );
 }
 
@@ -252,7 +269,11 @@ p {
 }
 
 .authPic {
-  background-color: #dfe0f7 !important;
+  background: linear-gradient(
+    75deg,
+    rgba(237, 239, 241, 1) 0%,
+    rgba(244, 231, 249, 1) 52%
+  );
   border-radius: 10px 0px 0px 10px !important;
 }
 
@@ -269,9 +290,13 @@ p {
 .register {
   background: linear-gradient(
     90deg,
-    rgba(94, 96, 206, 1) 0%,
-    rgba(223, 224, 247, 1) 50%,
-    rgba(94, 96, 206, 1) 100%
+    rgba(172, 123, 253, 1) 15%,
+    rgba(146, 83, 248, 1) 29%,
+    rgba(142, 72, 244, 1) 42%,
+    rgba(153, 77, 225, 1) 60%,
+    rgba(179, 99, 174, 1) 80%,
+    rgba(196, 111, 139, 1) 90%,
+    rgba(206, 119, 114, 1) 100%
   );
   padding: 68px;
 }
@@ -374,23 +399,22 @@ p {
 }
 
 /* admin page cards */
-.card{
-  
+.card {
   max-width: 320px;
-  margin-right:50px;
+  margin-right: 50px;
   background: #5e60ce5d;
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .card:hover{
   transform: scale(1.1);
 }
 
-.cardname{
-  padding-top:18px;
+.cardname {
+  padding-top: 18px;
   height: 80px;
   text-align: center;
   background: white;
