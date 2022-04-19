@@ -75,7 +75,7 @@ export const updateUser = (values) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("Something went Wrong , Please try Later");
+    message.error("Something Went Wrong. Please try Later");
     dispatch({ type: "LOADING", payload: false });
   }
 };
@@ -92,7 +92,7 @@ export const updateResume = (formdata) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("Something went Wrong , Please try Later");
+    message.error("Something Went Wrong, Please try Later");
     dispatch({ type: "LOADING", payload: false });
   }
 };

@@ -15,11 +15,12 @@ code {
 
 .ant-layout-header {
   background: linear-gradient(
-    59deg,
-    rgba(244, 231, 249, 1) 0%,
-    rgba(220, 179, 249, 1) 23%,
-    rgba(153, 77, 225, 1) 100%
+    90deg,
+    rgba(220, 179, 249, 1) 0%,
+    rgba(172, 123, 253, 1) 50%,
+    rgba(220, 179, 249, 1) 100%
   ) !important;
+
   height: 64px !important;
 }
 
@@ -206,6 +207,8 @@ p {
     rgba(206, 119, 114, 1) 100%
   );
   position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .main-page h4 {
@@ -251,10 +254,11 @@ p {
 
 .main-student {
   background: linear-gradient(
-    75deg,
-    rgba(237, 239, 241, 1) 0%,
-    rgba(244, 231, 249, 1) 52%
+    59deg,
+    rgba(220, 179, 249, 1) 0%,
+    rgba(244, 231, 249, 1) 72%
   );
+  box-shadow: rgba(0, 0, 0, 0.3) 0px -50px 36px -28px inset;
 }
 
 /* Login & Registration */
@@ -279,9 +283,9 @@ p {
 
 .authPic {
   background: linear-gradient(
-    75deg,
-    rgba(237, 239, 241, 1) 0%,
-    rgba(244, 231, 249, 1) 52%
+    59deg,
+    rgba(220, 179, 249, 1) 0%,
+    rgba(244, 231, 249, 1) 72%
   );
   border-radius: 10px 0px 0px 10px !important;
 }
@@ -318,12 +322,40 @@ p {
 
 /* Profile Page of Student */
 
+.profilePhoto {
+  position: absolute;
+  top: 17%;
+  left: 42%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.profile:hover .editProfile {
+  display: block;
+}
+
+.editProfile {
+  cursor: pointer;
+  color: black;
+  position: absolute;
+  top: 30%;
+  left: 48%;
+  display: none;
+}
+
 .profile1 {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   width: 62.5rem;
   padding-bottom: 20px;
+  position: relative;
 }
 
 .profile2 {
@@ -345,7 +377,8 @@ p {
   border-radius: 8px 8px 0 0;
 }
 
-#myForm1 {
+#myForm1,
+#myForm3 {
   overflow-y: auto;
   overflow-x: hidden;
   height: 65vh;
@@ -394,12 +427,6 @@ p {
   background-color: #d2d2d5 !important;
 }
 
-/* profile Photo */
-.profilePhoto{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
 /* resume frame */
 
 .resume-iframe {
@@ -419,7 +446,8 @@ p {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.card:hover{
+
+.card:hover {
   transform: scale(1.1);
 }
 
@@ -430,6 +458,7 @@ p {
   background: white;
   border-radius: 0px 0px 10px 10px;
 }
-.card img{
-  padding:15px;
+
+.card img {
+  padding: 15px;
 }

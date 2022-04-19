@@ -104,8 +104,8 @@ const upload2 = multer({
     // fileSize: 1000000,
   },
   fileFilter(req, file, cb) {
-    if (!file.originalname.endsWith(".jpeg")) {
-      return cb(new Error("Provide an jpeg"));
+    if (!file.originalname.endsWith(".jpg")) {
+      return cb(new Error("Provide an jpg"));
     }
     cb(undefined, true);
   },

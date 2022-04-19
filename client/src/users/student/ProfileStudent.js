@@ -17,8 +17,10 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 function ProfileStudent() {
   const dispatch = useDispatch();
-  const [isModalVisible1, setIsModalVisible1] = useState(false);
-  const [isModalVisible2, setIsModalVisible2] = useState(false);
+  const [isModalVisible1, setIsModalVisible1] = useState(false); //Personal Details
+  const [isModalVisible2, setIsModalVisible2] = useState(false); //Education Details
+  const [isModalVisible3, setIsModalVisible3] = useState(false); //Resume
+  const [isModalVisible4, setIsModalVisible4] = useState(false); //Profile Photo
   const [file, setFile] = useState("");
   const [disable, setDisable] = useState(true);
 
@@ -30,6 +32,14 @@ function ProfileStudent() {
     setIsModalVisible2(true);
   }
 
+  function showModal3() {
+    setIsModalVisible3(true);
+  }
+
+  function showModal4() {
+    setIsModalVisible4(true);
+  }
+
   function handleOk1() {
     setIsModalVisible1(false);
   }
@@ -38,12 +48,28 @@ function ProfileStudent() {
     setIsModalVisible2(false);
   }
 
+  function handleOk3() {
+    setIsModalVisible3(false);
+  }
+
+  function handleOk4() {
+    setIsModalVisible4(false);
+  }
+
   function handleCancel1() {
     setIsModalVisible1(false);
   }
 
   function handleCancel2() {
     setIsModalVisible2(false);
+  }
+
+  function handleCancel3() {
+    setIsModalVisible3(false);
+  }
+
+  function handleCancel4() {
+    setIsModalVisible4(false);
   }
 
   function onPersonInfoSubmit(values) {
@@ -286,6 +312,7 @@ function ProfileStudent() {
       </Form>
     );
   }
+
   // handle update for resume
   const handleUpdate1 = () => {
     let formdata = new FormData();
@@ -310,16 +337,49 @@ function ProfileStudent() {
     return window.btoa(binary);
   }
 
-  function Resume() {
-    if (user.resume) {
-      var base64 = _arrayBufferToBase64(user.resume.data);
-    }
+  function showResume() {
+    if (user.resume) var base64 = _arrayBufferToBase64(user.resume.data);
     return (
-      <Form layout="vertical">
-        <Form.Item label="Upload Your Resume">
+      <div>
+        {user.resume ? (
+          <iframe
+            src={`data:application/pdf;base64,${base64}`}
+            className="resume-iframe"
+          />
+        ) : (
+          <div>No Resume Uploaded</div>
+        )}
+      </div>
+    );
+  }
+
+  function showPhoto() {
+    if (user.profilePhoto)
+      var base64 = _arrayBufferToBase64(user.profilePhoto.data);
+    return (
+      <div>
+        {user.profilePhoto ? (
+          <img
+            className="profilePhoto"
+            src={`data:image/jpg;base64,${base64}`}
+          />
+        ) : (
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w"
+            className="profilePhoto"
+          />
+        )}
+      </div>
+    );
+  }
+
+  function ProfilePhoto() {
+    return (
+      <Form id="myForm4" layout="vertical" onFinish={handleUpdate2}>
+        <Form.Item>
           <Upload
-            name="resume"
-            accept="application/pdf"
+            name="profilePhoto"
+            accept="image/jpg"
             maxCount={1}
             beforeUpload={(file) => {
               setFile(file);
@@ -330,76 +390,67 @@ function ProfileStudent() {
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
         </Form.Item>
-        <div>
-          {user.resume ? (
-            <iframe
-              src={`data:application/pdf;base64,${base64}`}
-              className="resume-iframe"
-            />
-          ) : (
-            <div>No Resume Uploaded</div>
-          )}
-        </div>
-
-        <Button
-          htmlType="submit"
-          onClick={() => handleUpdate1()}
-          disabled={disable}
-          className="mt-3"
-        >
-          Update
-        </Button>
+        <div>{showPhoto()}</div>
       </Form>
     );
   }
 
-  if (user.profilePhoto) {
-    var base64 = _arrayBufferToBase64(user.profilePhoto.data);
+  function Resume() {
+    return (
+      <Form id="myForm3" layout="vertical" onFinish={handleUpdate1}>
+        <Form.Item>
+          <Upload
+            name="resume"
+            accept="application/pdf"
+            maxCount={1}
+            beforeUpload={(file) => {
+              setFile(file);
+            }}
+            fileList={file === "" ? [] : [file]}
+          >
+            <Button icon={<UploadOutlined />}>Click to Upload</Button>
+          </Upload>
+        </Form.Item>
+        {showResume()}
+      </Form>
+    );
   }
+
   return (
     <DefaultLayout>
       <div className="profile1 bs">
         <img className="bgImg" src={pic} />
-        <Form className="flex">
-          <Form.Item>
-            <Upload
-              name="profilePhoto"
-              accept="image/jpeg"
-              maxCount={1}
-              beforeUpload={(file) => {
-                setFile(file);
-                setDisable(false);
-              }}
-              fileList={file === "" ? [] : [file]}
-            >
-              <Button icon={<UploadOutlined />}></Button>
-            </Upload>
-          </Form.Item>
-          <div>
-            {user.profilePhoto ? (
-              <img
-                src={`data:image/jpeg;base64,${base64}`}
-                className="profilePhoto"
-              />
-            ) : (
-              <img
-                src="https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w"
-                className="profilePhoto"
-              />
-            )}
+        <div className="profile" onClick={showModal4}>
+          {showPhoto()}
+          <div className="editProfile">
+            <BiPencil style={{ fontSize: 40 }} />
           </div>
+        </div>
 
-          <Button
-            htmlType="submit"
-            onClick={() => handleUpdate2()}
-            disabled={disable}
-            className="mt-3"
-          >
-            Update
-          </Button>
-        </Form>
-
-        <h3 style={{ textTransform: "uppercase" }}>
+        <Modal
+          title="Update Profile Photo"
+          closable={false}
+          visible={isModalVisible4}
+          onOk={handleOk4}
+          onCancel={handleCancel4}
+          style={{ top: 150 }}
+          bodyStyle={{ height: 200 }}
+          width={500}
+          footer={[
+            <Button onClick={handleCancel4}>Cancel</Button>,
+            <Button
+              form="myForm4"
+              key="submit"
+              htmlType="submit"
+              onClick={handleOk4}
+            >
+              Update
+            </Button>,
+          ]}
+        >
+          <ProfilePhoto />
+        </Modal>
+        <h3 style={{ textTransform: "uppercase", marginTop: 50 }}>
           {user.firstName} {user.lastName}
         </h3>
         <h5>
@@ -546,10 +597,40 @@ function ProfileStudent() {
           <EducationDetails />
         </Modal>
       </div>
-      <div className="profile2 bs">
-        <h5 className="pt-3 color">Resume</h5>
+      <div className="profile2 bs pb-5">
+        <div className="row">
+          <h5 className="pt-3 color col">Resume</h5>
+          <BiPencil
+            className="mt-3 mr-3"
+            style={{ fontSize: 25, cursor: "pointer", color: "#666f73" }}
+            onClick={showModal3}
+          />
+        </div>
         <hr className="pb-4" />
-        <Resume />
+        <div>{showResume()}</div>
+
+        <Modal
+          title="Update Resume"
+          closable={false}
+          visible={isModalVisible3}
+          onOk={handleOk3}
+          onCancel={handleCancel3}
+          style={{ top: 50 }}
+          width={800}
+          footer={[
+            <Button onClick={handleCancel3}>Cancel</Button>,
+            <Button
+              form="myForm3"
+              key="submit"
+              htmlType="submit"
+              onClick={handleOk3}
+            >
+              Update
+            </Button>,
+          ]}
+        >
+          <Resume />
+        </Modal>
       </div>
     </DefaultLayout>
   );
