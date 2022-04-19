@@ -1,10 +1,10 @@
 import React from "react";
-import DefaultLayoutAdmin from "../../component/DefaultLayoutAdmin";
+import DefaultLayout from "../../component/DefaultLayout";
 function StudentList() {
   return (
-    <DefaultLayoutAdmin>
+    <DefaultLayout>
       <h1>Student List</h1>
-    </DefaultLayoutAdmin>
+    </DefaultLayout>
   );
 }
 

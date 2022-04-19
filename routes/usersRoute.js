@@ -99,6 +99,17 @@ const upload = multer({
     cb(undefined, true);
   },
 });
+const upload2 = multer({
+  limits: {
+    // fileSize: 1000000,
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.endsWith(".jpeg")) {
+      return cb(new Error("Provide an jpeg"));
+    }
+    cb(undefined, true);
+  },
+});
 
 router.post("/resume", upload.single("resume"), async (req, res) => {
   try {
@@ -115,5 +126,25 @@ router.post("/resume", upload.single("resume"), async (req, res) => {
     return res.status(400).json({ error });
   }
 });
+
+router.post(
+  "/profilePhoto",
+  upload2.single("profilePhoto"),
+  async (req, res) => {
+    try {
+      // await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
+      await Student.findOneAndUpdate(
+        { _id: req.body._id },
+        {
+          profilePhoto: req.file.buffer,
+        }
+      );
+      const user = await Student.findOne({ _id: req.body._id });
+      res.send(user);
+    } catch (error) {
+      return res.status(400).json({ error });
+    }
+  }
+);
 
 module.exports = router;

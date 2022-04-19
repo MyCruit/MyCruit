@@ -4,7 +4,11 @@ import { BiPencil } from "react-icons/bi";
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Modal, Form, Input, Select, Row, Col, Upload } from "antd";
 import { useDispatch } from "react-redux";
-import { updateUser, updateResume } from "../../redux/action/usersAction";
+import {
+  updateUser,
+  updateResume,
+  updateProfilePhoto,
+} from "../../redux/action/usersAction";
 import pic from "../../img/profile.png";
 
 const { Option } = Select;
@@ -282,11 +286,18 @@ function ProfileStudent() {
       </Form>
     );
   }
-
-  const handleUpdate = () => {
+  // handle update for resume
+  const handleUpdate1 = () => {
     let formdata = new FormData();
     formdata.append("resume", file);
     dispatch(updateResume(formdata));
+  };
+
+  //handle update for profile photo
+  const handleUpdate2 = () => {
+    let formdata = new FormData();
+    formdata.append("profilePhoto", file);
+    dispatch(updateProfilePhoto(formdata));
   };
 
   function _arrayBufferToBase64(buffer) {
@@ -332,7 +343,7 @@ function ProfileStudent() {
 
         <Button
           htmlType="submit"
-          onClick={() => handleUpdate()}
+          onClick={() => handleUpdate1()}
           disabled={disable}
           className="mt-3"
         >
@@ -342,10 +353,52 @@ function ProfileStudent() {
     );
   }
 
+  if (user.profilePhoto) {
+    var base64 = _arrayBufferToBase64(user.profilePhoto.data);
+  }
   return (
     <DefaultLayout>
       <div className="profile1 bs">
         <img className="bgImg" src={pic} />
+        <Form className="flex">
+          <Form.Item>
+            <Upload
+              name="profilePhoto"
+              accept="image/jpeg"
+              maxCount={1}
+              beforeUpload={(file) => {
+                setFile(file);
+                setDisable(false);
+              }}
+              fileList={file === "" ? [] : [file]}
+            >
+              <Button icon={<UploadOutlined />}></Button>
+            </Upload>
+          </Form.Item>
+          <div>
+            {user.profilePhoto ? (
+              <img
+                src={`data:image/jpeg;base64,${base64}`}
+                className="profilePhoto"
+              />
+            ) : (
+              <img
+                src="https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w"
+                className="profilePhoto"
+              />
+            )}
+          </div>
+
+          <Button
+            htmlType="submit"
+            onClick={() => handleUpdate2()}
+            disabled={disable}
+            className="mt-3"
+          >
+            Update
+          </Button>
+        </Form>
+
         <h3 style={{ textTransform: "uppercase" }}>
           {user.firstName} {user.lastName}
         </h3>

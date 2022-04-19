@@ -15,10 +15,7 @@ const studentSchema = new mongoose.Schema(
     contactNumber: { type: String, default: "" },
     dob: { type: String, default: "" },
     gender: { type: String, default: "" },
-    profilePhoto: {
-      type: Buffer,
-      default: "",
-    },
+    profilePhoto: { type: Buffer },
     collegeMail: { type: String, default: "" },
     resume: { type: Buffer },
     about: { type: String, default: "" },
