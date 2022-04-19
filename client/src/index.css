@@ -177,6 +177,7 @@ p {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   border: none;
+  transform: scale(1.1);
 }
 
 .btn-y:focus {
@@ -359,6 +360,12 @@ p {
   background-color: #d2d2d5 !important;
 }
 
+/* profile Photo */
+.profilePhoto{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
 /* resume frame */
 
 .resume-iframe {
@@ -378,6 +385,10 @@ p {
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+.card:hover{
+  transform: scale(1.1);
+}
+
 .cardname{
   padding-top:18px;
   height: 80px;
@@ -386,8 +397,5 @@ p {
   border-radius: 0px 0px 10px 10px;
 }
 .card img{
-  margin-top:10px;
-  width: 320px;
-  /* position: absolute;
-  top:10%; */
+  padding:15px;
 }
