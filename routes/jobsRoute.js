@@ -42,6 +42,7 @@ router.post("/applyjob", async (req, res) => {
     const jobDetails = await Job.findOne({ _id: job._id });
     const appliedCandidate = {
       userid: user._id,
+      status: "Applied",
     };
 
     jobDetails.appliedCandidates.push(appliedCandidate);
@@ -52,6 +53,7 @@ router.post("/applyjob", async (req, res) => {
 
     const appliedJob = {
       jobid: job._id,
+      status: "Applied",
     };
 
     userDetails.appliedJobs.push(appliedJob);
@@ -59,6 +61,54 @@ router.post("/applyjob", async (req, res) => {
     await userDetails.save();
 
     res.send(userDetails);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+router.post("/select", async (req, res) => {
+  const { user_id, job } = req.body;
+
+  try {
+    await Job.findOneAndUpdate(
+      { _id: job._id, "appliedCandidates.userid": user_id },
+      {
+        $set: { "appliedCandidates.$.status": "Selected" },
+      }
+    );
+
+    await Student.findOneAndUpdate(
+      { _id: user_id, "appliedJobs.jobid": job._id },
+      {
+        $set: { "appliedJobs.$.status": "Selected" },
+      }
+    );
+
+    res.send();
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+router.post("/shortlist", async (req, res) => {
+  const { user_id, job } = req.body;
+
+  try {
+    await Job.findOneAndUpdate(
+      { _id: job._id, "appliedCandidates.userid": user_id },
+      {
+        $set: { "appliedCandidates.$.status": "Shortlisted" },
+      }
+    );
+
+    await Student.findOneAndUpdate(
+      { _id: user_id, "appliedJobs.jobid": job._id },
+      {
+        $set: { "appliedJobs.$.status": "Shortlisted" },
+      }
+    );
+
+    res.send();
   } catch (error) {
     res.send(error);
   }

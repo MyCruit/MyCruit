@@ -65,6 +65,22 @@ export const searchJobs = (searchKey) => async (dispatch) => {
   }
 };
 
+export const select = (job, user_id) => async (dispatch) => {
+  // const user = JSON.parse(localStorage.getItem("user"));
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    await axios.post("/api/jobs/select", { job, user_id });
+    dispatch({ type: "LOADING", payload: false });
+    message.success("Candidate selected Successfully");
+    // setTimeout(() => {
+    //   window.location.href = "/home";
+    // }, 1000);
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "LOADING", payload: false });
+  }
+};
+
 export const sortJobs = (values) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   try {
@@ -80,6 +96,22 @@ export const sortJobs = (values) => async (dispatch) => {
     }
     dispatch({ type: "GET_ALL_JOBS", payload: filteredJobs });
     dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "LOADING", payload: false });
+  }
+};
+
+export const shortlist = (job, user_id) => async (dispatch) => {
+  // const user = JSON.parse(localStorage.getItem("user"));
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    await axios.post("/api/jobs/shortlist", { job, user_id });
+    dispatch({ type: "LOADING", payload: false });
+    message.success("Candidate shortlisted Successfully");
+    // setTimeout(() => {
+    //   window.location.href = "/home";
+    // }, 1000);
   } catch (error) {
     console.log(error);
     dispatch({ type: "LOADING", payload: false });

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import DefaultLayout from "../../component/DefaultLayout";
-import { applyJob } from "../../redux/action/jobAction";
+import { applyJob, select, shortlist } from "../../redux/action/jobAction";
 
 function JobInfo() {
   const params = useParams();
@@ -59,6 +59,32 @@ function JobInfo() {
       {
         title: "Email",
         dataIndex: "email",
+      },
+      {
+        title: "Action",
+        render: (text, data) => {
+          return (
+            <div className="flex">
+              <Button
+                className="mr-2"
+                style={{ fontSize: 20 }}
+                onClick={() => {
+                  dispatch(select(job, data.candidateid));
+                }}
+              >
+                s
+              </Button>
+              {/* <Button
+                style={{ fontSize: 20 }}
+                onClick={() => {
+                  dispatch(shortlist(job, data.candidateid));
+                }}
+              >
+                r
+              </Button> */}
+            </div>
+          );
+        },
       },
     ];
 
@@ -133,7 +159,11 @@ function JobInfo() {
 
           <div className="flex justify-content-between">
             {userid === job.companyid ? (
-              <Button onClick={showModal}>Applied Candidates</Button>
+              <div>
+                <Button onClick={showModal}>Applied Candidates</Button>
+                <Button>Shortlisted Candidates</Button>
+                <Button>Selected Candidates</Button>
+              </div>
             ) : job.appliedCandidates.find(
                 (candidate) => candidate.userid === userid
               ) ? (
