@@ -22,13 +22,14 @@ const CompanyMenu = () => {
   };
 
   const handleOk = () => {
-    window.location = "/login";
+    window.location = "/";
     window.localStorage.clear();
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
   return (
     <Menu defaultSelectedKeys={[window.location.pathname]}>
       <Menu.Item key="/home">
@@ -91,7 +92,7 @@ const StudentMenu = () => {
   };
 
   const handleOk = () => {
-    window.location = "/login";
+    window.location = "/";
     window.localStorage.clear();
   };
 
@@ -169,7 +170,7 @@ const AdminMenu = () => {
   };
 
   const handleOk = () => {
-    window.location = "/login";
+    window.location = "/";
     window.localStorage.clear();
   };
 

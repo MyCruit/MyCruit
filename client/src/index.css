@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
@@ -110,7 +111,10 @@ code {
 
 .ant-btn:hover {
   color: black !important;
-  border: 1px solid black !important;
+}
+
+.ant-input-group-addon {
+  border-radius: 5px !important;
 }
 
 /* Loader */
@@ -195,7 +199,7 @@ p {
 
 /* Main Page  */
 
-.main-page {
+.main-page1 {
   background: linear-gradient(
     90deg,
     rgba(172, 123, 253, 1) 15%,
@@ -234,31 +238,32 @@ p {
 
 .main-pic {
   position: absolute;
-  top: 25%;
+  top: 22%;
   left: 63%;
-}
-
-.main-pic img {
   width: 500px;
 }
 
+.main-page2 {
+  background: linear-gradient(
+    59deg,
+    rgba(220, 179, 249, 1) 0%,
+    rgba(244, 231, 249, 1) 72%
+  );
+  height: 90vh;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px -50px 36px -28px inset;
+}
+
 .student-pic {
-  margin: 50px 0px 0px 60px;
+  position: absolute;
+  top: 115%;
+  left: 5%;
+  /* margin: 50px 0px 0px 60px; */
   width: 500px;
 }
 
 .company-pic {
   margin: 50px 0px 20px 50px;
   width: 500px;
-}
-
-.main-student {
-  background: linear-gradient(
-    59deg,
-    rgba(220, 179, 249, 1) 0%,
-    rgba(244, 231, 249, 1) 72%
-  );
-  box-shadow: rgba(0, 0, 0, 0.3) 0px -50px 36px -28px inset;
 }
 
 /* Login & Registration */
@@ -323,12 +328,15 @@ p {
 /* Profile Page of Student */
 
 .profilePhoto {
-  position: absolute;
-  top: 17%;
-  left: 42%;
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+
+.profile {
+  position: absolute;
+  top: 16%;
+  left: 42%;
 }
 
 .profile:hover {
@@ -342,10 +350,10 @@ p {
 
 .editProfile {
   cursor: pointer;
-  color: black;
+  color: #666f73;
   position: absolute;
-  top: 30%;
-  left: 48%;
+  top: 40% !important;
+  left: 40% !important;
   display: none;
 }
 

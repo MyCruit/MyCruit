@@ -12,7 +12,7 @@ export const registerUser = (values) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("Something is Wrong. Please try again later");
+    message.error("Something went wrong. Please try again later!");
     dispatch({ type: "LOADING", payload: false });
   }
 };
@@ -75,7 +75,7 @@ export const updateUser = (values) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("Something Went Wrong. Please try Later");
+    message.error("Something went wrong. Please try again later!");
     dispatch({ type: "LOADING", payload: false });
   }
 };
@@ -92,7 +92,7 @@ export const updateResume = (formdata) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("Something Went Wrong, Please try Later");
+    message.error("Something went wrong. Please try again later!");
     dispatch({ type: "LOADING", payload: false });
   }
 };
@@ -109,7 +109,7 @@ export const updateProfilePhoto = (formdata) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("Something went Wrong , Please try Later");
+    message.error("Something went wrong. Please try again later!");
     dispatch({ type: "LOADING", payload: false });
   }
 };

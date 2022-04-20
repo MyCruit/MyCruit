@@ -359,10 +359,7 @@ function ProfileStudent() {
     return (
       <div>
         {user.profilePhoto ? (
-          <img
-            className="profilePhoto"
-            src={`data:image/jpg;base64,${base64}`}
-          />
+          <img className="profilePhoto" src={`data:image/*;base64,${base64}`} />
         ) : (
           <img
             src="https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w"
@@ -379,7 +376,7 @@ function ProfileStudent() {
         <Form.Item>
           <Upload
             name="profilePhoto"
-            accept="image/jpg"
+            accept="image/*"
             maxCount={1}
             beforeUpload={(file) => {
               setFile(file);
@@ -390,7 +387,7 @@ function ProfileStudent() {
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
         </Form.Item>
-        <div>{showPhoto()}</div>
+        <div style={{ textAlign: "center" }}>{showPhoto()}</div>
       </Form>
     );
   }
@@ -422,9 +419,7 @@ function ProfileStudent() {
         <img className="bgImg" src={pic} />
         <div className="profile" onClick={showModal4}>
           {showPhoto()}
-          <div className="editProfile">
-            <BiPencil style={{ fontSize: 40 }} />
-          </div>
+          <BiPencil className="editProfile" style={{ fontSize: 40 }} />
         </div>
 
         <Modal
@@ -434,7 +429,6 @@ function ProfileStudent() {
           onOk={handleOk4}
           onCancel={handleCancel4}
           style={{ top: 150 }}
-          bodyStyle={{ height: 200 }}
           width={500}
           footer={[
             <Button onClick={handleCancel4}>Cancel</Button>,

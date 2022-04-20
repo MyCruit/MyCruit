@@ -104,8 +104,8 @@ const upload2 = multer({
     // fileSize: 1000000,
   },
   fileFilter(req, file, cb) {
-    if (!file.originalname.endsWith(".jpg")) {
-      return cb(new Error("Provide an jpg"));
+    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG)$/)) {
+      return cb(new Error("Provide an jpg, png or jpeg only."));
     }
     cb(undefined, true);
   },
@@ -113,7 +113,6 @@ const upload2 = multer({
 
 router.post("/resume", upload.single("resume"), async (req, res) => {
   try {
-    // await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
     await Student.findOneAndUpdate(
       { _id: req.body._id },
       {
@@ -132,7 +131,6 @@ router.post(
   upload2.single("profilePhoto"),
   async (req, res) => {
     try {
-      // await Student.findOneAndUpdate({ _id: req.body._id }, req.body);
       await Student.findOneAndUpdate(
         { _id: req.body._id },
         {

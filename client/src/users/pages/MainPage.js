@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
+import { Row, Col } from "antd";
 import mainPic from "../../img/main.png";
 import studentPic from "../../img/student.png";
 import companyPic from "../../img/company.png";
@@ -10,7 +11,7 @@ import { FaUserGraduate } from "react-icons/fa";
 function MainPage() {
   return (
     <div>
-      <div className="main-page pb-5">
+      <div className="main-page1 pb-5">
         <div className="logo pt-4">
           <img
             className=" mt-1"
@@ -59,32 +60,39 @@ function MainPage() {
               Get Started <CaretRightOutlined style={{ fontSize: 18 }} />
             </button>
           </Link>
-          <div className="main-pic">
-            <img src={mainPic}></img>
-          </div>
+
+          <img className="main-pic" src={mainPic}></img>
         </div>
       </div>
 
-      <div className="main-student flex" id="student">
+      <div className="main-page2" id="student">
         <img className="student-pic" src={studentPic}></img>
-        <div>
-          <h1>
-            <FaUserGraduate style={{ marginRight: 15, fontSize: 33 }} />
-            Student
-          </h1>
+        <div style={{ paddingLeft: 650, paddingTop: 150 }}>
+          <h1>Student</h1>
+          <Row gutter={16}>
+            <Col lg={12}>
+              <h1>Content</h1>
+              <h1>Content</h1>
+            </Col>
+
+            <Col lg={12}>
+              <h1>Content</h1>
+              <h1>Content</h1>
+            </Col>
+          </Row>
         </div>
       </div>
-      <div className="main-page flex" id="company">
+      <div className="main-page1 flex" id="company">
         <h1>Company</h1>
         <img className="company-pic" src={companyPic}></img>
       </div>
-      <div className="main-student" id="about">
+      <div className="main-page2" id="about">
         <h1>about</h1>
       </div>
-      <div className="main-page" id="faq">
+      <div className="main-page1" id="faq">
         <h1>faqs</h1>
       </div>
-      <div className="main-student">
+      <div className="main-page2">
         <h1>footer</h1>
       </div>
     </div>

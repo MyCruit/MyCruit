@@ -4,6 +4,7 @@ import { Row, Col, Button, Result } from "antd";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import DefaultLayout from "../../component/DefaultLayout";
+import Filter from "../../component/Filter";
 
 function HomeStudent() {
   const { jobs } = useSelector((state) => state.jobReducer);
@@ -26,6 +27,13 @@ function HomeStudent() {
         <p></p>
       )}
       <Row gutter={16}>
+        {jobs.length !== 0 ? (
+          <div style={{ width: 350, marginLeft: 500 }}>
+            <Filter />
+          </div>
+        ) : (
+          <div></div>
+        )}
         {jobs.map((job) => {
           let response = companies.find(
             (company) => company._id === job.companyid
