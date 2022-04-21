@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
+import { Divider } from "antd";
 
 function CompanyInfo() {
   const params = useParams();
@@ -10,30 +11,23 @@ function CompanyInfo() {
   return (
     <DefaultLayout>
       {company && (
-        <div>
-          <h3>
-            <b>Company Inforamtion</b>
+        <div className="cprofile1 bs">
+          <h3 style={{ textTransform: "uppercase" }}>
+            <b>{company.companyName}</b>
           </h3>
-          <p>
-            <b>Name : </b>
-            {company.companyName}
-          </p>
-          <p>
-            <b>Email : </b>
-            {company.email}
-          </p>
-          <p>
-            <b>About : </b>
-            {company.about}
-          </p>
-          <p>
-            <b>Contact : </b>
-            {company.contactNumber}
-          </p>
-          <p>
-            <b>Address : </b>
-            {company.address}
-          </p>
+          <Divider />
+          <div className="bs companyInfo m-3 mt-0" style={{ float: "right" }}>
+            <h6 className="color">Email</h6>
+            <h6>{company.email}</h6>
+            <h6 className="color pt-3">Contact</h6>{" "}
+            <h6>{company.contactNumber}</h6>
+            <h6 className="color pt-3">Address</h6> <h6>{company.address}</h6>
+          </div>
+          <h5>
+            <b className="color pl-1">About Us</b>
+          </h5>
+
+          <p>{company.about}</p>
         </div>
       )}
     </DefaultLayout>

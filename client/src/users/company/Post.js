@@ -1,6 +1,6 @@
 import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
-import { Button, Form, Select, Input, Row, Col, Checkbox } from "antd";
+import { Button, Form, Select, Input, Row, Col, Checkbox, Divider } from "antd";
 import { useDispatch } from "react-redux";
 import { postJob } from "../../redux/action/jobAction";
 
@@ -13,54 +13,62 @@ function Post() {
   }
   return (
     <DefaultLayout>
-      <div>
-        <h1>Job Details</h1>
-      </div>
-      <Form layout="vertical" onFinish={onFinalFinish}>
-        <Row gutter={16}>
-          <Col lg={12} sm={24}>
-            <Form.Item
-              label="Profile"
-              name="jobProfile"
-              rules={[{ required: true, message: "Profile is required" }]}
-            >
-              <Input />
-            </Form.Item>
-          </Col>
-          <Col lg={12} sm={24}>
-            <Form.Item
-              label="Type"
-              name="jobType"
-              rules={[{ required: true, message: "Company name is required" }]}
-            >
-              <Select placeholder="Select Job Type">
-                <Option value="Full-Time">Full-Time</Option>
-                <Option value="6-Month Internship">6-Month Internship</Option>
-                <Option value="Summer Internship">Summer Internship</Option>
-              </Select>
-            </Form.Item>
-          </Col>
-          <Col lg={12} sm={24}>
-            <Form.Item
-              label="Salary(or Stipend)"
-              name="salary"
-              rules={[{ required: true, message: "Salary is required" }]}
-            >
-              <Input />
-            </Form.Item>
-          </Col>
-          <Col lg={12} sm={24}>
-            <Form.Item
-              label="Location"
-              rules={[{ required: true, message: "Location is required" }]}
-              name="location"
-            >
-              <Input />
-            </Form.Item>
-          </Col>
-
-          <Col lg={24} sm={24}>
-            <Form.Item label="Eligibility">
+      <div className="bs cpost">
+        <h3 className="mb-4 mt-2" style={{ textAlign: "center" }}>
+          <b>POST A NEW JOB</b>
+        </h3>
+        <Form layout="vertical" onFinish={onFinalFinish}>
+          <Row gutter={16}>
+            <Col lg={24} align="left">
+              <h5 className="mb-4 mt-2">Job Details</h5>
+            </Col>
+            <Col lg={12} sm={24}>
+              <Form.Item
+                label="Profile"
+                name="jobProfile"
+                rules={[{ required: true, message: "Profile is required" }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col lg={12} sm={24}>
+              <Form.Item
+                label="Type"
+                name="jobType"
+                rules={[
+                  { required: true, message: "Company Name is required" },
+                ]}
+              >
+                <Select placeholder="Select Job Type">
+                  <Option value="Full-Time">Full-Time</Option>
+                  <Option value="6-Month Internship">6-Month Internship</Option>
+                  <Option value="Summer Internship">Summer Internship</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+            <Col lg={12} sm={24}>
+              <Form.Item
+                label="Salary(or Stipend)"
+                name="salary"
+                rules={[{ required: true, message: "Salary is required" }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col lg={12} sm={24}>
+              <Form.Item
+                label="Location"
+                rules={[{ required: true, message: "Location is required" }]}
+                name="location"
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Divider />
+            <Col lg={24} align="left">
+              <h5 className="mb-4 mt-2">Job Eligibility</h5>
+            </Col>
+            <Col lg={24} sm={24}>
               <Form.Item label="Passing year" name={["eligibility", "yop"]}>
                 <Select placeholder="Select eligible Batch">
                   <Option value="2022">Batch 2022</Option>
@@ -100,25 +108,29 @@ function Post() {
               <Form.Item label="CGPA" name={["eligibility", "cgpa"]}>
                 <Input placeholder="Minimum CGPA required" />
               </Form.Item>
-            </Form.Item>
-          </Col>
-          <Col lg={24} sm={24}>
-            <Form.Item
-              label="Detailed Description"
-              rules={[
-                {
-                  required: true,
-                  message: "Detailed description is required",
-                },
-              ]}
-              name="fullDescription"
-            >
-              <Input.TextArea />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Button htmlType="submit">Post</Button>
-      </Form>
+            </Col>
+            <Divider />
+            <Col lg={24} align="left">
+              <h5 className="mb-4 mt-2">Job Description</h5>
+            </Col>
+            <Col lg={24} sm={24}>
+              <Form.Item
+                label="Detailed Description"
+                rules={[
+                  {
+                    required: true,
+                    message: "Detailed description is required",
+                  },
+                ]}
+                name="fullDescription"
+              >
+                <Input.TextArea rows={5} />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Button htmlType="submit">Post</Button>
+        </Form>
+      </div>
     </DefaultLayout>
   );
 }

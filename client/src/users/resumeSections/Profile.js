@@ -12,7 +12,9 @@ class Profile extends Component {
     const { values } = this.props;
     return (
       <div className="bs p-5 m-5">
-        <h3>Personal Details</h3>
+        <h3>
+          <b>PERSONAL DETAILS</b>
+        </h3>
         <Form className="m-4 mt-5" layout="vertical">
           <Row gutter={16}>
             <Col lg={12} sm={24}>

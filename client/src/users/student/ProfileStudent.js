@@ -10,6 +10,7 @@ import {
   updateProfilePhoto,
 } from "../../redux/action/usersAction";
 import pic from "../../img/profile.png";
+import defaultProfile from "../../img/defaultProfile.jpg";
 
 const { Option } = Select;
 
@@ -22,7 +23,6 @@ function ProfileStudent() {
   const [isModalVisible3, setIsModalVisible3] = useState(false); //Resume
   const [isModalVisible4, setIsModalVisible4] = useState(false); //Profile Photo
   const [file, setFile] = useState("");
-  const [disable, setDisable] = useState(true);
 
   function showModal1() {
     setIsModalVisible1(true);
@@ -40,35 +40,19 @@ function ProfileStudent() {
     setIsModalVisible4(true);
   }
 
-  function handleOk1() {
+  function click1() {
     setIsModalVisible1(false);
   }
 
-  function handleOk2() {
+  function click2() {
     setIsModalVisible2(false);
   }
 
-  function handleOk3() {
+  function click3() {
     setIsModalVisible3(false);
   }
 
-  function handleOk4() {
-    setIsModalVisible4(false);
-  }
-
-  function handleCancel1() {
-    setIsModalVisible1(false);
-  }
-
-  function handleCancel2() {
-    setIsModalVisible2(false);
-  }
-
-  function handleCancel3() {
-    setIsModalVisible3(false);
-  }
-
-  function handleCancel4() {
+  function click4() {
     setIsModalVisible4(false);
   }
 
@@ -361,10 +345,7 @@ function ProfileStudent() {
         {user.profilePhoto ? (
           <img className="profilePhoto" src={`data:image/*;base64,${base64}`} />
         ) : (
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w"
-            className="profilePhoto"
-          />
+          <img src={defaultProfile} className="profilePhoto" />
         )}
       </div>
     );
@@ -380,7 +361,6 @@ function ProfileStudent() {
             maxCount={1}
             beforeUpload={(file) => {
               setFile(file);
-              setDisable(false);
             }}
             fileList={file === "" ? [] : [file]}
           >
@@ -426,17 +406,17 @@ function ProfileStudent() {
           title="Update Profile Photo"
           closable={false}
           visible={isModalVisible4}
-          onOk={handleOk4}
-          onCancel={handleCancel4}
+          onOk={click4}
+          onCancel={click4}
           style={{ top: 150 }}
           width={500}
           footer={[
-            <Button onClick={handleCancel4}>Cancel</Button>,
+            <Button onClick={click4}>Cancel</Button>,
             <Button
               form="myForm4"
               key="submit"
               htmlType="submit"
-              onClick={handleOk4}
+              onClick={click4}
             >
               Update
             </Button>,
@@ -465,12 +445,12 @@ function ProfileStudent() {
           <h5 className="pt-3 color col">About</h5>
           <BiPencil
             className="mt-3 mr-3"
-            style={{ fontSize: 25, cursor: "pointer", color: "#666f73" }}
+            style={{ fontSize: 25, cursor: "pointer", color: "#606568" }}
             onClick={showModal1}
           />
         </div>
 
-        <hr className="pb-4" />
+        <hr className="pb-3" />
         <div className="row">
           <h6 className="col-4 color">Username</h6>
           <h6 className="col">{user.username}</h6>
@@ -500,7 +480,7 @@ function ProfileStudent() {
         <hr />
         <h5 className="pt-5 color">Contact Details</h5>
 
-        <hr className="pb-4" />
+        <hr className="pb-3" />
         <div className="row">
           <h6 className="col-4 color">Contact No.</h6>
           <h6 className="col">{user.contactNumber}</h6>
@@ -517,7 +497,7 @@ function ProfileStudent() {
         </div>
         <hr />
         <h5 className="pt-5 color">Address</h5>
-        <hr className="pb-4" />
+        <hr className="pb-3" />
         <div className="row">
           <h6 className="col-4 color">Address</h6>
           <h6 className="col">{user.address}</h6>
@@ -527,17 +507,17 @@ function ProfileStudent() {
           title="Update Personal Details"
           closable={false}
           visible={isModalVisible1}
-          onOk={handleOk1}
-          onCancel={handleCancel1}
+          onOk={click1}
+          onCancel={click1}
           style={{ top: 50 }}
           width={800}
           footer={[
-            <Button onClick={handleCancel1}>Cancel</Button>,
+            <Button onClick={click1}>Cancel</Button>,
             <Button
               form="myForm1"
               key="submit"
               htmlType="submit"
-              onClick={handleOk1}
+              onClick={click1}
             >
               Update
             </Button>,
@@ -551,11 +531,11 @@ function ProfileStudent() {
           <h5 className="pt-3 color col">Education</h5>
           <BiPencil
             className="mt-3 mr-3"
-            style={{ fontSize: 25, cursor: "pointer", color: "#666f73" }}
+            style={{ fontSize: 25, cursor: "pointer", color: "#606568" }}
             onClick={showModal2}
           />
         </div>
-        <hr className="pb-4" />
+        <hr className="pb-2" />
         <div className="row">
           <h5 className="col-8">{user.education.branch}</h5>
           <h5 className="col">CGPA - {user.education.cgpa} </h5>
@@ -572,17 +552,17 @@ function ProfileStudent() {
           title="Update Education"
           closable={false}
           visible={isModalVisible2}
-          onOk={handleOk2}
-          onCancel={handleCancel2}
+          onOk={click2}
+          onCancel={click2}
           style={{ top: 50 }}
           width={800}
           footer={[
-            <Button onClick={handleCancel2}>Cancel</Button>,
+            <Button onClick={click2}>Cancel</Button>,
             <Button
               form="myForm2"
               key="submit"
               htmlType="submit"
-              onClick={handleOk2}
+              onClick={click2}
             >
               Update
             </Button>,
@@ -596,7 +576,7 @@ function ProfileStudent() {
           <h5 className="pt-3 color col">Resume</h5>
           <BiPencil
             className="mt-3 mr-3"
-            style={{ fontSize: 25, cursor: "pointer", color: "#666f73" }}
+            style={{ fontSize: 25, cursor: "pointer", color: "#606568" }}
             onClick={showModal3}
           />
         </div>
@@ -607,17 +587,17 @@ function ProfileStudent() {
           title="Update Resume"
           closable={false}
           visible={isModalVisible3}
-          onOk={handleOk3}
-          onCancel={handleCancel3}
+          onOk={click3}
+          onCancel={click3}
           style={{ top: 50 }}
           width={800}
           footer={[
-            <Button onClick={handleCancel3}>Cancel</Button>,
+            <Button onClick={click3}>Cancel</Button>,
             <Button
               form="myForm3"
               key="submit"
               htmlType="submit"
-              onClick={handleOk3}
+              onClick={click3}
             >
               Update
             </Button>,

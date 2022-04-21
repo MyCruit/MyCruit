@@ -2,7 +2,7 @@ import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
 import { useSelector } from "react-redux";
 import { RightOutlined } from "@ant-design/icons";
-import { Result, Button, Row, Col } from "antd";
+import { Result, Button, Row, Col, Tag } from "antd";
 import { Link } from "react-router-dom";
 
 function AppliedJobs() {
@@ -23,7 +23,7 @@ function AppliedJobs() {
           }
         />
       ) : (
-        <h3 className="pl-4"> Your Applications</h3>
+        <div></div>
       )}
 
       {user.appliedJobs.map((job) => {
@@ -33,23 +33,47 @@ function AppliedJobs() {
         );
         return (
           <Link to={`/jobs/${appliedJob._id}`}>
-            <Row gutter={16}>
-              <Col lg={24} sm={24}>
-                <div className="bs m-4 p-3">
-                  <div className="flex justify-content-between">
-                    <h4>{company.companyName}</h4>
+            <div
+              style={{
+                width: "70rem",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <h3 className="pl-4">
+                <b>APPLICATIONS</b>
+              </h3>
+              <Row gutter={16}>
+                <Col lg={24} sm={24}>
+                  <div className="bs m-4 p-3">
+                    <div className="flex justify-content-between">
+                      <h4>{company.companyName}</h4>
 
-                    <Link to={`/jobs/${appliedJob._id}`}>
-                      {" "}
-                      <RightOutlined style={{ color: "#5e60ce" }} />
-                    </Link>
+                      <Link to={`/jobs/${appliedJob._id}`}>
+                        {" "}
+                        <RightOutlined style={{ color: "#5e60ce" }} />
+                      </Link>
+                    </div>
+                    <h5>
+                      {appliedJob.jobProfile} - {appliedJob.jobType}
+                    </h5>
+                    {job.status === "Applied" ? (
+                      <Tag color="orange" style={{ fontSize: 15, padding: 5 }}>
+                        {job.status}
+                      </Tag>
+                    ) : job.status === "Shortlisted" ? (
+                      <Tag color="blue" style={{ fontSize: 15, padding: 5 }}>
+                        {job.status}
+                      </Tag>
+                    ) : (
+                      <Tag color="green" style={{ fontSize: 15, padding: 5 }}>
+                        {job.status}
+                      </Tag>
+                    )}
                   </div>
-                  <h5>
-                    {appliedJob.jobProfile} - {appliedJob.jobType}
-                  </h5>
-                </div>
-              </Col>
-            </Row>
+                </Col>
+              </Row>
+            </div>
           </Link>
         );
       })}
