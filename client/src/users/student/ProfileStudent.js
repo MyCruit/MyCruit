@@ -227,7 +227,7 @@ function ProfileStudent() {
               rules={[{ required: true, message: "Course is required" }]}
             >
               <Select placeholder="Select a Course">
-                <Option value="B.tech">B. Tech</Option>
+                <Option value="B.Tech">B. Tech</Option>
                 <Option value="M.Tech">M. Tech</Option>
               </Select>
             </Form.Item>

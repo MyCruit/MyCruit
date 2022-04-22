@@ -1,7 +1,6 @@
 import { Input, Modal, Form, Select, Button } from "antd";
 import React, { useState } from "react";
 import { AiTwotoneFilter } from "react-icons/ai";
-import { FilterOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { searchJobs, sortJobs } from "../redux/action/jobAction";
 
