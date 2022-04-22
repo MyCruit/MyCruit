@@ -215,7 +215,7 @@ p {
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
-.main-page h4 {
+.main-page1 h4 {
   color: #ead5f9;
 }
 
@@ -350,7 +350,7 @@ p {
 
 .editProfile {
   cursor: pointer;
-  color: #666f73;
+  color: #606568;
   position: absolute;
   top: 40% !important;
   left: 40% !important;
@@ -375,7 +375,7 @@ p {
 }
 
 .color {
-  color: #666f73;
+  color: #606568;
 }
 
 .bgImg {
@@ -433,6 +433,64 @@ p {
 
 .ant-select-item-option-selected {
   background-color: #d2d2d5 !important;
+}
+
+/* Profile Page of Company */
+
+.companyLogo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.clogo:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.clogo:hover .editLogo {
+  display: block;
+}
+
+.editLogo {
+  cursor: pointer;
+  color: #606568;
+  position: absolute;
+  top: 45.5% !important;
+  left: 10.5% !important;
+  display: none;
+}
+
+.companyLink:hover {
+  text-decoration: underline;
+}
+
+.cprofile1 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60rem;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.cpost {
+  width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+}
+
+.jobInfo {
+  min-width: 250px;
+  padding: 30px;
+  height: 320px;
+}
+
+.companyInfo {
+  min-width: 280px;
+  padding: 30px;
+  height: 250px;
 }
 
 /* resume frame */

@@ -99,6 +99,7 @@ const upload = multer({
     cb(undefined, true);
   },
 });
+
 const upload2 = multer({
   limits: {
     // fileSize: 1000000,
@@ -144,5 +145,20 @@ router.post(
     }
   }
 );
+
+router.post("/companyLogo", upload2.single("companyLogo"), async (req, res) => {
+  try {
+    await Company.findOneAndUpdate(
+      { _id: req.body._id },
+      {
+        companyLogo: req.file.buffer,
+      }
+    );
+    const user = await Company.findOne({ _id: req.body._id });
+    res.send(user);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+});
 
 module.exports = router;

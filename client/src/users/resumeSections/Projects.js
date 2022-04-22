@@ -17,7 +17,9 @@ class Projects extends Component {
     const { values } = this.props;
     return (
       <div className="bs p-5 m-5">
-        <h3>Project</h3>
+        <h3>
+          <b>PROJECT</b>
+        </h3>
         <Form className="m-4 mt-5" layout="vertical">
           <Row gutter={16}>
             <Col lg={24} align="left">

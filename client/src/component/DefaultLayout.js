@@ -249,6 +249,13 @@ class DefaultLayout extends React.Component {
               </div>
             </Link>
             <div>
+              {/* {user.category === "Student" ? (
+                
+              ) : user.category === "Company" ? (
+                
+              ) : (
+                <div></div>
+              )} */}
               <h5 className="mr-5 mb-4">{user.username}</h5>
             </div>
           </div>

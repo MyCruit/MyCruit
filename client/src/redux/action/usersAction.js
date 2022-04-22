@@ -113,3 +113,20 @@ export const updateProfilePhoto = (formdata) => async (dispatch) => {
     dispatch({ type: "LOADING", payload: false });
   }
 };
+
+export const updateCompanyLogo = (formdata) => async (dispatch) => {
+  const userid = JSON.parse(localStorage.getItem("user"))._id;
+  formdata.append("_id", userid);
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    const user = await axios.post("/api/users/companyLogo", formdata);
+    localStorage.setItem("user", JSON.stringify(user.data));
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    message.error("Something went wrong. Please try again later!");
+    dispatch({ type: "LOADING", payload: false });
+  }
+};
