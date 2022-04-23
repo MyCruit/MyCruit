@@ -12,7 +12,10 @@ export const registerUser = (values) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    message.error("Something went wrong. Please try again later!");
+    if(error.response.status===409)
+      message.error("Email already exists!")
+    else
+      message.error("Something went wrong. Try again later!!");
     dispatch({ type: "LOADING", payload: false });
   }
 };

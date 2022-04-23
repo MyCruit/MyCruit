@@ -8,13 +8,27 @@ const multer = require("multer");
 router.post("/register", async (req, res) => {
   try {
     const userType = req.body.category;
-
+    
     if (userType === "Student") {
       const newStudent = new Student(req.body);
+      let user=await Student.find({email:req.body.email});
+      try {
+        if(user)
+          throw new Error();
+      } catch (error) {
+        return res.status(409).send(error);
+      }
       await newStudent.save();
       res.send(newStudent);
     } else {
       const newCompany = new Company(req.body);
+      let user=await Company.find({email:req.body.email});
+      try {
+        if(user)
+          throw new Error();
+      } catch (error) {
+        return res.status(409).send(error);
+      }
       await newCompany.save();
       res.send(newCompany);
     }
