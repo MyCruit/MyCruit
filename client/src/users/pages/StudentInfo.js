@@ -26,7 +26,7 @@ function StudentInfo() {
         <div>
           <div className="bs cprofile1 p-5">
             <div className="flex">
-              {ShowPhoto("InfoPhoto")}
+              {ShowPhoto("InfoPhoto", student)}
               <h3 style={{ textTransform: "uppercase" }}>
                 <b>
                   {student.firstName} {student.lastName}

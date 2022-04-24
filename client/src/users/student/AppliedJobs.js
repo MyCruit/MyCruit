@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RightOutlined } from "@ant-design/icons";
 import { Result, Button, Row, Col, Tag } from "antd";
 import { Link } from "react-router-dom";
+import { ShowLogo } from "../pages/ShowLogo";
 
 function AppliedJobs() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -23,7 +24,9 @@ function AppliedJobs() {
           }
         />
       ) : (
-        <div></div>
+        <h3 className="pl-4">
+          <b>APPLICATIONS</b>
+        </h3>
       )}
 
       {user.appliedJobs.map((job) => {
@@ -40,14 +43,14 @@ function AppliedJobs() {
                 marginRight: "auto",
               }}
             >
-              <h3 className="pl-4">
-                <b>APPLICATIONS</b>
-              </h3>
               <Row gutter={16}>
                 <Col lg={24} sm={24}>
                   <div className="bs m-4 p-3">
                     <div className="flex justify-content-between">
-                      <h4>{company.companyName}</h4>
+                      <div className="flex">
+                        {ShowLogo("headerPhoto", company)}
+                        <h4>{company.companyName}</h4>
+                      </div>
 
                       <Link to={`/jobs/${appliedJob._id}`}>
                         {" "}

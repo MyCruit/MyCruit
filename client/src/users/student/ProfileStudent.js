@@ -353,7 +353,9 @@ function ProfileStudent() {
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
         </Form.Item>
-        <div style={{ textAlign: "center" }}>{ShowPhoto("profilePhoto")}</div>
+        <div style={{ textAlign: "center" }}>
+          {ShowPhoto("profilePhoto", user)}
+        </div>
       </Form>
     );
   }
@@ -384,7 +386,7 @@ function ProfileStudent() {
       <div className="profile1 bs">
         <img className="bgImg" src={pic} />
         <div className="profile" onClick={showModal4}>
-          {ShowPhoto("profilePhoto")}
+          {ShowPhoto("profilePhoto", user)}
           <BiPencil className="editProfile" style={{ fontSize: 40 }} />
         </div>
 

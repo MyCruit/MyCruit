@@ -7,6 +7,7 @@ import DefaultLayout from "../../component/DefaultLayout";
 import { applyJob, select, shortlist } from "../../redux/action/jobAction";
 import { BsCardChecklist, BsCheckSquare } from "react-icons/bs";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import { ShowLogo } from "./ShowLogo";
 
 function JobInfo() {
   const params = useParams();
@@ -97,7 +98,7 @@ function JobInfo() {
           return (
             <div className="flex">
               <BsCardChecklist
-                style={{ fontSize: 27 }}
+                style={{ fontSize: 27, cursor: "pointer" }}
                 onClick={() => {
                   dispatch(shortlist(job, data.candidateid));
                 }}
@@ -178,7 +179,7 @@ function JobInfo() {
           return (
             <div className="flex">
               <BsCheckSquare
-                style={{ fontSize: 25 }}
+                style={{ fontSize: 25, cursor: "pointer" }}
                 onClick={() => {
                   dispatch(select(job, data.candidateid));
                 }}
@@ -284,9 +285,15 @@ function JobInfo() {
       {job && (
         <div className="bs cprofile1">
           <Link to={`/company/${company._id}`} style={{ color: "#5e60ce" }}>
-            <h3 className="companyLink" style={{ textTransform: "uppercase" }}>
-              <b>{company.companyName}</b>
-            </h3>
+            <div className="flex">
+              {ShowLogo("InfoPhoto", company)}
+              <h3
+                className="companyLink"
+                style={{ textTransform: "uppercase" }}
+              >
+                <b>{company.companyName}</b>
+              </h3>
+            </div>
           </Link>
           <h5>
             {job.jobProfile} - {job.jobType}

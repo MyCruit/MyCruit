@@ -252,9 +252,9 @@ class DefaultLayout extends React.Component {
             </Link>
             <div className="flex">
               {user.category === "Student" ? (
-                ShowPhoto("headerPhoto")
+                ShowPhoto("headerPhoto", user)
               ) : user.category === "Company" ? (
-                ShowLogo("headerPhoto")
+                ShowLogo("headerPhoto", user)
               ) : (
                 <img
                   src="https://upload.wikimedia.org/wikipedia/en/e/e9/Banasthali_Vidyapeeth_Logo.png"
