@@ -1,16 +1,18 @@
-import { Layout, Menu, Modal } from "antd";
+import { Avatar, Layout, Menu, Modal } from "antd";
 import React, { useState } from "react";
 import pic from "../img/logo.png";
 import { RiErrorWarningLine } from "react-icons/ri";
 import {
   UserOutlined,
-  LayoutOutlined,
   CarryOutOutlined,
   HomeOutlined,
   UploadOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { FaRegBuilding, FaRegFilePdf } from "react-icons/fa";
+import { ShowPhoto } from "../users/pages/ShowPhoto";
+import { ShowLogo } from "../users/pages/ShowLogo";
 
 const { Header, Sider, Content } = Layout;
 const user = JSON.parse(localStorage.getItem("user"));
@@ -121,7 +123,7 @@ const StudentMenu = () => {
       <Menu.Item key="/resume">
         <Link to="/resume">
           <div className="navbar">
-            <LayoutOutlined className="navbar-icon m-1" />
+            <FaRegFilePdf className="navbar-icon m-1" />
             <h6>Resume</h6>
           </div>
         </Link>
@@ -198,7 +200,7 @@ const AdminMenu = () => {
       <Menu.Item key="/companyList">
         <Link to="/companyList">
           <div className="navbar">
-            <UploadOutlined className="navbar-icon m-1" />
+            <FaRegBuilding className="navbar-icon m-1" />
             <h6>Company</h6>
           </div>
         </Link>
@@ -248,14 +250,17 @@ class DefaultLayout extends React.Component {
                 <h1>MyCruit</h1>
               </div>
             </Link>
-            <div>
-              {/* {user.category === "Student" ? (
-                
+            <div className="flex">
+              {user.category === "Student" ? (
+                ShowPhoto("headerPhoto")
               ) : user.category === "Company" ? (
-                
+                ShowLogo("headerPhoto")
               ) : (
-                <div></div>
-              )} */}
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/en/e/e9/Banasthali_Vidyapeeth_Logo.png"
+                  className="headerPhoto"
+                />
+              )}
               <h5 className="mr-5 mb-4">{user.username}</h5>
             </div>
           </div>

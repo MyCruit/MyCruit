@@ -329,7 +329,7 @@ function JobInfo() {
           <Divider />
 
           <h5>
-            <b className="color">Total Candidates applied:</b>{" "}
+            <b className="color">Total Candidates applied: </b>{" "}
             {job.appliedCandidates.length}
           </h5>
           <Divider />

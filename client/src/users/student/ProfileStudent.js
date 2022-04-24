@@ -10,7 +10,7 @@ import {
   updateProfilePhoto,
 } from "../../redux/action/usersAction";
 import pic from "../../img/profile.png";
-import defaultProfile from "../../img/defaultProfile.jpg";
+import { ShowPhoto } from "../pages/ShowPhoto";
 
 const { Option } = Select;
 
@@ -337,20 +337,6 @@ function ProfileStudent() {
     );
   }
 
-  function showPhoto() {
-    if (user.profilePhoto)
-      var base64 = _arrayBufferToBase64(user.profilePhoto.data);
-    return (
-      <div>
-        {user.profilePhoto ? (
-          <img className="profilePhoto" src={`data:image/*;base64,${base64}`} />
-        ) : (
-          <img src={defaultProfile} className="profilePhoto" />
-        )}
-      </div>
-    );
-  }
-
   function ProfilePhoto() {
     return (
       <Form id="myForm4" layout="vertical" onFinish={handleUpdate2}>
@@ -367,7 +353,7 @@ function ProfileStudent() {
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
         </Form.Item>
-        <div style={{ textAlign: "center" }}>{showPhoto()}</div>
+        <div style={{ textAlign: "center" }}>{ShowPhoto("profilePhoto")}</div>
       </Form>
     );
   }
@@ -398,7 +384,7 @@ function ProfileStudent() {
       <div className="profile1 bs">
         <img className="bgImg" src={pic} />
         <div className="profile" onClick={showModal4}>
-          {showPhoto()}
+          {ShowPhoto("profilePhoto")}
           <BiPencil className="editProfile" style={{ fontSize: 40 }} />
         </div>
 

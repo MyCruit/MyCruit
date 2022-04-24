@@ -1,9 +1,10 @@
 import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Table } from "antd";
 import { Link } from "react-router-dom";
 import { MdDelete, MdRemoveRedEye } from "react-icons/md";
+import { ShowLogo } from "../pages/ShowLogo";
 
 function CompanyList() {
   const { companies } = useSelector((state) => state.companyReducer);
@@ -13,6 +14,14 @@ function CompanyList() {
     {
       title: "Name",
       dataIndex: "name",
+      render: (text, data) => {
+        return (
+          <div className="flex">
+            {ShowLogo("listPhoto")}
+            {data.name}
+          </div>
+        );
+      },
     },
     {
       title: "Email",
@@ -56,7 +65,11 @@ function CompanyList() {
   return (
     <DefaultLayout>
       <h1>Company List</h1>
-      <Table columns={columns} dataSource={companyDatasource} />
+      <Table
+        columns={columns}
+        dataSource={companyDatasource}
+        pagination={false}
+      />
     </DefaultLayout>
   );
 }

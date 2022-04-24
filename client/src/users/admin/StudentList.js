@@ -3,13 +3,29 @@ import DefaultLayout from "../../component/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "antd";
 import { Link } from "react-router-dom";
-// import { BsEyeFill } from "react-icons/bs";
 import { MdDelete, MdRemoveRedEye } from "react-icons/md";
+import { ShowPhoto } from "../pages/ShowPhoto";
 
 function StudentList() {
   const { students } = useSelector((state) => state.studentReducer);
 
   const columns = [
+    {
+      title: "Name",
+      dataIndex: "fullName",
+      sorter: (a, b) => {
+        return a.fullName.localeCompare(b.fullName);
+      },
+      sortDirections: ["descend"],
+      render: (text, data) => {
+        return (
+          <div className="flex">
+            {ShowPhoto("listPhoto")}
+            {data.fullName}
+          </div>
+        );
+      },
+    },
     {
       title: "College ID",
       dataIndex: "collegeId",
@@ -18,14 +34,7 @@ function StudentList() {
       },
       sortDirections: ["descend"],
     },
-    {
-      title: "Name",
-      dataIndex: "fullName",
-      sorter: (a, b) => {
-        return a.fullName.localeCompare(b.fullName);
-      },
-      sortDirections: ["descend"],
-    },
+
     {
       title: "Email",
       dataIndex: "email",
@@ -121,7 +130,11 @@ function StudentList() {
   return (
     <DefaultLayout>
       <h1>Student List</h1>
-      <Table columns={columns} dataSource={studentsDatasource} />;
+      <Table
+        columns={columns}
+        dataSource={studentsDatasource}
+        pagination={false}
+      />
     </DefaultLayout>
   );
 }
