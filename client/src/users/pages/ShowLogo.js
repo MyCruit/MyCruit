@@ -1,7 +1,7 @@
 import React from "react";
 import defaultLogo from "../../img/defaultLogo.jpg";
 
-const user = JSON.parse(localStorage.getItem("user"));
+// const user = JSON.parse(localStorage.getItem("user"));
 
 function _arrayBufferToBase64(buffer) {
   var binary = "";
@@ -13,15 +13,15 @@ function _arrayBufferToBase64(buffer) {
   return window.btoa(binary);
 }
 
-export function ShowLogo(value) {
+export function ShowLogo(classname, user) {
   if (user.companyLogo)
     var base64 = _arrayBufferToBase64(user.companyLogo.data);
   return (
     <div>
       {user.companyLogo ? (
-        <img className={`${value}`} src={`data:image/*;base64,${base64}`} />
+        <img className={`${classname}`} src={`data:image/*;base64,${base64}`} />
       ) : (
-        <img src={defaultLogo} className={`${value}`} />
+        <img src={defaultLogo} className={`${classname}`} />
       )}
     </div>
   );

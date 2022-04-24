@@ -66,7 +66,9 @@ function ProfileCompany() {
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
         </Form.Item>
-        <div style={{ textAlign: "center" }}>{ShowLogo("companyLogo")}</div>
+        <div style={{ textAlign: "center" }}>
+          {ShowLogo("companyLogo", user)}
+        </div>
       </Form>
     );
   }
@@ -156,7 +158,7 @@ function ProfileCompany() {
       <div className="cprofile1 bs">
         <div className="flex">
           <div className="clogo" onClick={showModal1}>
-            {ShowLogo("companyLogo")}
+            {ShowLogo("companyLogo", user)}
             <BiPencil className="editLogo" style={{ fontSize: 35 }} />
           </div>
           <div style={{ marginLeft: 100 }}>

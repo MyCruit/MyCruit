@@ -14,7 +14,7 @@ function CompanyInfo() {
       {company && (
         <div className="cprofile1 bs">
           <div className="flex">
-            {ShowLogo("InfoPhoto")}
+            {ShowLogo("InfoPhoto", company)}
             <h3 style={{ textTransform: "uppercase" }}>
               <b>{company.companyName}</b>
             </h3>

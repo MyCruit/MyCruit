@@ -17,7 +17,7 @@ function CompanyList() {
       render: (text, data) => {
         return (
           <div className="flex">
-            {ShowLogo("listPhoto")}
+            {ShowLogo("listPhoto", data)}
             {data.name}
           </div>
         );
@@ -58,6 +58,7 @@ function CompanyList() {
       email: company.email,
       jobs: company.postedJobs.length,
       companyid: company._id,
+      companyLogo: company.companyLogo,
     };
     companyDatasource.push(obj);
   }

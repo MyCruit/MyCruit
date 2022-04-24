@@ -20,7 +20,7 @@ function StudentList() {
       render: (text, data) => {
         return (
           <div className="flex">
-            {ShowPhoto("listPhoto")}
+            {ShowPhoto("listPhoto", data)}
             {data.fullName}
           </div>
         );
@@ -122,6 +122,7 @@ function StudentList() {
       course: student.education.course,
       branch: student.education.branch,
       candidateid: student._id,
+      profilePhoto: student.profilePhoto,
     };
 
     studentsDatasource.push(obj);
