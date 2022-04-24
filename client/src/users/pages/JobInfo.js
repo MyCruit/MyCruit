@@ -1,4 +1,4 @@
-import { Button, Divider, Modal, Table, Tag } from "antd";
+import { Divider, Modal, Table, Tag } from "antd";
 import moment from "moment";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -128,7 +128,9 @@ function JobInfo() {
     return (
       <div>
         <Table columns={candidatesColumns} dataSource={candidatesDatasource} />
-        <Button onClick={handleOk1}>OK</Button>
+        <button className="btn-p" onClick={handleOk1}>
+          OK
+        </button>
       </div>
     );
   }
@@ -209,7 +211,9 @@ function JobInfo() {
     return (
       <div>
         <Table columns={candidatesColumns} dataSource={candidatesDatasource} />
-        <Button onClick={handleOk2}>OK</Button>
+        <button className="btn-p" onClick={handleOk2}>
+          OK
+        </button>
       </div>
     );
   }
@@ -275,7 +279,9 @@ function JobInfo() {
     return (
       <div>
         <Table columns={candidatesColumns} dataSource={candidatesDatasource} />
-        <Button onClick={handleOk3}>OK</Button>
+        <button className="btn-p" onClick={handleOk3}>
+          OK
+        </button>
       </div>
     );
   }
@@ -295,10 +301,7 @@ function JobInfo() {
               </h3>
             </div>
           </Link>
-          <h5>
-            {job.jobProfile} - {job.jobType}
-          </h5>
-          <Divider />
+          <Divider className="mt-0" />
           <div className="bs jobInfo m-3 mt-0" style={{ float: "right" }}>
             <h6 className="color">Job Profile</h6>
             <h6>{job.jobProfile}</h6>
@@ -370,20 +373,26 @@ function JobInfo() {
           <div className="flex justify-content-between">
             {userid === job.companyid ? (
               <div>
-                <Button onClick={showModal1}>Applied Candidates</Button>
-                <Button onClick={showModal2} className="ml-5">
+                <button className="btn-p" onClick={showModal1}>
+                  Applied Candidates
+                </button>
+                <button onClick={showModal2} className="ml-5 btn-po">
                   Shortlisted Candidates
-                </Button>
-                <Button onClick={showModal3} className="ml-5">
+                </button>
+                <button onClick={showModal3} className="ml-5 btn-po">
                   Selected Candidates
-                </Button>
+                </button>
               </div>
             ) : job.appliedCandidates.find(
                 (candidate) => candidate.userid === userid
               ) ? (
-              <Button disabled>Already Applied</Button>
+              <button className="btn-disable" disabled>
+                Already Applied
+              </button>
             ) : (
-              <Button onClick={applyNow}>Apply</Button>
+              <button className="btn-p" onClick={applyNow}>
+                Apply
+              </button>
             )}
             <p>
               <b className="color">Posted on:</b>{" "}

@@ -1,6 +1,6 @@
-import { Input, Modal, Form, Select, Button } from "antd";
+import { Input, Modal, Form, Select } from "antd";
 import React, { useState } from "react";
-import { AiTwotoneFilter } from "react-icons/ai";
+import { FilterFilled } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { searchJobs, sortJobs } from "../redux/action/jobAction";
 
@@ -30,8 +30,8 @@ function Filter() {
           dispatch(searchJobs(value));
         }}
       />
-      <AiTwotoneFilter
-        style={{ fontSize: 35, marginLeft: 10 }}
+      <FilterFilled
+        style={{ fontSize: 32, marginLeft: 10, color: "black" }}
         onClick={showModal}
       />
 
@@ -40,6 +40,7 @@ function Filter() {
         footer={false}
         visible={isModalVisible}
         closable={false}
+        style={{ top: 200 }}
       >
         <Form layout="vertical" onFinish={sort}>
           <Form.Item name="jobType" label="Job Type">
@@ -60,7 +61,9 @@ function Filter() {
               <Option value={70000}>70000+</Option>
             </Select>
           </Form.Item>
-          <Button htmlType="submit">Filter</Button>
+          <button className="btn-p" htmlType="submit">
+            Filter
+          </button>
         </Form>
       </Modal>
     </div>

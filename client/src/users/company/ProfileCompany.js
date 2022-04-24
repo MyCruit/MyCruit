@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DefaultLayout from "../../component/DefaultLayout";
-import { Button, Form, Input, Row, Col, Upload, Modal } from "antd";
+import { Form, Input, Row, Col, Upload, Modal, Button } from "antd";
 import { BiPencil } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { UploadOutlined } from "@ant-design/icons";
@@ -198,15 +198,18 @@ function ProfileCompany() {
         style={{ top: 150 }}
         width={500}
         footer={[
-          <Button onClick={click1}>Cancel</Button>,
-          <Button
+          <button className="btn-p mr-3" onClick={click1}>
+            Cancel
+          </button>,
+          <button
+            className="btn-po"
             form="myForm4"
             key="submit"
             htmlType="submit"
             onClick={click1}
           >
             Update
-          </Button>,
+          </button>,
         ]}
       >
         <ProfileLogo />
@@ -221,15 +224,18 @@ function ProfileCompany() {
         style={{ top: 100 }}
         width={800}
         footer={[
-          <Button onClick={click2}>Cancel</Button>,
-          <Button
+          <button className="btn-p mr-3" onClick={click2}>
+            Cancel
+          </button>,
+          <button
+            className="btn-po"
             form="myForm2"
             key="submit"
             htmlType="submit"
             onClick={click2}
           >
             Update
-          </Button>,
+          </button>,
         ]}
       >
         <CompanyDetails />
@@ -244,15 +250,18 @@ function ProfileCompany() {
         style={{ top: 100 }}
         width={800}
         footer={[
-          <Button onClick={click3}>Cancel</Button>,
-          <Button
+          <button className="btn-p mr-3" onClick={click3}>
+            Cancel
+          </button>,
+          <button
+            className="btn-po"
             form="myForm4"
             key="submit"
             htmlType="submit"
             onClick={click3}
           >
             Update
-          </Button>,
+          </button>,
         ]}
       >
         <CompanyDescription />

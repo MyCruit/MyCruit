@@ -18,7 +18,6 @@ const jobSchema = new mongoose.Schema(
     companyid: { type: String, required: true },
     location: { type: String, default: "" },
     appliedCandidates: { type: [], required: true },
-    documents: { type: [Buffer], default: [] },
   },
   {
     timestamps: true,

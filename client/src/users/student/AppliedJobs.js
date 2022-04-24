@@ -2,7 +2,7 @@ import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
 import { useSelector } from "react-redux";
 import { RightOutlined } from "@ant-design/icons";
-import { Result, Button, Row, Col, Tag } from "antd";
+import { Result, Row, Col, Tag } from "antd";
 import { Link } from "react-router-dom";
 import { ShowLogo } from "../pages/ShowLogo";
 
@@ -19,7 +19,7 @@ function AppliedJobs() {
           subTitle="You have not applied to any job yet!"
           extra={
             <Link to="/">
-              <Button>Back to Home</Button>
+              <button className="btn-p">Back to Home</button>
             </Link>
           }
         />
@@ -48,31 +48,42 @@ function AppliedJobs() {
                   <div className="bs m-4 p-3">
                     <div className="flex justify-content-between">
                       <div className="flex">
-                        {ShowLogo("headerPhoto", company)}
+                        {ShowLogo("InfoPhoto", company)}
                         <h4>{company.companyName}</h4>
                       </div>
 
                       <Link to={`/jobs/${appliedJob._id}`}>
                         {" "}
-                        <RightOutlined style={{ color: "#5e60ce" }} />
+                        <RightOutlined style={{ color: "#9253f8" }} />
                       </Link>
                     </div>
-                    <h5>
-                      {appliedJob.jobProfile} - {appliedJob.jobType}
-                    </h5>
-                    {job.status === "Applied" ? (
-                      <Tag color="orange" style={{ fontSize: 15, padding: 5 }}>
-                        {job.status}
-                      </Tag>
-                    ) : job.status === "Shortlisted" ? (
-                      <Tag color="blue" style={{ fontSize: 15, padding: 5 }}>
-                        {job.status}
-                      </Tag>
-                    ) : (
-                      <Tag color="green" style={{ fontSize: 15, padding: 5 }}>
-                        {job.status}
-                      </Tag>
-                    )}
+                    <div className="ml-2">
+                      <h5>
+                        {appliedJob.jobProfile} - {appliedJob.jobType}
+                      </h5>
+                      {job.status === "Applied" ? (
+                        <Tag
+                          color="orange"
+                          style={{ fontSize: 15, padding: 5, marginTop: 5 }}
+                        >
+                          {job.status}
+                        </Tag>
+                      ) : job.status === "Shortlisted" ? (
+                        <Tag
+                          color="blue"
+                          style={{ fontSize: 15, padding: 5, marginTop: 5 }}
+                        >
+                          {job.status}
+                        </Tag>
+                      ) : (
+                        <Tag
+                          color="green"
+                          style={{ fontSize: 15, padding: 5, marginTop: 5 }}
+                        >
+                          {job.status}
+                        </Tag>
+                      )}
+                    </div>
                   </div>
                 </Col>
               </Row>

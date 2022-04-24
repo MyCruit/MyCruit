@@ -75,21 +75,21 @@ code {
 }
 
 .ant-menu-item-selected .navbar {
-  background-color: #dfe0f7 !important;
-  color: #5e60ce !important;
+  background-color: #8d48f41f !important;
+  color: #8e48f4 !important;
 }
 
 .ant-menu-item-selected .navbar h6 {
-  color: #5e60ce !important;
+  color: #8e48f4 !important;
 }
 
 .ant-menu-item-active .navbar {
   background-color: #edeff1 !important;
-  color: #5e60ce !important;
+  color: #8e48f4 !important;
 }
 
 .ant-menu-item-active .navbar h6 {
-  color: #5e60ce !important;
+  color: #8e48f4 !important;
 }
 
 /*Layout Content */
@@ -99,19 +99,7 @@ code {
   padding: 35px !important;
 }
 
-/* Antd Button */
-
-.ant-btn {
-  color: white !important;
-  border-radius: 5px !important;
-  border: none !important;
-  font-weight: bold !important;
-  background-color: #5e60ce !important;
-}
-
-.ant-btn:hover {
-  color: black !important;
-}
+/* Antd */
 
 .ant-input-group-addon {
   border-radius: 5px !important;
@@ -173,29 +161,76 @@ p {
   outline: none;
 }
 
-/* .btn-yo {
-  border-radius: 15px;
-  margin-left: 120px !important;
-  margin-top: 30px !important;
-  font-size: 20px;
+.btn-p {
+  background: #9253f8;
+  font-size: 15px;
   font-weight: bold;
-  padding: 5px 20px;
+  border-radius: 10px;
+  padding: 4px 12px;
   cursor: pointer;
-  color: #8a6207;
-  border: solid 3px transparent;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0)
-    ),
-    linear-gradient(90deg, rgba(255, 212, 108, 1) 0%, rgba(253, 185, 14, 1) 54%);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  box-shadow: 2px 1000px 1px #fff inset;
+  color: white;
+  border: 2px solid #9253f8;
 }
 
-.btn-yo:hover {
-  box-shadow: none;
-} */
+.btn-p:hover {
+  background: white;
+  border: 2px solid #9253f8;
+  color: black;
+}
+
+.btn-p:focus {
+  outline: none;
+}
+
+.btn-po {
+  background: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 4px 12px;
+  cursor: pointer;
+  color: black;
+  border: 2px solid #9253f8;
+}
+
+.btn-po:hover {
+  color: white;
+  background: #9253f8;
+  border: 2px solid #9253f8;
+}
+
+.btn-po:focus {
+  outline: none;
+}
+
+.btn-disable {
+  background: #9253f8;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 4px 12px;
+  cursor: pointer;
+  color: white;
+  border: 2px solid #9253f8;
+}
+
+.btn-disable:hover {
+  cursor: not-allowed;
+}
+
+.ant-btn {
+  background: #9253f8 !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  border-radius: 10px !important;
+  color: white !important;
+  border: none !important;
+}
+
+.ant-btn:hover {
+  color: black !important;
+  border: none !important;
+}
 
 /* Main Page  */
 
@@ -347,7 +382,7 @@ p {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
 }
 
 .profile {

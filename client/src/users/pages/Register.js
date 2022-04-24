@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Form, Input, message, Row, Select, Button } from "antd";
+import { Col, Form, Input, message, Row, Select } from "antd";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/action/usersAction";
 import registerPic from "../../img/register.png";
@@ -89,10 +89,15 @@ function Register() {
               <Input.Password />
             </Form.Item>
 
-            <Button className="mb-3" htmlType="submit">
+            <button className="mb-3 btn-p" htmlType="submit">
               Register
-            </Button>
+            </button>
           </Form>
+          <h6 className="mt-2 mb-4">
+            <a href="/login">
+              <b style={{ color: "#5e60ce" }}> Forgot Password?</b>
+            </a>
+          </h6>
           <h6>
             Already have an account?{" "}
             <a href="/login">

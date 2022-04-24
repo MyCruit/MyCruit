@@ -1,4 +1,4 @@
-import { Col, Form, Input, Row, Select, Button } from "antd";
+import { Col, Form, Input, Row, Select } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../redux/action/usersAction";
@@ -60,10 +60,15 @@ function Login() {
               <Input.Password />
             </Form.Item>
 
-            <Button className="mb-4" htmlType="submit">
+            <button className="mb-3 btn-p" htmlType="submit">
               Login
-            </Button>
+            </button>
           </Form>
+          <h6 className="mt-2 mb-4">
+            <a href="/login">
+              <b style={{ color: "#5e60ce" }}> Forgot Password?</b>
+            </a>
+          </h6>
           <h6>
             Don't have an account?{" "}
             <a href="/register">

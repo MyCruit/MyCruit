@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Row, Col, Button, Result } from "antd";
+import { Row, Col, Result } from "antd";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import DefaultLayout from "../../component/DefaultLayout";
@@ -19,7 +19,7 @@ function HomeStudent() {
           subTitle="No jobs found!"
           extra={
             <Link to="/profile">
-              <Button>Complete your Profile</Button>
+              <button class="btn-p">Complete your Profile</button>
             </Link>
           }
         />
@@ -59,7 +59,7 @@ function HomeStudent() {
 
                 <div className="flex justify-content-between">
                   <Link to={`/jobs/${job._id}`}>
-                    <Button>View</Button>
+                    <button className="btn-p">View</button>
                   </Link>
                   <p>
                     Posted on : {moment(job.createdAt).format("MMM DD yyyy")}

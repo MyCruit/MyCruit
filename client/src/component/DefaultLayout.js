@@ -8,9 +8,10 @@ import {
   HomeOutlined,
   UploadOutlined,
   LogoutOutlined,
+  FilePdfOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { FaRegBuilding, FaRegFilePdf } from "react-icons/fa";
+import { FaRegBuilding } from "react-icons/fa";
 import { ShowPhoto } from "../users/pages/ShowPhoto";
 import { ShowLogo } from "../users/pages/ShowLogo";
 
@@ -73,7 +74,14 @@ const CompanyMenu = () => {
           onCancel={handleCancel}
           style={{ top: 250 }}
           width={400}
-          okText="Logout"
+          footer={[
+            <button className="btn-po  mr-3" onClick={handleCancel}>
+              Cancel
+            </button>,
+            <button className="btn-p" onClick={handleOk}>
+              Logout
+            </button>,
+          ]}
         >
           <div className="flex">
             <RiErrorWarningLine
@@ -123,7 +131,7 @@ const StudentMenu = () => {
       <Menu.Item key="/resume">
         <Link to="/resume">
           <div className="navbar">
-            <FaRegFilePdf className="navbar-icon m-1" />
+            <FilePdfOutlined className="navbar-icon m-1" />
             <h6>Resume</h6>
           </div>
         </Link>
@@ -151,7 +159,14 @@ const StudentMenu = () => {
           onCancel={handleCancel}
           style={{ top: 250 }}
           width={400}
-          okText="Logout"
+          footer={[
+            <button className="btn-po mr-3" onClick={handleCancel}>
+              Cancel
+            </button>,
+            <button className="btn-p" onClick={handleOk}>
+              Logout
+            </button>,
+          ]}
         >
           <div className="flex">
             <RiErrorWarningLine
@@ -220,7 +235,14 @@ const AdminMenu = () => {
           onCancel={handleCancel}
           style={{ top: 250 }}
           width={400}
-          okText="Logout"
+          footer={[
+            <button className="btn-po  mr-3" onClick={handleCancel}>
+              Cancel
+            </button>,
+            <button className="btn-p" onClick={handleOk}>
+              Logout
+            </button>,
+          ]}
         >
           <div className="flex">
             <RiErrorWarningLine

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { saveAs } from "file-saver";
-import { Button, Col, Divider, Form, Input, Row } from "antd";
+import { Col, Divider, Form, Input, Row } from "antd";
 import { LeftOutlined, DownloadOutlined } from "@ant-design/icons";
 
 class Extras extends Component {
@@ -164,15 +164,15 @@ class Extras extends Component {
           </Row>
         </Form>
 
-        <Button onClick={this.back} className="mb-3">
-          <LeftOutlined />
+        <button onClick={this.back} className="mb-3 btn-po">
+          <LeftOutlined style={{ marginRight: 8 }} />
           BACK
-        </Button>
+        </button>
         <br />
-        <Button onClick={this.createAndDownloadPDF} className="mt-3">
+        <button onClick={this.createAndDownloadPDF} className="mt-3 btn-p">
           DOWNLOAD RESUME
-          <DownloadOutlined style={{ fontSize: 18 }} />
-        </Button>
+          <DownloadOutlined style={{ fontSize: 18, marginLeft: 10 }} />
+        </button>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DefaultLayout from "../../component/DefaultLayout";
 import { BiPencil } from "react-icons/bi";
 import { UploadOutlined } from "@ant-design/icons";
-import { Button, Modal, Form, Input, Select, Row, Col, Upload } from "antd";
+import { Modal, Form, Input, Select, Row, Col, Upload, Button } from "antd";
 import { useDispatch } from "react-redux";
 import {
   updateUser,
@@ -399,15 +399,18 @@ function ProfileStudent() {
           style={{ top: 150 }}
           width={500}
           footer={[
-            <Button onClick={click4}>Cancel</Button>,
-            <Button
+            <button className="btn-po mr-3" onClick={click4}>
+              Cancel
+            </button>,
+            <button
+              className="btn-p"
               form="myForm4"
               key="submit"
               htmlType="submit"
               onClick={click4}
             >
               Update
-            </Button>,
+            </button>,
           ]}
         >
           <ProfilePhoto />
@@ -500,15 +503,18 @@ function ProfileStudent() {
           style={{ top: 50 }}
           width={800}
           footer={[
-            <Button onClick={click1}>Cancel</Button>,
-            <Button
+            <button className="btn-po mr-3" onClick={click1}>
+              Cancel
+            </button>,
+            <button
+              className="btn-p"
               form="myForm1"
               key="submit"
               htmlType="submit"
               onClick={click1}
             >
               Update
-            </Button>,
+            </button>,
           ]}
         >
           <PersonalDetails />
@@ -545,15 +551,18 @@ function ProfileStudent() {
           style={{ top: 50 }}
           width={800}
           footer={[
-            <Button onClick={click2}>Cancel</Button>,
-            <Button
+            <button className="btn-po mr-3" onClick={click2}>
+              Cancel
+            </button>,
+            <button
+              className="btn-p"
               form="myForm2"
               key="submit"
               htmlType="submit"
               onClick={click2}
             >
               Update
-            </Button>,
+            </button>,
           ]}
         >
           <EducationDetails />
@@ -580,15 +589,18 @@ function ProfileStudent() {
           style={{ top: 50 }}
           width={800}
           footer={[
-            <Button onClick={click3}>Cancel</Button>,
-            <Button
+            <button className="btn-po mr-3" onClick={click3}>
+              Cancel
+            </button>,
+            <button
+              className="btn-p"
               form="myForm3"
               key="submit"
               htmlType="submit"
               onClick={click3}
             >
               Update
-            </Button>,
+            </button>,
           ]}
         >
           <Resume />

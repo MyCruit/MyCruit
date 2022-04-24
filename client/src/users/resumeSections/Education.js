@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Row, Col, Input, Divider, Button } from "antd";
+import { Form, Row, Col, Input, Divider } from "antd";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 
 class Education extends Component {
@@ -118,14 +118,14 @@ class Education extends Component {
             </Col>
           </Row>
         </Form>
-        <Button onClick={this.back} className="mr-3">
-          <LeftOutlined />
+        <button onClick={this.back} className="btn-po mr-3">
+          <LeftOutlined style={{ marginRight: 8 }} />
           BACK
-        </Button>
-        <Button onClick={this.continue} className="ml-3">
+        </button>
+        <button onClick={this.continue} className=" btn-p ml-3">
           NEXT
-          <RightOutlined />
-        </Button>
+          <RightOutlined style={{ marginLeft: 8 }} />
+        </button>
       </div>
     );
   }

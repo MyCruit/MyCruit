@@ -1,4 +1,4 @@
-import { Button, Col, Divider, Form, Input, Row } from "antd";
+import { Col, Divider, Form, Input, Row } from "antd";
 import React, { Component } from "react";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 
@@ -106,14 +106,14 @@ class Experience extends Component {
             </Col>
           </Row>
         </Form>
-        <Button onClick={this.back} className="mr-3">
-          <LeftOutlined />
+        <button onClick={this.back} className="mr-3 btn-po">
+          <LeftOutlined style={{ marginRight: 8 }} />
           BACK
-        </Button>
-        <Button onClick={this.continue} className="ml-3">
+        </button>
+        <button onClick={this.continue} className="ml-3 btn-p">
           NEXT
-          <RightOutlined />
-        </Button>
+          <RightOutlined style={{ marginLeft: 8 }} />
+        </button>
       </div>
     );
   }

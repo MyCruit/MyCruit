@@ -41,9 +41,9 @@ function CompanyList() {
               style={{ color: "#000000" }}
               className="mr-3"
             >
-              <MdRemoveRedEye />
+              <MdRemoveRedEye style={{ fontSize: 24 }} />
             </Link>
-            <MdDelete style={{ color: "#000000" }} />
+            <MdDelete className="mb-2" style={{ fontSize: 24 }} />
           </div>
         );
       },

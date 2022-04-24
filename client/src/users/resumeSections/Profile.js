@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Row, Col, Button } from "antd";
+import { Form, Input, Row, Col } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 
 class Profile extends Component {
@@ -74,10 +74,10 @@ class Profile extends Component {
           </Row>
         </Form>
 
-        <Button onClick={this.continue}>
+        <button className="btn-p" onClick={this.continue}>
           NEXT
-          <RightOutlined />
-        </Button>
+          <RightOutlined style={{ marginLeft: 8 }} />
+        </button>
       </div>
     );
   }

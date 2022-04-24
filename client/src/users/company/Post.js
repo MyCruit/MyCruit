@@ -1,6 +1,6 @@
 import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
-import { Button, Form, Select, Input, Row, Col, Checkbox, Divider } from "antd";
+import { Form, Select, Input, Row, Col, Checkbox, Divider } from "antd";
 import { useDispatch } from "react-redux";
 import { postJob } from "../../redux/action/jobAction";
 
@@ -128,7 +128,9 @@ function Post() {
               </Form.Item>
             </Col>
           </Row>
-          <Button htmlType="submit">Post</Button>
+          <button className="btn-p" htmlType="submit">
+            Post
+          </button>
         </Form>
       </div>
     </DefaultLayout>

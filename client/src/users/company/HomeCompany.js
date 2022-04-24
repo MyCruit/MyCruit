@@ -2,7 +2,7 @@ import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
 import { useSelector } from "react-redux";
 import { RightOutlined } from "@ant-design/icons";
-import { Card, Button, Result, Row, Col } from "antd";
+import { Result, Row, Col } from "antd";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ function HomeCompany() {
           subTitle="You have not posted any job yet!"
           extra={
             <Link to="/post">
-              <Button>Post a Job</Button>
+              <button className="btn-p">Post a Job</button>
             </Link>
           }
         />
