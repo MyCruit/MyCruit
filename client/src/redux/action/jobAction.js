@@ -37,7 +37,7 @@ export const applyJob = (job) => async (dispatch) => {
   try {
     const userDetails = await axios.post("/api/jobs/applyjob", { job, user });
     dispatch({ type: "LOADING", payload: false });
-    message.success("Job applied Successfully");
+    message.success("Job Applied Successfully");
     localStorage.setItem("user", JSON.stringify(userDetails.data));
     setTimeout(() => {
       window.location.href = "/home";

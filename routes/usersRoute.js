@@ -4,38 +4,36 @@ const Student = require("../models/studentModel");
 const Company = require("../models/companyModel");
 const Admin = require("../models/adminModel");
 const multer = require("multer");
-const bcrypt=require("bcrypt");
+const bcrypt = require("bcrypt");
 
 router.post("/register", async (req, res) => {
   try {
     const userType = req.body.category;
-    
+
     if (userType === "Student") {
       const newStudent = new Student(req.body);
-      let user=await Student.find({email:req.body.email});
+      let user = await Student.find({ email: req.body.email });
       try {
-        if(user.length!=0)
-        {
+        if (user.length != 0) {
           throw new Error();
         }
       } catch (error) {
         return res.status(409).send(error);
       }
-      const hashedPassword=await bcrypt.hash(req.body.password,10);
-      newStudent.password=hashedPassword;
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      newStudent.password = hashedPassword;
       await newStudent.save();
       res.send(newStudent);
     } else {
       const newCompany = new Company(req.body);
-      let user=await Company.find({email:req.body.email});
+      let user = await Company.find({ email: req.body.email });
       try {
-        if(user.length!=0)
-          throw new Error();
+        if (user.length != 0) throw new Error();
       } catch (error) {
         return res.status(409).send(error);
       }
-      const hashedPassword=await bcrypt.hash(req.body.password,10);
-      newCompany.password=hashedPassword;
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      newCompany.password = hashedPassword;
       await newCompany.save();
       res.send(newCompany);
     }
@@ -48,24 +46,25 @@ router.post("/login", async (req, res) => {
   try {
     const userType = req.body.category;
     let user = "";
-    let result="";
+    let result = "";
     if (userType === "Student") {
       user = await Student.findOne({
         email: req.body.email,
       });
-      result=await bcrypt.compare(req.body.password,user.password);
+      result = await bcrypt.compare(req.body.password, user.password);
     } else if (userType === "Company") {
       user = await Company.findOne({
         email: req.body.email,
       });
-      result=await bcrypt.compare(req.body.password,user.password);
+      result = await bcrypt.compare(req.body.password, user.password);
     } else {
       user = await Admin.findOne({
         email: req.body.email,
+        password: req.body.password,
       });
-      result=await bcrypt.compare(req.body.password,user.password);
+      result = true;
     }
-    if (user.length!=0 && result==true) {
+    if (user.length != 0 && result == true) {
       res.send(user);
     } else {
       return res.status(404).json(error);

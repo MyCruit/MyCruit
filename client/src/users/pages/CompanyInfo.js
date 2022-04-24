@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
 import { Divider } from "antd";
+import { ShowLogo } from "./ShowLogo";
 
 function CompanyInfo() {
   const params = useParams();
@@ -12,10 +13,14 @@ function CompanyInfo() {
     <DefaultLayout>
       {company && (
         <div className="cprofile1 bs">
-          <h3 style={{ textTransform: "uppercase" }}>
-            <b>{company.companyName}</b>
-          </h3>
-          <Divider />
+          <div className="flex">
+            {ShowLogo("InfoPhoto")}
+            <h3 style={{ textTransform: "uppercase" }}>
+              <b>{company.companyName}</b>
+            </h3>
+          </div>
+
+          <Divider className="mt-0" />
           <div className="bs companyInfo m-3 mt-0" style={{ float: "right" }}>
             <h6 className="color">Email</h6>
             <h6>{company.email}</h6>

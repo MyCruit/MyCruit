@@ -5,6 +5,7 @@ import { BiPencil } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { UploadOutlined } from "@ant-design/icons";
 import { updateCompanyLogo, updateUser } from "../../redux/action/usersAction";
+import { ShowLogo } from "../pages/ShowLogo";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -49,33 +50,6 @@ function ProfileCompany() {
     dispatch(updateCompanyLogo(formdata));
   };
 
-  function _arrayBufferToBase64(buffer) {
-    var binary = "";
-    var bytes = new Uint8Array(buffer);
-    var len = bytes.byteLength;
-    for (var i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return window.btoa(binary);
-  }
-
-  function showLogo() {
-    if (user.companyLogo)
-      var base64 = _arrayBufferToBase64(user.companyLogo.data);
-    return (
-      <div>
-        {user.companyLogo ? (
-          <img className="companyLogo" src={`data:image/*;base64,${base64}`} />
-        ) : (
-          <img
-            src="https://www.pngfind.com/pngs/m/665-6659827_enterprise-comments-default-company-logo-png-transparent-png.png"
-            className="companyLogo"
-          />
-        )}
-      </div>
-    );
-  }
-
   function ProfileLogo() {
     return (
       <Form id="myForm4" layout="vertical" onFinish={handleUpdate}>
@@ -92,7 +66,7 @@ function ProfileCompany() {
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
           </Upload>
         </Form.Item>
-        <div style={{ textAlign: "center" }}>{showLogo()}</div>
+        <div style={{ textAlign: "center" }}>{ShowLogo("companyLogo")}</div>
       </Form>
     );
   }
@@ -182,7 +156,7 @@ function ProfileCompany() {
       <div className="cprofile1 bs">
         <div className="flex">
           <div className="clogo" onClick={showModal1}>
-            {showLogo()}
+            {ShowLogo("companyLogo")}
             <BiPencil className="editLogo" style={{ fontSize: 35 }} />
           </div>
           <div style={{ marginLeft: 100 }}>

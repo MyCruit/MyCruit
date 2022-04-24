@@ -6,7 +6,6 @@ import mainPic from "../../img/main.png";
 import studentPic from "../../img/student.png";
 import companyPic from "../../img/company.png";
 import { CaretRightOutlined } from "@ant-design/icons";
-import { FaUserGraduate } from "react-icons/fa";
 
 function MainPage() {
   return (
@@ -22,17 +21,17 @@ function MainPage() {
           <h1 className="mt-1" style={{ marginRight: 250 }}>
             MyCruit
           </h1>
-          <a href="#student" className="mr-5 mt-2">
-            <h4>Student</h4>
-          </a>
-          <a href="#company" className="mr-5 mt-2">
-            <h4>Company</h4>
+          <a href="#explore" className="mr-5 mt-2">
+            <h4>Explore</h4>
           </a>
           <a href="#about" className="mr-5 mt-2">
             <h4>About</h4>
           </a>
-          <a href="#faq" className="mt-2" style={{ marginRight: 150 }}>
+          <a href="#faq" className="mr-5 mt-2">
             <h4>FAQs</h4>
+          </a>
+          <a href="#contact" className="mt-2" style={{ marginRight: 150 }}>
+            <h4>Contact</h4>
           </a>
           <Link to="/register">
             <button className="btn-y">Register</button>
@@ -65,35 +64,22 @@ function MainPage() {
         </div>
       </div>
 
-      <div className="main-page2" id="student">
-        <img className="student-pic" src={studentPic}></img>
-        <div style={{ paddingLeft: 650, paddingTop: 150 }}>
-          <h1>Student</h1>
-          <Row gutter={16}>
-            <Col lg={12}>
-              <h1>Content</h1>
-              <h1>Content</h1>
-            </Col>
-
-            <Col lg={12}>
-              <h1>Content</h1>
-              <h1>Content</h1>
-            </Col>
-          </Row>
+      <div className="main-page2" id="explore">
+        <div>
+          <h1>Explore</h1>
         </div>
       </div>
-      <div className="main-page1 flex" id="company">
-        <h1>Company</h1>
-        <img className="company-pic" src={companyPic}></img>
+      <div className="main-page1 flex" id="about">
+        <h1>About</h1>
       </div>
-      <div className="main-page2" id="about">
-        <h1>about</h1>
+      <div className="main-page2" id="faq">
+        <h1>FAQs</h1>
       </div>
-      <div className="main-page1" id="faq">
-        <h1>faqs</h1>
+      <div className="main-page1" id="contact">
+        <h1>Contact</h1>
       </div>
       <div className="main-page2">
-        <h1>footer</h1>
+        <h1>Footer</h1>
       </div>
     </div>
   );

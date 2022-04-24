@@ -28,7 +28,7 @@ function Post() {
                 name="jobProfile"
                 rules={[{ required: true, message: "Profile is required" }]}
               >
-                <Input />
+                <Input placeholder="Job Profile" />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
@@ -52,7 +52,7 @@ function Post() {
                 name="salary"
                 rules={[{ required: true, message: "Salary is required" }]}
               >
-                <Input />
+                <Input placeholder="Salary" />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
@@ -61,7 +61,7 @@ function Post() {
                 rules={[{ required: true, message: "Location is required" }]}
                 name="location"
               >
-                <Input />
+                <Input placeholder="Location" />
               </Form.Item>
             </Col>
             <Divider />

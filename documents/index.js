@@ -5,7 +5,6 @@ module.exports = (values) => {
     lastname,
     email,
     phone,
-    website,
     github,
     linkedin,
 
@@ -371,7 +370,7 @@ module.exports = (values) => {
 			<div class="rela-block separator"></div>
 			-->
 			<div class="rela-block caps greyed">Profile</div>
-			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fas fa-globe"></i></span>${website}</p>
+			
 			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-github"></i></span>${github}</p>
 			<p class="rela-block social mb-4"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-linkedin"></i></span>${linkedin}</p>			
 			
