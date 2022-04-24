@@ -21,7 +21,7 @@ function Register() {
       <Row justify="center">
         <Col className="authPic bs">
           <img className="authLogo m-4" src={logo}></img>
-          <h3 className="mb-5 mt-3 ml-5">Get's Started</h3>
+          <h3 className="mb-5 mt-3 ml-5">Get Started</h3>
           <div className="p-4 mr-4">
             <img src={registerPic}></img>
           </div>

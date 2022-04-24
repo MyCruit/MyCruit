@@ -3,7 +3,6 @@ import DefaultLayout from "../../component/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "antd";
 import { Link } from "react-router-dom";
-// import { BsEyeFill } from "react-icons/bs";
 import { MdDelete, MdRemoveRedEye } from "react-icons/md";
 
 function StudentList() {
