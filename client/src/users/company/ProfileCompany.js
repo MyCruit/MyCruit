@@ -106,7 +106,7 @@ function ProfileCompany() {
                 { required: true, message: "Contact Number is required" },
               ]}
             >
-              <Input />
+              <Input maxLength={10} />
             </Form.Item>
           </Col>
           <Col lg={24} sm={24}>
@@ -172,17 +172,17 @@ function ProfileCompany() {
                 onClick={showModal2}
               />
             </h3>
-            <div className="row">
-              <h5 className="col color">Email</h5>
-              <h5 className="col">{user.email}</h5>
+            <div className="flex">
+              <h5 className=" color">Email </h5>
+              <h5 className="ml-5"> {user.email}</h5>
             </div>
-            <div className="row">
-              <h5 className="col color">Contact</h5>
-              <h5 className="col">{user.contactNumber}</h5>
+            <div className="flex">
+              <h5 className="color">Contact</h5>
+              <h5 className="ml-4">{user.contactNumber}</h5>
             </div>
-            <div className="row">
-              <h5 className="col color">Loaction</h5>
-              <h5 className="col">{user.address}</h5>
+            <div className="flex">
+              <h5 className="color">Loaction</h5>
+              <h5 className="ml-3">{user.address}</h5>
             </div>
           </div>
         </div>

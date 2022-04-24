@@ -243,6 +243,14 @@ p {
   width: 500px;
 }
 
+.about-pic {
+  width: 500px;
+}
+
+.faq-pic {
+  width: 500px;
+}
+
 .main-page2 {
   background: linear-gradient(
     59deg,
@@ -513,7 +521,6 @@ p {
 
 .card {
   max-width: 320px;
-  /* margin-right: 100px; */
   margin-left: 225px;
   background: #5e60ce5d;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -540,18 +547,20 @@ p {
 }
 
 /* Admin home page counting */
+
 .counting {
   height: 80px;
   width: 200px;
 }
+
 .countIcon {
   position: relative;
-  /* background: rgba(185, 214, 246, 0.863); */
   height: 50px;
   width: 50px;
   border-radius: 50%;
   margin-right: 10px;
 }
+
 .iconPosition {
   position: absolute;
   top: 31%;

@@ -23,7 +23,9 @@ function AppliedJobs() {
           }
         />
       ) : (
-        <div></div>
+        <h3 style={{ marginLeft: 110 }}>
+          <b>APPLICATIONS</b>
+        </h3>
       )}
 
       {user.appliedJobs.map((job) => {
@@ -40,9 +42,6 @@ function AppliedJobs() {
                 marginRight: "auto",
               }}
             >
-              <h3 className="pl-4">
-                <b>APPLICATIONS</b>
-              </h3>
               <Row gutter={16}>
                 <Col lg={24} sm={24}>
                   <div className="bs m-4 p-3">

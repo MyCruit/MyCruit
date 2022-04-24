@@ -1,10 +1,9 @@
 import React from "react";
 import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
-import { Row, Col } from "antd";
 import mainPic from "../../img/main.png";
-import studentPic from "../../img/student.png";
-import companyPic from "../../img/company.png";
+import about from "../../img/about.png";
+import faq from "../../img/faq.png";
 import { CaretRightOutlined } from "@ant-design/icons";
 
 function MainPage() {
@@ -71,9 +70,11 @@ function MainPage() {
       </div>
       <div className="main-page1 flex" id="about">
         <h1>About</h1>
+        <img className="about-pic" src={about}></img>
       </div>
       <div className="main-page2" id="faq">
         <h1>FAQs</h1>
+        <img className="faq-pic" src={faq}></img>
       </div>
       <div className="main-page1" id="contact">
         <h1>Contact</h1>

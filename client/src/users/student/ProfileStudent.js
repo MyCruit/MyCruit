@@ -128,7 +128,7 @@ function ProfileStudent() {
               name="contactNumber"
               rules={[{ required: true, message: "Contact No. is required" }]}
             >
-              <Input />
+              <Input maxLength={10} />
             </Form.Item>
           </Col>
           <Col lg={12} sm={24}>
