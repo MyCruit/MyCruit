@@ -29,11 +29,11 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const getAll = async () => {
-      const allcompanies = await getAllCompanies();
+      const allcompanies = getAllCompanies();
       dispatch(allcompanies);
-      const alljobs = await getAllJobs();
+      const alljobs = getAllJobs();
       dispatch(alljobs);
-      const allstudents = await getAllStudents();
+      const allstudents = getAllStudents();
       dispatch(allstudents);
     };
 
