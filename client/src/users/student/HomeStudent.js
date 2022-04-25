@@ -9,6 +9,7 @@ import Filter from "../../component/Filter";
 function HomeStudent() {
   const { jobs } = useSelector((state) => state.jobReducer);
   const { companies } = useSelector((state) => state.companyReducer);
+  console.log(companies);
 
   return (
     <DefaultLayout>
@@ -19,7 +20,7 @@ function HomeStudent() {
           subTitle="No jobs found!"
           extra={
             <Link to="/profile">
-              <button class="btn-p">Complete your Profile</button>
+              <button className="btn-p">Complete your Profile</button>
             </Link>
           }
         />
@@ -44,7 +45,11 @@ function HomeStudent() {
                 <h4>{job.jobProfile}</h4>
 
                 <p>
-                  <b>{response.companyName}</b>
+                  {response === undefined ? (
+                    <b></b>
+                  ) : (
+                    <b>{response.companyName}</b>
+                  )}
                 </p>
                 <hr />
                 <div className="flex">
