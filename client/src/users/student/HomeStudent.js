@@ -12,20 +12,6 @@ function HomeStudent() {
 
   return (
     <DefaultLayout>
-      {jobs.length === 0 ? (
-        <Result
-          status="403"
-          title="Oops!!!"
-          subTitle="No jobs found!"
-          extra={
-            <Link to="/profile">
-              <button class="btn-p">Complete your Profile</button>
-            </Link>
-          }
-        />
-      ) : (
-        <p></p>
-      )}
       <Row gutter={16}>
         {jobs.length !== 0 ? (
           <div style={{ width: 350, marginLeft: 500 }}>
