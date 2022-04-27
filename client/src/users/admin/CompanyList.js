@@ -1,14 +1,15 @@
 import React from "react";
 import DefaultLayout from "../../component/DefaultLayout";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Table } from "antd";
 import { Link } from "react-router-dom";
-import { MdDelete, MdRemoveRedEye } from "react-icons/md";
+import { MdDelete, MdRemoveRedEye, MdFormatListBulleted } from "react-icons/md";
 import { ShowLogo } from "../pages/ShowLogo";
+import { deleteUser } from "../../redux/action/usersAction";
 
 function CompanyList() {
   const { companies } = useSelector((state) => state.companyReducer);
-  console.log(companies);
+  const dispatch = useDispatch();
 
   const columns = [
     {
@@ -29,7 +30,16 @@ function CompanyList() {
     },
     {
       title: "No. of jobs posted",
-      dataIndex: "jobs",
+      render: (text, data) => {
+        return (
+          <div className="flex">
+            <div>{data.jobs}</div>
+            <Link to={`/jobList/${data.companyid}`}>
+              <MdFormatListBulleted className="mb-2" style={{ fontSize: 24 }} />
+            </Link>
+          </div>
+        );
+      },
     },
     {
       title: "Actions",
@@ -43,7 +53,13 @@ function CompanyList() {
             >
               <MdRemoveRedEye style={{ fontSize: 24 }} />
             </Link>
-            <MdDelete className="mb-2" style={{ fontSize: 24 }} />
+            <MdDelete
+              className="mb-2"
+              style={{ fontSize: 24, cursor: "pointer" }}
+              onClick={() => {
+                dispatch(deleteUser("Company", data.companyid));
+              }}
+            />
           </div>
         );
       },

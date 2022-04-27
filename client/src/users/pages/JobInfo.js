@@ -15,7 +15,8 @@ function JobInfo() {
   const { students } = useSelector((state) => state.studentReducer);
   const { companies } = useSelector((state) => state.companyReducer);
   const job = jobs.find((job) => job._id === params.id);
-  const userid = JSON.parse(localStorage.getItem("user"))._id;
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userid = user._id;
   const company = companies.find((company) => company._id === job.companyid);
 
   const dispatch = useDispatch();
@@ -24,6 +25,15 @@ function JobInfo() {
     dispatch(applyJob(job));
   }
 
+  function ishidden() {
+    if (user.category === "Admin") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  console.log(ishidden());
+  console.log(user.category);
   const [isModalVisible1, setIsModalVisible1] = useState(false);
   const [isModalVisible2, setIsModalVisible2] = useState(false);
   const [isModalVisible3, setIsModalVisible3] = useState(false);
@@ -94,6 +104,7 @@ function JobInfo() {
       },
       {
         title: "Action",
+        hidden: ishidden(),
         render: (text, data) => {
           return (
             <div className="flex">
@@ -107,7 +118,7 @@ function JobInfo() {
           );
         },
       },
-    ];
+    ].filter((item) => !item.hidden);
 
     var candidatesDatasource = [];
 
@@ -177,6 +188,7 @@ function JobInfo() {
       },
       {
         title: "Action",
+        hidden: ishidden(),
         render: (text, data) => {
           return (
             <div className="flex">
@@ -190,7 +202,7 @@ function JobInfo() {
           );
         },
       },
-    ];
+    ].filter((item) => !item.hidden);
 
     var candidatesDatasource = [];
 
@@ -339,7 +351,7 @@ function JobInfo() {
           <Divider />
 
           <h5>
-            <b className="color">Total Candidates applied: </b>{" "}
+            <b className="color">Total Candidates : </b>{" "}
             {job.appliedCandidates.length}
           </h5>
           <Divider />
@@ -371,7 +383,7 @@ function JobInfo() {
             {List3()}
           </Modal>
           <div className="flex justify-content-between">
-            {userid === job.companyid ? (
+            {userid === job.companyid || user.category === "Admin" ? (
               <div>
                 <button className="btn-p" onClick={showModal1}>
                   Applied Candidates

@@ -12,10 +12,8 @@ export const registerUser = (values) => async (dispatch) => {
     }, 1000);
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    if(error.response.status===409)
-      message.error("Email already exists!")
-    else
-      message.error("Something went wrong. Try again later!!");
+    if (error.response.status === 409) message.error("Email already exists!");
+    else message.error("Something went wrong. Try again later!!");
     dispatch({ type: "LOADING", payload: false });
   }
 };
@@ -124,6 +122,25 @@ export const updateCompanyLogo = (formdata) => async (dispatch) => {
   try {
     const user = await axios.post("/api/users/companyLogo", formdata);
     localStorage.setItem("user", JSON.stringify(user.data));
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    message.error("Something went wrong. Please try again later!");
+    dispatch({ type: "LOADING", payload: false });
+  }
+};
+
+export const deleteUser = (category, userid) => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    await axios.post("/api/users/deleteUser", {
+      category,
+      userid,
+    });
+    message.success("User deleted successfully");
+    // localStorage.setItem("user", JSON.stringify(user.data));
     setTimeout(() => {
       window.location.reload();
     }, 1000);

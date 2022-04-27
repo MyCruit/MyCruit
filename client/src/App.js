@@ -22,6 +22,7 @@ import ProfileCompany from "./users/company/ProfileCompany";
 import MainPage from "./users/pages/MainPage";
 import StudentList from "./users/admin/StudentList";
 import CompanyList from "./users/admin/CompanyList";
+import JobList from "./users/admin/JobList";
 
 const user = JSON.parse(localStorage.getItem("user"));
 function App() {
@@ -87,6 +88,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/companyList" element={<CompanyList />} />
           <Route path="/studentList" element={<StudentList />} />
+          <Route path="/jobList/:id" element={<JobList />} />
         </Routes>
       </BrowserRouter>
     </div>

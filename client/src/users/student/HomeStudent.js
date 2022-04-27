@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Row, Col, Result } from "antd";
+import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import DefaultLayout from "../../component/DefaultLayout";

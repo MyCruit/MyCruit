@@ -278,6 +278,22 @@ p {
   width: 500px;
 }
 
+.explore-title{
+  color: rgb(36, 5, 58);
+  font-weight: 800 ;
+  font-size: 70px ;
+  line-height: 1.35;
+  margin-top: 45px;
+  text-align: center ;
+}
+
+.explore-content{
+  margin: 0 auto;
+  width: 85em;
+  height: 80vh;
+  text-align: center ;
+}
+
 .about-pic {
   width: 500px;
 }
@@ -286,14 +302,14 @@ p {
   width: 500px;
 }
 
-.main-page2 {
+/* .main-page2 {
   background: linear-gradient(
     59deg,
     rgba(220, 179, 249, 1) 0%,
     rgba(244, 231, 249, 1) 72%
   );
   box-shadow: rgba(0, 0, 0, 0.3) 0px -50px 36px -28px inset;
-}
+} */
 
 /* Login & Registration */
 

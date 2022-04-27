@@ -5,9 +5,11 @@ import { Table } from "antd";
 import { Link } from "react-router-dom";
 import { MdDelete, MdRemoveRedEye } from "react-icons/md";
 import { ShowPhoto } from "../pages/ShowPhoto";
+import { deleteUser } from "../../redux/action/usersAction";
 
 function StudentList() {
   const { students } = useSelector((state) => state.studentReducer);
+  const dispatch = useDispatch();
 
   const columns = [
     {
@@ -105,7 +107,13 @@ function StudentList() {
             >
               <MdRemoveRedEye style={{ fontSize: 24 }} />
             </Link>
-            <MdDelete className="mb-2" style={{ fontSize: 24 }} />
+            <MdDelete
+              className="mb-2"
+              style={{ fontSize: 24, cursor: "pointer" }}
+              onClick={() => {
+                dispatch(deleteUser("Student", data.candidateid));
+              }}
+            />
           </div>
         );
       },

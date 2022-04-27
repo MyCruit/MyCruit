@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Student = require("../models/studentModel");
 const Company = require("../models/companyModel");
+const Jobs = require("../models/jobModel");
 const Admin = require("../models/adminModel");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
@@ -177,6 +178,48 @@ router.post("/companyLogo", upload2.single("companyLogo"), async (req, res) => {
     );
     const user = await Company.findOne({ _id: req.body._id });
     res.send(user);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+});
+
+router.post("/deleteUser", async (req, res) => {
+  try {
+    const { category, userid } = req.body;
+
+    if (category === "Student") {
+      await Jobs.update(
+        {},
+        { $pull: { appliedCandidates: { userid: userid } } },
+        { multi: true }
+      );
+      await Student.findOneAndDelete({ _id: userid });
+    } else {
+      const company = await Company.findOne({ _id: userid });
+
+      const postedJobs = [];
+      for (i = 0; i < company.postedJobs.length; i++) {
+        postedJobs.push(company.postedJobs[i].jobid.toString());
+      }
+      await Student.updateMany(
+        {},
+        {
+          $pull: {
+            appliedJobs: {
+              jobid: {
+                $in: postedJobs,
+              },
+            },
+          },
+        },
+        { multi: true }
+      );
+
+      await Jobs.deleteMany({ _id: { $in: postedJobs } });
+
+      await Company.findOneAndDelete({ _id: userid });
+    }
+    res.send();
   } catch (error) {
     return res.status(400).json({ error });
   }
