@@ -161,7 +161,7 @@ function MainPage() {
                       <b>Data Security </b>
                     </p>
                     <p>
-                      Your institute's data is very critical. That's why we make
+                      Your institute's data is very crucial. That's why we make
                       sure to keep you data 100% secure.
                     </p>
                   </div>
@@ -172,7 +172,7 @@ function MainPage() {
           <hr />
         </div>
         <div className="explore-content">
-          <h3>What we Offer?</h3>
+          <h3>What we offer?</h3>
           <p>
             Here at MyCruit, we provide a free platform for hassle-free
             recruitments. MyCruit will reduce the workload of the placement cell
@@ -180,7 +180,7 @@ function MainPage() {
             computerization. Our product cater to the different recruitment
             needs of our different users.
           </p>
-          <Carousel afterChange={onChange}>
+          <Carousel afterChange={onChange} autoplay>
             <div>
               <h3 className="carouselStyle">1</h3>
             </div>

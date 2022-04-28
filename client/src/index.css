@@ -290,7 +290,7 @@ p {
 .explore-content{
   margin: 0 auto;
   width: 85em;
-  height: 80vh;
+  /* height: 1000px; */
   text-align: center ;
 }
 
