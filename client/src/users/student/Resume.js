@@ -14,19 +14,20 @@ class Resume extends Component {
     lastname: "",
     email: "",
     phone: "",
-    github: "",
+    address: "",
+    linkedin: "",
 
     // Education Information
     college: "",
     fromyear1: "",
     toyear1: "",
     qualification1: "",
-    description1: "",
+    cgpa1: "",
     school: "",
     fromyear2: "",
     toyear2: "",
     qualification2: "",
-    description2: "",
+    cgpa2: "",
 
     // Project Information...
     title1: "",
@@ -85,7 +86,7 @@ class Resume extends Component {
       lastname,
       email,
       phone,
-      github,
+      address,
       linkedin,
 
       // Education Information
@@ -93,12 +94,12 @@ class Resume extends Component {
       fromyear1,
       toyear1,
       qualification1,
-      description1,
+      cgpa1,
       school,
       fromyear2,
       toyear2,
       qualification2,
-      description2,
+      cgpa2,
 
       // Project Information...
       title1,
@@ -137,7 +138,7 @@ class Resume extends Component {
       lastname,
       email,
       phone,
-      github,
+      address,
       linkedin,
 
       // Education Information
@@ -145,12 +146,12 @@ class Resume extends Component {
       fromyear1,
       toyear1,
       qualification1,
-      description1,
+      cgpa1,
       school,
       fromyear2,
       toyear2,
       qualification2,
-      description2,
+      cgpa2,
 
       // Project Information...
       title1,

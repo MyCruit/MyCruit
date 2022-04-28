@@ -60,10 +60,10 @@ class Education extends Component {
               </Form.Item>
             </Col>
             <Col lg={24} sm={24}>
-              <Form.Item label="Description">
-                <Input.TextArea
-                  name="description1"
-                  value={values.description1}
+              <Form.Item label="CGPA">
+                <Input
+                  name="cgpa1"
+                  value={values.cgpa1}
                   onChange={this.props.handleChange}
                 />
               </Form.Item>
@@ -88,10 +88,9 @@ class Education extends Component {
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item>
+              <Form.Item label="To Year">
                 <Input
                   name="toyear2"
-                  label="To Year"
                   value={values.toyear2}
                   onChange={this.props.handleChange}
                 />
@@ -108,10 +107,10 @@ class Education extends Component {
             </Col>
 
             <Col lg={24} sm={24}>
-              <Form.Item label="Description">
-                <Input.TextArea
-                  name="description2"
-                  value={values.description2}
+              <Form.Item label="CGPA">
+                <Input
+                  name="cgpa2"
+                  value={values.cgpa2}
                   onChange={this.props.handleChange}
                 />
               </Form.Item>

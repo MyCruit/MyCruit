@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Row, Col } from "antd";
+import { Form, Input, Row, Col, Upload, Button } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 
 class Profile extends Component {
@@ -54,16 +54,16 @@ class Profile extends Component {
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item label="GitHub">
+              <Form.Item label="Address">
                 <Input
-                  name="github"
-                  value={values.github}
+                  name="address"
+                  value={values.address}
                   onChange={this.props.handleChange}
                 />
               </Form.Item>
             </Col>
             <Col lg={12} sm={24}>
-              <Form.Item label="Linked In">
+              <Form.Item label="Linkedin">
                 <Input
                   name="linkedin"
                   value={values.linkedin}

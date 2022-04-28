@@ -5,7 +5,7 @@ module.exports = (values) => {
     lastname,
     email,
     phone,
-    github,
+    address,
     linkedin,
 
     // Education Information
@@ -13,12 +13,12 @@ module.exports = (values) => {
     fromyear1,
     toyear1,
     qualification1,
-    description1,
+    cgpa1,
     school,
     fromyear2,
     toyear2,
     qualification2,
-    description2,
+    cgpa2,
 
     // Project Information...
     title1,
@@ -86,16 +86,6 @@ module.exports = (values) => {
 		bottom: ;
 		font-style: normal;
 	  }
-	  .floated {
-		display: inline-block;
-		position: relative;
-		margin: false;
-		top: ;
-		left: ;
-		right: ;
-		bottom: ;
-		float: left;
-	  }
 	  .abs-center {
 		display: false;
 		position: absolute;
@@ -151,31 +141,33 @@ module.exports = (values) => {
 	  .page {
 		width: 90%;
 		max-width: 1200px;
-		margin: 80px auto;
-		background-color: #fff;
+		margin: 200px auto;
+		background-color:#f2f2f2;
 		box-shadow: 6px 10px 28px 0px rgba(0,0,0,0.4);
 	  }
 	  .top-bar {
-		height: 220px;
-		background-color: #848484;
+		z-index: 9999;
+		height: 150px;
+		position: absolute;
+		top:100px;
+		background-color: #dddddf;
 		color: #fff;
 	  }
 	  .name {
 		display: false;
 		position: absolute;
 		margin: false;
-		top: false;
 		left: calc(350px + 5%);
-		right: 0;
-		bottom: 0;
+		top:5;
+		right:0;
+		bottom:0;
 		height: 120px;
-		text-align: center;
-		font-family: 'Roboto Slab';
 		font-size: 58px;
 		letter-spacing: 8px;
-		font-weight: 100;
+		font-weight: 400;
 		line-height: 60px;
 		font-style: normal;
+		color:black;
 	  }
 	  .name div {
 		width: 94%;
@@ -183,89 +175,29 @@ module.exports = (values) => {
 	  .side-bar {
 		display: false;
 		position: absolute;
-		margin: false;
-		top: 60px;
-		left: 2%;
-		right: false;
-		bottom: 0;
+		top:0px;
 		width: 380px;
-		background-color: #f7e0c1;
-		padding: 320px 30px 50px;
-	  }
-	  .mugshot {
-		display: false;
-		position: absolute;
-		margin: false;
-		top: 50px;
-		left: 70px;
-		right: false;
-		bottom: false;
-		height: 210px;
-		width: 210px;
-	  }
-	  .mugshot .logo {
-		margin: -23px;
-	  }
-	  .logo {
-		display: false;
-		position: absolute;
-		margin: false;
-		top: 0;
-		left: 0;
-		right: false;
-		bottom: false;
-		z-index: 100;
-		margin: 0;
-		color: #000;
-		height: 250px;
-		width: 250px;
-	  }
-	  .logo .logo-svg {
-		height: 100%;
-		width: 100%;
-		stroke: #000;
-		cursor: pointer;
-	  }
-	  .logo .logo-text {
-		display: false;
-		position: absolute;
-		margin: false;
-		top: 60%;
-		left: ;
-		right: 20%;
-		bottom: ;
-		cursor: pointer;
-		font-family: 'Roboto Slab', serif;
-		font-size: 60px;
-		letter-spacing: 0px;
-		font-weight: 400;
-		line-height: 58.333333333333336px;
-		font-style: normal;
-	  }
-	  .social {
-		padding-left: 10px;
-		margin-bottom: 0px;
-		cursor: pointer;
+		background-color: #2e2e30;
+		padding: 260px 30px 50px;
+		height:100%;
+		color:#fff;
 	  }
 	  
 	  .side-header {
 		font-family: 'Roboto Slab', serif;
 		font-size: 18px;
 		letter-spacing: 4px;
-		font-weight: 600;
+		font-weight: 800;
 		line-height: 28px;
 		margin: 60px auto 10px;
-		padding-bottom: 5px;
+		padding-bottom: 15px;
 		border-bottom: 1px solid #888;
 	  }
-	  .list-thing {
-		padding-left: 20px;
-		margin-bottom: 5px;
-	  }
+	  
 	  .content-container {
 		margin-right: 0;
 		width: calc(95% - 350px);
-		padding: 25px 40px 50px;
+		padding: 320px 40px 50px;
 	  }
 	  .content-container > * {
 		margin: 0 auto 25px;
@@ -275,26 +207,6 @@ module.exports = (values) => {
 	  }
 	  .content-container > p.long-margin {
 		margin: 0 auto 50px;
-	  }
-	  .title {
-		width: 80%;
-		text-align: center;
-	  }
-	  .separator {
-		width: 300px;
-		height: 2px;
-		background-color: #999;
-	  }
-	  .greyed {
-		background-color: #ddd;
-		width: 100%;
-		max-width: 580px;
-		text-align: center;
-		font-family: 'Roboto Slab';
-		font-size: 18px;
-		letter-spacing: 6px;
-		font-weight: 600;
-		line-height: 28px;
 	  }
 	  @media screen and (max-width: 1150px) {
 		.name {
@@ -316,77 +228,63 @@ module.exports = (values) => {
     <div class="rela-block page">
         <div class="rela-block top-bar">
 			<div class="caps name"><div class="abs-center">${firstname} ${lastname}</div></div>
+			
         </div>
         <div class="side-bar">
-            <div class="mugshot">
-                <div class="logo">
-                    <svg viewbox="0 0 80 80" class="rela-block logo-svg">
-                        <path d="M 10 10 L 52 10 L 72 30 L 72 70 L 30 70 L 10 50 Z" stroke-width="2.5" fill="none"/>
-                    </svg>
-                    <p class="logo-text">${firstname[0]}${lastname[0]}</p>
-                </div>
-			</div>
-			<!--
-            <p class="mb-1">123 My Place Drive</p>
-            <p class="mb-1">Astoria, New York 11105</p>
-			<p class="mb-1">1-800-CALLPLZ</p>
-			-->
-			<p class="mb-1"><span style="padding-right:10px;"><i class="fas fa-envelope"></i></span>${email}</p>
-			<p class="mb-1"><span style="padding-right:10px;"><i class="fas fa-phone-square-alt"></i></span>${phone}</p>
+		<p class="rela-block caps side-header">Contact</p>
+			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fa fa-envelope"></i></span>${email}</p>
+			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fas fa-phone-alt"></i></span>${phone}</p>
+			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fa fa-home"></i></span>${address}</p>
+			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fab fa-linkedin"></i></span>${linkedin}</p>
 			`;
   if (skill1 != "" || skill1 != null)
-    htmlTemplate += `<p class="rela-block caps side-header">Skills</p>
-				<p class="rela-block list-thing">${skill1}</p>`;
+    htmlTemplate += `<p class="rela-block caps side-header mt-5">Skills</p>
+				<ul>
+				<li> <p class="rela-block">${skill1}</p> </li>`;
   if (skill2 != "" || skill2 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${skill2}</p>`;
+    htmlTemplate += `
+	<li> <p class="rela-block">${skill2}</p> </li>`;
   if (skill3 != "" || skill3 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${skill3}</p>`;
+    htmlTemplate += ` <li> <p class="rela-block">${skill3}</p></li>`;
   if (skill4 != "" || skill4 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${skill4}</p>`;
+    htmlTemplate += `<li> <p class="rela-block">${skill4}</p></li>`;
   if (skill5 != "" || skill5 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${skill5}</p>`;
+    htmlTemplate += `<li> <p class="rela-block">${skill5}</p></li>`;
   if (skill6 != "" || skill6 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${skill6}</p>`;
+    htmlTemplate += `<li> <p class="rela-block">${skill6}</p></li> </ul>`;
 
   if (interest1 != "" || interest1 != null)
-    htmlTemplate += `<p class="rela-block caps side-header">Interests</p>
-				<p class="rela-block list-thing">${interest1}</p>`;
+    htmlTemplate += `<p class="rela-block caps side-header mt-5">Interests</p>
+	<ul>
+	<li> <p class="rela-block">${interest1}</p> </li>`;
   if (interest2 != "" || interest2 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${interest2}</p>`;
+    htmlTemplate += `<li> <p class="rela-block">${interest2}</p> </li>`;
   if (interest3 != "" || interest3 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${interest3}</p>`;
+    htmlTemplate += `<li> <p class="rela-block">${interest3}</p> </li>`;
   if (interest4 != "" || interest4 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${interest4}</p>`;
+    htmlTemplate += `<li> <p class="rela-block">${interest4}</p> </li>`;
+  if (interest5 != "" || interest5 != null)
+    htmlTemplate += `<li> <p class="rela-block">${interest5}</p> </li>`;
   if (interest6 != "" || interest6 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${interest5}</p>`;
-  if (interest6 != "" || interest6 != null)
-    htmlTemplate += `<p class="rela-block list-thing">${interest6}</p>`;
+    htmlTemplate += `<li> <p class="rela-block">${interest6}</p> </li></ul>`;
 
   htmlTemplate += `
   			</div>
 			<div class="rela-block content-container">
-			<!--
-			<h2 class="rela-block caps title">Jr Front-End Developer</h2>
-			<div class="rela-block separator"></div>
-			-->
-			<div class="rela-block caps greyed">Profile</div>
 			
-			<p class="rela-block social mb-0"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-github"></i></span>${github}</p>
-			<p class="rela-block social mb-4"><span style="padding-right: 15px; font-size="20px;"><i class="fab fa-linkedin"></i></span>${linkedin}</p>			
-			
-			
-			<div class="rela-block caps greyed">Education</div>
-            <h3 class="mb-0">${college}</h3>
+			<div class="rela-block caps side-header">Education</div>
+            <h3 class="mb-0">${qualification1}</h3>
 			<p class="text-muted light mt-0 mb-1">${fromyear1}<span class="mx-2">to</span>${toyear1}</p>
-			<p class="justified mt-0 mb-1" style="font-size: 17px;">${qualification1}</p>
-			<p class="justified mt-0 mb-3" style="font-size: 17px;">${description1}</p>
+			<p class="justified mt-0 mb-1" style="font-size: 17px;">${college}</p>
+			<p class="justified mt-0 mb-3" style="font-size: 17px;">${cgpa1}</p>
         
-            <h3 class="mb-0">${school}</h3>
+            <h3 class="mb-0">${qualification2}</h3>
 			<p class="text-muted light mt-0 mb-1">${fromyear2}<span class="mx-2">to</span>${toyear2}</p>
-			<p class="justified mt-0 mb-1" style="font-size: 17px;">${qualification2}</p>
-			<p class="justified mt-0 mb-1" style="font-size: 17px;">${description2}</p>
+			<p class="justified mt-0 mb-1" style="font-size: 17px;">${school}</p>
+			<p class="justified mt-0 mb-1" style="font-size: 17px;">${cgpa2}</p>
 
-            <div class="rela-block caps greyed">Experience</div>
+			
+            <div class="rela-block caps side-header mt-5">Experience</div>
             <h3>${institute1}</h3>
             <p class="text-muted light mt-1 mb-2" style="font-size:17px;">${position1}<span class="ml-5 pl-5">Duration: ${duration1}</span></p>
             <p class="justified" style="font-size:17px;">${experienceDescription1}</p>
@@ -394,7 +292,7 @@ module.exports = (values) => {
             <p class="text-muted light mt-1 mb-2" style="font-size:17px;">${position2}<span class="ml-5 pl-5">Duration: ${duration2}</span></p>
             <p class="justified" style="font-size:17px;">${experienceDescription2}</p>
 
-			<div class="rela-block caps greyed">Projects</div>
+			<div class="rela-block caps side-header mt-5">Projects</div>
             <h3>${title1}</h3>
             <p class="justified" style="font-size:17px;">${projectDescription1}</p>
             
