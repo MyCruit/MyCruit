@@ -294,6 +294,13 @@ p {
   text-align: center ;
 }
 
+.carouselStyle{
+  height: 450px;
+  color: rgb(18, 16, 16);
+  line-height: 160px;
+  text-align: center;
+  background: radial-gradient(circle, rgba(208,191,241,1) 22%, rgba(146,83,248,1) 100%);
+} 
 .about-pic {
   width: 500px;
 }
@@ -303,11 +310,7 @@ p {
 }
 
 /* .main-page2 {
-  background: linear-gradient(
-    59deg,
-    rgba(220, 179, 249, 1) 0%,
-    rgba(244, 231, 249, 1) 72%
-  );
+  background: #f0f2f5;
   box-shadow: rgba(0, 0, 0, 0.3) 0px -50px 36px -28px inset;
 } */
 

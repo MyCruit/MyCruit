@@ -108,3 +108,18 @@ export const shortlist = (job, user_id) => async (dispatch) => {
     dispatch({ type: "LOADING", payload: false });
   }
 };
+
+export const deleteJob = (job) => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+  try {
+    await axios.post("/api/jobs/deleteJob", job);
+    message.success("Job deleted successfully");
+    setTimeout(() => {
+      window.location.href = "/home";
+    }, 1000);
+    dispatch({ type: "LOADING", payload: false });
+  } catch (error) {
+    message.error("Something went wrong. Please try again later!");
+    dispatch({ type: "LOADING", payload: false });
+  }
+};

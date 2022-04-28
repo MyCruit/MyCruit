@@ -4,9 +4,15 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import DefaultLayout from "../../component/DefaultLayout";
-import { applyJob, select, shortlist } from "../../redux/action/jobAction";
+import {
+  applyJob,
+  deleteJob,
+  select,
+  shortlist,
+} from "../../redux/action/jobAction";
 import { BsCardChecklist, BsCheckSquare } from "react-icons/bs";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import { MdDelete } from "react-icons/md";
 import { ShowLogo } from "./ShowLogo";
 
 function JobInfo() {
@@ -302,17 +308,27 @@ function JobInfo() {
     <DefaultLayout>
       {job && (
         <div className="bs cprofile1">
-          <Link to={`/company/${company._id}`} style={{ color: "#5e60ce" }}>
-            <div className="flex">
-              {ShowLogo("InfoPhoto", company)}
+          <div className="flex">
+            {ShowLogo("InfoPhoto", company)}
+            <Link to={`/company/${company._id}`} style={{ color: "#5e60ce" }}>
               <h3
                 className="companyLink"
                 style={{ textTransform: "uppercase" }}
               >
                 <b>{company.companyName}</b>
               </h3>
-            </div>
-          </Link>
+            </Link>
+            {user.category === "Company" ? (
+              <MdDelete
+                onClick={() => {
+                  dispatch(deleteJob(job));
+                }}
+              />
+            ) : (
+              <div></div>
+            )}
+          </div>
+
           <Divider className="mt-0" />
           <div className="bs jobInfo m-3 mt-0" style={{ float: "right" }}>
             <h6 className="color">Job Profile</h6>

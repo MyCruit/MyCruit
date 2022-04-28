@@ -140,7 +140,6 @@ export const deleteUser = (category, userid) => async (dispatch) => {
       userid,
     });
     message.success("User deleted successfully");
-    // localStorage.setItem("user", JSON.stringify(user.data));
     setTimeout(() => {
       window.location.reload();
     }, 1000);

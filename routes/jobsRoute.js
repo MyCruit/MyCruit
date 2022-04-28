@@ -3,6 +3,7 @@ const router = express.Router();
 const Job = require("../models/jobModel");
 const Student = require("../models/studentModel");
 const Company = require("../models/companyModel");
+const { ObjectId } = require("mongodb");
 
 router.get("/getalljobs", async (req, res) => {
   try {
@@ -111,6 +112,34 @@ router.post("/shortlist", async (req, res) => {
     res.send();
   } catch (error) {
     res.send(error);
+  }
+});
+
+router.post("/deleteJob", async (req, res) => {
+  try {
+    // const { job } = req.body;
+    const id = ObjectId(req.body._id);
+    console.log(id);
+    await Company.update(
+      { _id: req.body.companyid },
+      { $pull: { postedJobs: { jobid: id } } }
+    );
+
+    await Student.updateMany(
+      {},
+      {
+        $pull: {
+          appliedJobs: {
+            jobid: req.body._id,
+          },
+        },
+      },
+      { multi: true }
+    );
+    await Job.findOneAndDelete({ _id: req.body._id });
+    res.send();
+  } catch (error) {
+    return res.status(400).json({ error });
   }
 });
 

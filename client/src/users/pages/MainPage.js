@@ -6,15 +6,19 @@ import about from "../../img/about.png";
 import faq from "../../img/faq.png";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { BsPeople } from "react-icons/bs";
-import { Col, Row } from "antd";
+import { Col, Row, Carousel } from "antd";
 import icon1 from "../../img/icon-1.png";
 import icon2 from "../../img/icon-2.png";
 import icon3 from "../../img/icon-3.png";
 import icon4 from "../../img/icon-4.png";
 
 function MainPage() {
+  function onChange(a, b, c) {
+    console.log(a, b, c);
+  }
+
   return (
-    <div>
+    <div style={{ background: "#f0f2f5" }}>
       <div className="main-page1 pb-5">
         <div className="logo pt-4">
           <img
@@ -69,129 +73,138 @@ function MainPage() {
         </div>
       </div>
 
-      <div className="main-page2" id="explore">
-        <div>
-          <h1 className="explore-title">Explore</h1>
-          <div className="explore-content">
-            <h3>
-              <b>How do we help?</b>
-            </h3>
-            <p className="mt-4 mb-5">
-              Data analytics has seeped into every sphere of the world. However,
-              recruitment practices still follow age old processes that are
-              unstructured, unrefined and are largely dependent on manual
-              labour. We seek to plug the gaps in the current system of
-              placements and provide significant insights through technology and
-              advanced data analytics.
-            </p>
+      <div id="explore">
+        <h1 className="explore-title">Explore</h1>
+        <div className="explore-content">
+          <h3>
+            <b>How do we help?</b>
+          </h3>
+          <p className="mt-4 mb-5">
+            Data analytics has seeped into every sphere of the world. However,
+            recruitment practices still follow age old processes that are
+            unstructured, unrefined and are largely dependent on manual labour.
+            We seek to plug the gaps in the current system of placements and
+            provide significant insights through technology and advanced data
+            analytics.
+          </p>
+          <div>
+            <Row gutter={100}>
+              <Col lg={12} sm={24}>
+                <div className="flex mb-5">
+                  <div className="mr-4">
+                    <img
+                      src={icon2}
+                      style={{ height: 50, width: 50, color: "#9253f8" }}
+                    />
+                  </div>
+                  <div style={{ textAlign: "left" }}>
+                    <p>
+                      <b>Connecting Multiple Users on One Platform</b>
+                    </p>
+                    <p>
+                      Bring together various users such as recruiters, students
+                      and college one platform for better engagement and ensure
+                      improved hiring decisions.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+              <Col lg={12} sm={24}>
+                <div className="flex">
+                  <div className="mr-4">
+                    <img
+                      src={icon1}
+                      style={{ height: 50, width: 50, color: "#9253f8" }}
+                    />
+                  </div>
+                  <div style={{ textAlign: "left" }}>
+                    <p>
+                      <b>Systematic Recruitment</b>
+                    </p>
+                    <p>
+                      Manage all placement related activities on one platform
+                      through digitised processes. Data can be recorded, tracked
+                      and benchmarked to gain further insights.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+              <Col lg={12} sm={24}>
+                <div className="flex">
+                  <div className="mr-4">
+                    <img
+                      src={icon3}
+                      style={{ height: 50, width: 50, color: "#9253f8" }}
+                    />
+                  </div>
+                  <div style={{ textAlign: "left" }}>
+                    <p>
+                      <b>Minimize Recruitment Costs</b>
+                    </p>
+                    <p>
+                      Provide access to technology at minimal costs, increase
+                      engagement with users and maximise return on investment.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+              <Col lg={12} sm={24}>
+                <div className="flex">
+                  <div className="mr-4">
+                    <img
+                      src={icon4}
+                      style={{ height: 50, width: 50, color: "#9253f8" }}
+                    />
+                  </div>
+                  <div style={{ textAlign: "left" }}>
+                    <p>
+                      <b>Data Security </b>
+                    </p>
+                    <p>
+                      Your institute's data is very critical. That's why we make
+                      sure to keep you data 100% secure.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <hr />
+        </div>
+        <div className="explore-content">
+          <h3>What we Offer?</h3>
+          <p>
+            Here at MyCruit, we provide a free platform for hassle-free
+            recruitments. MyCruit will reduce the workload of the placement cell
+            by transitioning all the tedious placement tasks to complete
+            computerization. Our product cater to the different recruitment
+            needs of our different users.
+          </p>
+          <Carousel afterChange={onChange}>
             <div>
-              <Row gutter={100}>
-                <Col lg={12} sm={24}>
-                  <div className="flex mb-5">
-                    <div className="mr-4">
-                      <img
-                        src={icon2}
-                        style={{ height: 50, width: 50, color: "#9253f8" }}
-                      />
-                    </div>
-                    <div style={{ textAlign: "left" }}>
-                      <p>
-                        <b>Connecting Multiple Users on One Platform</b>
-                      </p>
-                      <p>
-                        Bring together various users such as recruiters,
-                        students and college one platform for better engagement
-                        and ensure improved hiring decisions.
-                      </p>
-                    </div>
-                  </div>
-                </Col>
-                <Col lg={12} sm={24}>
-                  <div className="flex">
-                    <div className="mr-4">
-                      <img
-                        src={icon1}
-                        style={{ height: 50, width: 50, color: "#9253f8" }}
-                      />
-                    </div>
-                    <div style={{ textAlign: "left" }}>
-                      <p>
-                        <b>Systematic Recruitment</b>
-                      </p>
-                      <p>
-                        Manage all placement related activities on one platform
-                        through digitised processes. Data can be recorded,
-                        tracked and benchmarked to gain further insights.
-                      </p>
-                    </div>
-                  </div>
-                </Col>
-                <Col lg={12} sm={24}>
-                  <div className="flex">
-                    <div className="mr-4">
-                      <img
-                        src={icon3}
-                        style={{ height: 50, width: 50, color: "#9253f8" }}
-                      />
-                    </div>
-                    <div style={{ textAlign: "left" }}>
-                      <p>
-                        <b>Minimize Recruitment Costs</b>
-                      </p>
-                      <p>
-                        Provide access to technology at minimal costs, increase
-                        engagement with users and maximise return on investment.
-                      </p>
-                    </div>
-                  </div>
-                </Col>
-                <Col lg={12} sm={24}>
-                  <div className="flex">
-                    <div className="mr-4">
-                      <img
-                        src={icon4}
-                        style={{ height: 50, width: 50, color: "#9253f8" }}
-                      />
-                    </div>
-                    <div style={{ textAlign: "left" }}>
-                      <p>
-                        <b>Data Security </b>
-                      </p>
-                      <p>
-                        Your institute's data is very critical. That's why we
-                        make sure to keep you data 100% secure.
-                      </p>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
+              <h3 className="carouselStyle">1</h3>
             </div>
-            <hr />
-          </div>
-          <div className="explore-content">
-            <h3>What we Offer?</h3>
-            <p>
-              Here at MyCruit, we provide a free platform for hassle-free
-              recruitments. MyCruit will reduce the workload of the placement
-              cell by transitioning all the tedious placement tasks to complete
-              computerization. Our product cater to the different recruitment
-              needs of our different users.
-            </p>
-          </div>
+            <div>
+              <h3 className="carouselStyle">2</h3>
+            </div>
+            <div>
+              <h3 className="carouselStyle">3</h3>
+            </div>
+          </Carousel>
         </div>
       </div>
-      <div className="main-page1 flex" id="about">
-        <h1 className="main-title">About</h1>
+      <div id="about">
+        <h1 className="explore-title">About</h1>
         <img className="about-pic" src={about}></img>
       </div>
-      <div className="main-page2" id="faq">
+      <div id="faq">
         <h1 className="explore-title">F.A.Q.</h1>
         <img className="faq-pic" src={faq}></img>
       </div>
-      <div className="main-page1" id="contact">
-        <h1 className="main-title">Contact</h1>
+      <div id="contact">
+        <h1 className="explore-title">Contact</h1>
       </div>
-      <div className="main-page2">
+      <div>
         <h1>Footer</h1>
       </div>
     </div>
