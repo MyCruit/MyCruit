@@ -65,6 +65,9 @@ module.exports = (values) => {
 		transition: 0.35s ease;
 		font-style: normal;
 	  }
+	  html{
+		height:100%;
+	  }
 	  .rela-block {
 		width: 100%;
 		display: block;
@@ -86,20 +89,6 @@ module.exports = (values) => {
 		bottom: ;
 		font-style: normal;
 	  }
-	  .abs-center {
-		display: false;
-		position: absolute;
-		margin: false;
-		top: 50%;
-		left: 50%;
-		right: false;
-		bottom: false;
-		-webkit-transform: translate(-50%, -50%);
-				transform: translate(-50%, -50%);
-		text-align: center;
-		width: 88%;
-		font-style: normal;
-	  }
 	  body {
 		font-family: 'Roboto Slab';
 		font-size: 18px;
@@ -108,8 +97,9 @@ module.exports = (values) => {
 		line-height: 28px;
 		background-size: cover;
 		font-style: normal;
+		background-color:#f2f2f2;
+		min-height: 100vh;
 	  }
-	  
 	  .caps {
 		text-transform: uppercase;
 	  }
@@ -138,36 +128,38 @@ module.exports = (values) => {
 		line-height: 28px;
 		color: #000;
 	  }
-	  .page {
-		width: 90%;
-		max-width: 1200px;
-		margin: 200px auto;
-		background-color:#f2f2f2;
-		box-shadow: 6px 10px 28px 0px rgba(0,0,0,0.4);
+	  .left-content{
+		line-height:2.5;
+		font-size:25px;
+	  }
+	  .right-content{
+		line-height:1.8;
+		font-size:25px;
 	  }
 	  .top-bar {
+		width:100%;
+		display: block;
 		z-index: 9999;
-		height: 150px;
+		height: 200px;
 		position: absolute;
-		top:100px;
+		top:170px;
 		background-color: #dddddf;
 		color: #fff;
 	  }
 	  .name {
-		display: false;
-		position: absolute;
-		margin: false;
-		left: calc(350px + 5%);
-		top:8;
-		right:0;
-		bottom:0;
-		height: 120px;
-		font-size: 60px;
+		right:1000px;
+		height: 150px;
+		font-size: 80px;
 		letter-spacing: 8px;
 		font-weight: 600;
 		line-height: 60px;
 		font-style: normal;
 		color:black;
+		position: absolute;
+		top: 38%;
+		left: 36%;
+		bottom: false;
+		width: 70%;
 	  }
 	  .name div {
 		width: 94%;
@@ -176,28 +168,25 @@ module.exports = (values) => {
 		display: false;
 		position: absolute;
 		top:0px;
-		width: 380px;
+		width: 420px;
 		background-color: #2e2e30;
-		padding: 260px 30px 50px;
+		padding: 450px 30px 50px;
 		height:100%;
 		color:#fff;
 	  }
-	  
 	  .side-header {
 		font-family: 'Roboto Slab', serif;
-		font-size: 18px;
+		font-size:35px;
 		letter-spacing: 4px;
 		font-weight: 800;
-		line-height: 28px;
 		margin: 60px auto 10px;
 		padding-bottom: 15px;
 		border-bottom: 1px solid #888;
 	  }
-	  
 	  .content-container {
 		margin-right: 0;
 		width: calc(95% - 350px);
-		padding: 320px 40px 50px;
+		padding: 511px 40px 50px;
 	  }
 	  .content-container > * {
 		margin: 0 auto 25px;
@@ -225,76 +214,74 @@ module.exports = (values) => {
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <div class="rela-block page">
-        <div class="rela-block top-bar">
-			<div class="caps name"><div class="abs-center">${firstname} ${lastname}</div></div>
+    <div>
+        <div class="top-bar">
+			<div class="caps name">${firstname} ${lastname}</div>
         </div>
         <div class="side-bar">
-		<p class="rela-block caps side-header">Contact</p>
-			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fa fa-envelope"></i></span>${email}</p>
-			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fas fa-phone-alt"></i></span>${phone}</p>
-			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fa fa-home"></i></span>${address}</p>
-			<p class="mb-1 ml-3"><span style="padding-right:10px;"><i class="fab fa-linkedin"></i></span>${linkedin}</p>
+		<p class="caps side-header">Contact</p>
+			<p class="mb-1 ml-3 left-content"><span style="padding-right:10px; font-size:25px;"><i class="fa fa-envelope"></i></span>${email}</p>
+			<p class="mb-1 ml-3 left-content"><span style="padding-right:10px; font-size:25px;"><i class="fas fa-phone-alt"></i></span>${phone}</p>
+			<p class="mb-1 ml-3 left-content"><span style="padding-right:10px; font-size:25px;"><i class="fa fa-home"></i></span>${address}</p>
+			<p class="mb-1 ml-3 left-content"><span style="padding-right:10px; font-size:25px;"><i class="fab fa-linkedin"></i></span>${linkedin}</p>
 			`;
   if (skill1 != "" || skill1 != null)
-    htmlTemplate += `<p class="rela-block caps side-header mt-5">Skills</p>
+    htmlTemplate += `<p class="rela-block caps side-header" style="margin-top:100px;">Skills</p>
 				<ul>
-				<li> <p class="rela-block">${skill1}</p> </li>`;
+				<li> <p class="rela-block left-content">${skill1}</p> </li>`;
   if (skill2 != "" || skill2 != null)
     htmlTemplate += `
-	<li> <p class="rela-block">${skill2}</p> </li>`;
+	<li> <p class="rela-block left-content">${skill2}</p> </li>`;
   if (skill3 != "" || skill3 != null)
-    htmlTemplate += ` <li> <p class="rela-block">${skill3}</p></li>`;
+    htmlTemplate += ` <li> <p class="rela-block left-content" >${skill3}</p></li>`;
   if (skill4 != "" || skill4 != null)
-    htmlTemplate += `<li> <p class="rela-block">${skill4}</p></li>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${skill4}</p></li>`;
   if (skill5 != "" || skill5 != null)
-    htmlTemplate += `<li> <p class="rela-block">${skill5}</p></li>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${skill5}</p></li>`;
   if (skill6 != "" || skill6 != null)
-    htmlTemplate += `<li> <p class="rela-block">${skill6}</p></li> </ul>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${skill6}</p></li> </ul>`;
 
   if (interest1 != "" || interest1 != null)
-    htmlTemplate += `<p class="rela-block caps side-header mt-5">Interests</p>
+    htmlTemplate += `<p class="rela-block caps side-header" style="margin-top:100px;">Interests</p>
 	<ul>
-	<li> <p class="rela-block">${interest1}</p> </li>`;
+	<li> <p class="rela-block left-content">${interest1}</p> </li>`;
   if (interest2 != "" || interest2 != null)
-    htmlTemplate += `<li> <p class="rela-block">${interest2}</p> </li>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${interest2}</p> </li>`;
   if (interest3 != "" || interest3 != null)
-    htmlTemplate += `<li> <p class="rela-block">${interest3}</p> </li>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${interest3}</p> </li>`;
   if (interest4 != "" || interest4 != null)
-    htmlTemplate += `<li> <p class="rela-block">${interest4}</p> </li>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${interest4}</p> </li>`;
   if (interest5 != "" || interest5 != null)
-    htmlTemplate += `<li> <p class="rela-block">${interest5}</p> </li>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${interest5}</p> </li>`;
   if (interest6 != "" || interest6 != null)
-    htmlTemplate += `<li> <p class="rela-block">${interest6}</p> </li></ul>`;
+    htmlTemplate += `<li> <p class="rela-block left-content">${interest6}</p> </li></ul>`;
 
   htmlTemplate += `
   			</div>
 			<div class="rela-block content-container">
 			
 			<div class="rela-block caps side-header">Education</div>
-            <h3 class="mb-0">${qualification1}</h3>
-			<p class="justified mt-0 mb-0" style="font-size: 17px;">${college}<span class="ml-5 pl-5">CGPA: ${cgpa1}</span></p>
-			<p class="justified mt-0 mb-3" style="font-size: 17px;">${fromyear1}-${toyear1}</p>
-        
-            <h3 class="mb-0">${qualification2}</h3>
-			<p class="justified mt-0 mb-0" style="font-size: 17px;">${school}<span class="ml-5 pl-5">CGPA: ${cgpa2}</span></p>
-			<p class="justified mt-0 mb-0" style="font-size: 17px;">${fromyear2}-${toyear2}</p>
+            <h3 class="right-content mb-0">${qualification1}</h3>
+			<p class="justified mt-0 mb-0 right-content">${college}<span class="ml-5 pl-5">CGPA: ${cgpa1}</span></p>
+			<p class="justified mt-0 mb-3 right-content">${fromyear1}-${toyear1}</p>
+            <h3 class="right-content mb-0 mt-5">${qualification2}</h3>
+			<p class="justified mt-0 mb-0 right-content">${school}<span class="ml-5 pl-5">CGPA: ${cgpa2}</span></p>
+			<p class="justified mt-0 mb-0 right-content">${fromyear2}-${toyear2}</p>
 
 			
-            <div class="rela-block caps side-header mt-5">Experience</div>
-            <h3>${institute1}</h3>
-            <p class="text-muted light mt-0 mb-0" style="font-size:17px;">${position1}<span class="ml-5 pl-5">Duration: ${duration1}</span></p>
-            <p class="justified" style="font-size:17px;">${experienceDescription1}</p>
-            <h3>${institute2}</h3>
-            <p class="text-muted light mt-0 mb-0" style="font-size:17px;">${position2}<span class="ml-5 pl-5">Duration: ${duration2}</span></p>
-            <p class="justified" style="font-size:17px;">${experienceDescription2}</p>
+            <div class="rela-block caps side-header" style="margin-top:100px;">Experience</div>
+            <h3 class="right-content">${institute1}</h3>
+            <p class="justified mt-0 mb-0 right-content">${position1}<span class="ml-5 pl-5">Duration: ${duration1}</span></p>
+            <p class="justified right-content">${experienceDescription1}</p>
+            <h3 class="right-content mt-5">${institute2}</h3>
+            <p class="justified mt-0 mb-0 right-content">${position2}<span class="ml-5 pl-5">Duration: ${duration2}</span></p>
+            <p class="justified right-content">${experienceDescription2}</p>
 
-			<div class="rela-block caps side-header mt-5">Projects</div>
-            <h3>${title1}</h3>
-            <p class="justified" style="font-size:17px;">${projectDescription1}</p>
-            
-            <h3>${title2}</h3>
-            <p class="justified" style="font-size:17px;">${projectDescription2}</p>
+			<div class="rela-block caps side-header" style="margin-top:100px;">Projects</div>
+            <h3 class="right-content">${title1}</h3>
+            <p class="justified right-content">${projectDescription1}</p>
+            <h3 class="right-content mt-5">${title2}</h3>
+            <p class="justified right-content">${projectDescription2}</p>
 			
         </div>
     </div>

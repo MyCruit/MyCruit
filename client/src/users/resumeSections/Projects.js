@@ -37,10 +37,11 @@ class Projects extends Component {
 
             <Col lg={24} sm={24}>
               <Form.Item label="Description">
-                <Input
+                <Input.TextArea
                   name="projectDescription1"
                   value={values.projectDescription1}
                   onChange={this.props.handleChange}
+                  rows={3}
                 />
               </Form.Item>
             </Col>
@@ -61,10 +62,11 @@ class Projects extends Component {
 
             <Col lg={24} sm={24}>
               <Form.Item label="Description">
-                <Input
+                <Input.TextArea
                   name="projectDescription2"
                   value={values.projectDescription2}
                   onChange={this.props.handleChange}
+                  rows={3}
                 />
               </Form.Item>
             </Col>
