@@ -5,7 +5,6 @@ import mainPic from "../../img/main.png";
 import about from "../../img/about.png";
 import faq from "../../img/faq.png";
 import { CaretRightOutlined } from "@ant-design/icons";
-import { BsPeople } from "react-icons/bs";
 import { Col, Row, Carousel } from "antd";
 import icon1 from "../../img/icon-1.png";
 import icon2 from "../../img/icon-2.png";
@@ -69,7 +68,7 @@ function MainPage() {
             </button>
           </Link>
 
-          <img className="main-pic" src={mainPic}></img>
+          <img className="main-pic" src={mainPic} alt=""></img>
         </div>
       </div>
 
@@ -94,6 +93,7 @@ function MainPage() {
                   <div className="mr-4">
                     <img
                       src={icon2}
+                      alt=""
                       style={{ height: 50, width: 50, color: "#9253f8" }}
                     />
                   </div>
@@ -114,6 +114,7 @@ function MainPage() {
                   <div className="mr-4">
                     <img
                       src={icon1}
+                      alt=""
                       style={{ height: 50, width: 50, color: "#9253f8" }}
                     />
                   </div>
@@ -134,6 +135,7 @@ function MainPage() {
                   <div className="mr-4">
                     <img
                       src={icon3}
+                      alt=""
                       style={{ height: 50, width: 50, color: "#9253f8" }}
                     />
                   </div>
@@ -153,6 +155,7 @@ function MainPage() {
                   <div className="mr-4">
                     <img
                       src={icon4}
+                      alt=""
                       style={{ height: 50, width: 50, color: "#9253f8" }}
                     />
                   </div>
@@ -199,7 +202,7 @@ function MainPage() {
       </div>
       <div id="faq">
         <h1 className="explore-title">F.A.Q.</h1>
-        <img className="faq-pic" src={faq}></img>
+        <img className="faq-pic" src={faq} alt=""></img>
       </div>
       <div id="contact">
         <h1 className="explore-title">Contact</h1>

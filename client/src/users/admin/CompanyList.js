@@ -15,6 +15,10 @@ function CompanyList() {
     {
       title: "Name",
       dataIndex: "name",
+      sorter: (a, b) => {
+        return a.name.localeCompare(b.name);
+      },
+      sortDirections: ["ascend"],
       render: (text, data) => {
         return (
           <div className="flex">
@@ -29,12 +33,16 @@ function CompanyList() {
       dataIndex: "email",
     },
     {
-      title: "No. of jobs posted",
+      title: "Posted Jobs",
       render: (text, data) => {
         return (
           <div className="flex">
             <div>{data.jobs}</div>
-            <Link to={`/jobList/${data.companyid}`}>
+            <Link
+              to={`/jobList/${data.companyid}`}
+              style={{ color: "#000000" }}
+              className="ml-3 mt-3"
+            >
               <MdFormatListBulleted className="mb-2" style={{ fontSize: 24 }} />
             </Link>
           </div>
@@ -49,12 +57,12 @@ function CompanyList() {
             <Link
               to={`/company/${data.companyid}`}
               style={{ color: "#000000" }}
-              className="mr-3"
+              className="mr-3 mt-1"
             >
               <MdRemoveRedEye style={{ fontSize: 24 }} />
             </Link>
             <MdDelete
-              className="mb-2"
+              className="mb-2 mt-1"
               style={{ fontSize: 24, cursor: "pointer" }}
               onClick={() => {
                 dispatch(deleteUser("Company", data.companyid));

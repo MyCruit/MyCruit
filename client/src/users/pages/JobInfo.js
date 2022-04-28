@@ -323,6 +323,12 @@ function JobInfo() {
                 onClick={() => {
                   dispatch(deleteJob(job));
                 }}
+                style={{
+                  fontSize: 24,
+                  cursor: "pointer",
+                  marginLeft: "41rem",
+                  marginBottom: 5,
+                }}
               />
             ) : (
               <div></div>

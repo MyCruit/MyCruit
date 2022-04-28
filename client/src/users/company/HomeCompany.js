@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function HomeCompany() {
   const { jobs } = useSelector((state) => state.jobReducer);
   const user = JSON.parse(localStorage.getItem("user"));
-  const userPostedJobs = jobs.filter((job) => job.companyid == user._id);
+  const userPostedJobs = jobs.filter((job) => job.companyid === user._id);
   return (
     <DefaultLayout>
       {userPostedJobs.length === 0 ? (
