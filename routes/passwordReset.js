@@ -1,7 +1,6 @@
 const Student = require("../models/studentModel");
 const Company = require("../models/companyModel");
 const Admin=require("../models/adminModel");
-const Token = require("../models/token");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const express = require("express");
