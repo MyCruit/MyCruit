@@ -11,7 +11,7 @@ function JobList() {
   const { jobs } = useSelector((state) => state.jobReducer);
   const { companies } = useSelector((state) => state.companyReducer);
   const company = companies.find((user) => user._id === params.id);
-  const companyPostedJobs = jobs.filter((job) => job.companyid == company._id);
+  const companyPostedJobs = jobs.filter((job) => job.companyid === company._id);
   return (
     <DefaultLayout>
       {companyPostedJobs.map((job) => {

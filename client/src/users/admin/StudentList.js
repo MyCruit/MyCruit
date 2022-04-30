@@ -18,7 +18,7 @@ function StudentList() {
       sorter: (a, b) => {
         return a.fullName.localeCompare(b.fullName);
       },
-      sortDirections: ["descend"],
+      sortDirections: ["ascend"],
       render: (text, data) => {
         return (
           <div className="flex">
@@ -34,7 +34,7 @@ function StudentList() {
       sorter: (a, b) => {
         return a.collegeId.localeCompare(b.collegeId);
       },
-      sortDirections: ["descend"],
+      sortDirections: ["ascend"],
     },
 
     {

@@ -158,13 +158,13 @@ module.exports = (values) => {
 		position: absolute;
 		margin: false;
 		left: calc(350px + 5%);
-		top:5;
+		top:8;
 		right:0;
 		bottom:0;
 		height: 120px;
-		font-size: 58px;
+		font-size: 60px;
 		letter-spacing: 8px;
-		font-weight: 400;
+		font-weight: 600;
 		line-height: 60px;
 		font-style: normal;
 		color:black;
@@ -228,7 +228,6 @@ module.exports = (values) => {
     <div class="rela-block page">
         <div class="rela-block top-bar">
 			<div class="caps name"><div class="abs-center">${firstname} ${lastname}</div></div>
-			
         </div>
         <div class="side-bar">
 		<p class="rela-block caps side-header">Contact</p>
@@ -274,22 +273,20 @@ module.exports = (values) => {
 			
 			<div class="rela-block caps side-header">Education</div>
             <h3 class="mb-0">${qualification1}</h3>
-			<p class="text-muted light mt-0 mb-1">${fromyear1}<span class="mx-2">to</span>${toyear1}</p>
-			<p class="justified mt-0 mb-1" style="font-size: 17px;">${college}</p>
-			<p class="justified mt-0 mb-3" style="font-size: 17px;">${cgpa1}</p>
+			<p class="justified mt-0 mb-0" style="font-size: 17px;">${college}<span class="ml-5 pl-5">CGPA: ${cgpa1}</span></p>
+			<p class="justified mt-0 mb-3" style="font-size: 17px;">${fromyear1}-${toyear1}</p>
         
             <h3 class="mb-0">${qualification2}</h3>
-			<p class="text-muted light mt-0 mb-1">${fromyear2}<span class="mx-2">to</span>${toyear2}</p>
-			<p class="justified mt-0 mb-1" style="font-size: 17px;">${school}</p>
-			<p class="justified mt-0 mb-1" style="font-size: 17px;">${cgpa2}</p>
+			<p class="justified mt-0 mb-0" style="font-size: 17px;">${school}<span class="ml-5 pl-5">CGPA: ${cgpa2}</span></p>
+			<p class="justified mt-0 mb-0" style="font-size: 17px;">${fromyear2}-${toyear2}</p>
 
 			
             <div class="rela-block caps side-header mt-5">Experience</div>
             <h3>${institute1}</h3>
-            <p class="text-muted light mt-1 mb-2" style="font-size:17px;">${position1}<span class="ml-5 pl-5">Duration: ${duration1}</span></p>
+            <p class="text-muted light mt-0 mb-0" style="font-size:17px;">${position1}<span class="ml-5 pl-5">Duration: ${duration1}</span></p>
             <p class="justified" style="font-size:17px;">${experienceDescription1}</p>
             <h3>${institute2}</h3>
-            <p class="text-muted light mt-1 mb-2" style="font-size:17px;">${position2}<span class="ml-5 pl-5">Duration: ${duration2}</span></p>
+            <p class="text-muted light mt-0 mb-0" style="font-size:17px;">${position2}<span class="ml-5 pl-5">Duration: ${duration2}</span></p>
             <p class="justified" style="font-size:17px;">${experienceDescription2}</p>
 
 			<div class="rela-block caps side-header mt-5">Projects</div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Row, Col, Upload, Button } from "antd";
+import { Form, Input, Row, Col } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 
 class Profile extends Component {
