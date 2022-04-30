@@ -11,7 +11,6 @@ function Login() {
   const dispatch = useDispatch();
 
   function login(values) {
-    console.log("onFinish");
     dispatch(loginUser(values));
   }
   return (
@@ -65,7 +64,7 @@ function Login() {
             </button>
           </Form>
           <h6 className="mt-2 mb-4">
-            <a href="/login">
+            <a href="/forgetPassword">
               <b style={{ color: "#5e60ce" }}> Forgot Password?</b>
             </a>
           </h6>
