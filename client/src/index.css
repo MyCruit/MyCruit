@@ -289,8 +289,9 @@ p {
 
 .explore-content{
   margin: 0 auto;
+  margin-bottom: 50px;
   width: 85em;
-  height: 80vh;
+  /* height: 1000px; */
   text-align: center ;
 }
 
@@ -301,6 +302,18 @@ p {
   text-align: center;
   background: radial-gradient(circle, rgba(208,191,241,1) 22%, rgba(146,83,248,1) 100%);
 } 
+
+/* testing waves */
+.wavediv{
+  height: 100%;
+  overflow: hidden;
+  background: #9253f8;
+}
+
+
+
+
+
 .about-pic {
   width: 500px;
 }

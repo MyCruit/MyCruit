@@ -117,9 +117,7 @@ router.post("/shortlist", async (req, res) => {
 
 router.post("/deleteJob", async (req, res) => {
   try {
-    // const { job } = req.body;
     const id = ObjectId(req.body._id);
-    console.log(id);
     await Company.update(
       { _id: req.body.companyid },
       { $pull: { postedJobs: { jobid: id } } }

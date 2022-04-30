@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
 import mainPic from "../../img/main.png";
-import about from "../../img/about.png";
 import faq from "../../img/faq.png";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { Col, Row, Carousel } from "antd";
@@ -86,10 +85,10 @@ function MainPage() {
             provide significant insights through technology and advanced data
             analytics.
           </p>
-          <div>
+          <div className="mb-5">
             <Row gutter={100}>
               <Col lg={12} sm={24}>
-                <div className="flex mb-5">
+                <div className="flex mb-5 mt-3">
                   <div className="mr-4">
                     <img
                       src={icon2}
@@ -110,7 +109,7 @@ function MainPage() {
                 </div>
               </Col>
               <Col lg={12} sm={24}>
-                <div className="flex">
+                <div className="flex mb-5 mt-3">
                   <div className="mr-4">
                     <img
                       src={icon1}
@@ -131,7 +130,7 @@ function MainPage() {
                 </div>
               </Col>
               <Col lg={12} sm={24}>
-                <div className="flex">
+                <div className="flex mb-5 mt-5">
                   <div className="mr-4">
                     <img
                       src={icon3}
@@ -151,7 +150,7 @@ function MainPage() {
                 </div>
               </Col>
               <Col lg={12} sm={24}>
-                <div className="flex">
+                <div className="flex mb-5 mt-5">
                   <div className="mr-4">
                     <img
                       src={icon4}
@@ -164,7 +163,7 @@ function MainPage() {
                       <b>Data Security </b>
                     </p>
                     <p>
-                      Your institute's data is very critical. That's why we make
+                      Your institute's data is very crucial. That's why we make
                       sure to keep you data 100% secure.
                     </p>
                   </div>
@@ -175,30 +174,43 @@ function MainPage() {
           <hr />
         </div>
         <div className="explore-content">
-          <h3>What we Offer?</h3>
-          <p>
-            Here at MyCruit, we provide a free platform for hassle-free
-            recruitments. MyCruit will reduce the workload of the placement cell
-            by transitioning all the tedious placement tasks to complete
-            computerization. Our product cater to the different recruitment
-            needs of our different users.
-          </p>
-          <Carousel afterChange={onChange}>
-            <div>
-              <h3 className="carouselStyle">1</h3>
-            </div>
-            <div>
-              <h3 className="carouselStyle">2</h3>
-            </div>
-            <div>
-              <h3 className="carouselStyle">3</h3>
-            </div>
-          </Carousel>
+          <h3>What we offer?</h3>
+          <div className="mt-5 mb-5">
+            <p>
+              Here at MyCruit, we provide a free platform for hassle-free
+              recruitments. MyCruit will reduce the workload of the placement
+              cell by transitioning all the tedious placement tasks to complete
+              computerization. Our product cater to the different recruitment
+              needs of our different users.
+            </p>
+          </div>
         </div>
-      </div>
-      <div id="about">
-        <h1 className="explore-title">About</h1>
-        <img className="about-pic" src={about}></img>
+        <Carousel afterChange={onChange} autoplay>
+          <div>
+            <h1>Student</h1>
+            <div className="wavediv">
+              <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path
+                  d="M0, 80 C300, 0 300,
+                  180 500, 80 L500, 00 L0, 0 Z"
+                  style={{ stroke: "none", fill: "rgb(240, 242, 245)" }}
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h1>Company</h1>
+            <div className="wavediv">
+              <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path
+                  d="M0, 80 C300, 0 300,
+                  180 500, 80 L500, 00 L0, 0 Z"
+                  style={{ stroke: "none", fill: "rgb(240, 242, 245)" }}
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </Carousel>
       </div>
       <div id="faq">
         <h1 className="explore-title">F.A.Q.</h1>
