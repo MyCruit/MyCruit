@@ -23,7 +23,8 @@ import MainPage from "./users/pages/MainPage";
 import StudentList from "./users/admin/StudentList";
 import CompanyList from "./users/admin/CompanyList";
 import JobList from "./users/admin/JobList";
-
+import ResetForm  from "./users/pages/ResetForm";
+import ForgetPassword from "./users/pages/ForgetPassword";
 const user = JSON.parse(localStorage.getItem("user"));
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
@@ -89,6 +90,8 @@ function App() {
           <Route path="/companyList" element={<CompanyList />} />
           <Route path="/studentList" element={<StudentList />} />
           <Route path="/jobList/:id" element={<JobList />} />
+          <Route path="/passwordReset/:category/:userId" element={<ResetForm />} />
+          <Route path="/forgetPassword" element={<ForgetPassword />} />
         </Routes>
       </BrowserRouter>
     </div>

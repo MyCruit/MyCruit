@@ -59,6 +59,7 @@ class Experience extends Component {
                   name="experienceDescription1"
                   value={values.experienceDescription1}
                   onChange={this.props.handleChange}
+                  rows={3}
                 />
               </Form.Item>
             </Col>
@@ -101,6 +102,7 @@ class Experience extends Component {
                   name="experienceDescription2"
                   value={values.experienceDescription2}
                   onChange={this.props.handleChange}
+                  rows={3}
                 />
               </Form.Item>
             </Col>

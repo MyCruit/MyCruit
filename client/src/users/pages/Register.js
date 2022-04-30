@@ -93,11 +93,6 @@ function Register() {
               Register
             </button>
           </Form>
-          <h6 className="mt-2 mb-4">
-            <a href="/login">
-              <b style={{ color: "#5e60ce" }}> Forgot Password?</b>
-            </a>
-          </h6>
           <h6>
             Already have an account?{" "}
             <a href="/login">

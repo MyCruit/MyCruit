@@ -308,16 +308,18 @@ function JobInfo() {
     <DefaultLayout>
       {job && (
         <div className="bs cprofile1">
-          <div className="flex">
-            {ShowLogo("InfoPhoto", company)}
-            <Link to={`/company/${company._id}`} style={{ color: "#5e60ce" }}>
-              <h3
-                className="companyLink"
-                style={{ textTransform: "uppercase" }}
-              >
-                <b>{company.companyName}</b>
-              </h3>
-            </Link>
+          <div className="flex justify-content-between">
+            <div className="flex">
+              {ShowLogo("InfoPhoto", company)}
+              <Link to={`/company/${company._id}`} style={{ color: "#5e60ce" }}>
+                <h3
+                  className="companyLink"
+                  style={{ textTransform: "uppercase" }}
+                >
+                  <b>{company.companyName}</b>
+                </h3>
+              </Link>
+            </div>
             {user.category === "Company" ? (
               <MdDelete
                 onClick={() => {
@@ -326,8 +328,7 @@ function JobInfo() {
                 style={{
                   fontSize: 24,
                   cursor: "pointer",
-                  marginLeft: "41rem",
-                  marginBottom: 5,
+                  marginBottom: 8,
                 }}
               />
             ) : (
