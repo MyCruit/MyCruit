@@ -74,6 +74,7 @@ export const sortJobs = (values) => async (dispatch) => {
     if (values.jobType !== undefined) {
       filteredJobs = jobs.filter((job) => job.jobType === values.jobType);
     }
+
     if (values.salary !== undefined) {
       filteredJobs = jobs.filter((job) => job.salary >= values.salary);
     }
