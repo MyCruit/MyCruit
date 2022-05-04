@@ -278,21 +278,12 @@ p {
   width: 500px;
 }
 
-.explore-title{
-  color: rgb(36, 5, 58);
-  font-weight: 800 ;
-  font-size: 70px ;
-  line-height: 1.35;
-  margin-top: 45px;
-  text-align: center ;
-}
-
-.explore-content{
+.content{
   margin: 0 auto;
   margin-bottom: 50px;
   width: 85em;
   /* height: 1000px; */
-  text-align: center ;
+  /* text-align: center ; */
 }
 
 .carouselStyle{
@@ -303,23 +294,70 @@ p {
   background: radial-gradient(circle, rgba(208,191,241,1) 22%, rgba(146,83,248,1) 100%);
 } 
 
-/* testing waves */
-.wavediv{
+/* .wavediv{
   height: 100%;
   overflow: hidden;
   background: #9253f8;
-}
-
-
-
-
+} */
 
 .about-pic {
   width: 500px;
 }
 
+.title{
+  color: rgb(36, 5, 58);
+  font-weight: 700 ;
+  font-size: 60px ;
+  line-height: 1.35;
+  margin-top: 45px;
+  text-align: center ;
+}
+.carousel{
+  position: relative;
+}
+.carousal-wave{
+  position: absolute;
+  top: 0%;
+  z-index: -1;
+}
+
 .faq-pic {
   width: 500px;
+}
+
+
+
+
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+  overflow: hidden;
+  background: #f7f7f7;
+  border: 0px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.panel{
+  height:60px;
+}
+
+.contact {
+  background: linear-gradient(
+    90deg,
+    rgba(172, 123, 253, 1) 15%,
+    rgba(146, 83, 248, 1) 29%,
+    rgba(142, 72, 244, 1) 42%,
+    rgba(153, 77, 225, 1) 60%,
+    rgba(179, 99, 174, 1) 80%,
+    rgba(196, 111, 139, 1) 90%,
+    rgba(206, 119, 114, 1) 100%
+  );
+}
+
+.contact-content{
+  margin: 0 auto;
+  margin-bottom: 50px;
+  width: 85em;
+  
 }
 
 /* .main-page2 {
