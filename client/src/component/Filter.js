@@ -52,7 +52,7 @@ function Filter() {
           </Form.Item>
 
           <Form.Item name="salary" label="Salary">
-            <Select>
+            <Select placeholder="Salary">
               <Option value={10000}>10000+</Option>
               <Option value={15000}>15000+</Option>
               <Option value={25000}>25000+</Option>

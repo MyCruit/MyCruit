@@ -278,41 +278,41 @@ p {
   width: 500px;
 }
 
-.explore-title{
+.explore-title {
   color: rgb(36, 5, 58);
-  font-weight: 800 ;
-  font-size: 70px ;
+  font-weight: 800;
+  font-size: 70px;
   line-height: 1.35;
   margin-top: 45px;
-  text-align: center ;
+  text-align: center;
 }
 
-.explore-content{
+.explore-content {
   margin: 0 auto;
   margin-bottom: 50px;
   width: 85em;
-  /* height: 1000px; */
-  text-align: center ;
+  text-align: center;
 }
 
-.carouselStyle{
+.carouselStyle {
   height: 450px;
   color: rgb(18, 16, 16);
   line-height: 160px;
   text-align: center;
-  background: radial-gradient(circle, rgba(208,191,241,1) 22%, rgba(146,83,248,1) 100%);
-} 
+  background: radial-gradient(
+    circle,
+    rgba(208, 191, 241, 1) 22%,
+    rgba(146, 83, 248, 1) 100%
+  );
+}
 
 /* testing waves */
-.wavediv{
+
+.wavediv {
   height: 100%;
   overflow: hidden;
   background: #9253f8;
 }
-
-
-
-
 
 .about-pic {
   width: 500px;
@@ -321,11 +321,6 @@ p {
 .faq-pic {
   width: 500px;
 }
-
-/* .main-page2 {
-  background: #f0f2f5;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px -50px 36px -28px inset;
-} */
 
 /* Login & Registration */
 
@@ -341,6 +336,27 @@ p {
     rgba(196, 111, 139, 1) 90%,
     rgba(206, 119, 114, 1) 100%
   );
+}
+
+.bg {
+  background: linear-gradient(
+    90deg,
+    rgba(172, 123, 253, 1) 15%,
+    rgba(146, 83, 248, 1) 29%,
+    rgba(142, 72, 244, 1) 42%,
+    rgba(153, 77, 225, 1) 60%,
+    rgba(179, 99, 174, 1) 80%,
+    rgba(196, 111, 139, 1) 90%,
+    rgba(206, 119, 114, 1) 100%
+  );
+  height: 100vh;
+}
+
+.forgetPassword {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
 }
 
 .authForm {

@@ -11,7 +11,7 @@ function Register() {
   const dispatch = useDispatch();
   function register(values) {
     if (values.password !== values.confirmPassword) {
-      message.error("Confirm Password and Password doesn't Match!");
+      message.error("Confirm Password and Password doesn't match!");
     } else {
       dispatch(registerUser(values));
     }
