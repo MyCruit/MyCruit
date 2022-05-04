@@ -3,15 +3,22 @@ import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
 import mainPic from "../../img/main.png";
 import faq from "../../img/faq.png";
-import { CaretRightOutlined } from "@ant-design/icons";
 import { Col, Row, Carousel } from "antd";
-import { BiCopyright } from "react-icons/bi";
-import { IoLocationSharp } from "react-icons/io5";
 import {
   BsFillTelephoneFill,
   BsFillEnvelopeFill,
   BsQuestionOctagon,
 } from "react-icons/bs";
+import {
+  CaretRightOutlined,
+  UserOutlined,
+  CarryOutOutlined,
+  UploadOutlined,
+  FilePdfOutlined,
+} from "@ant-design/icons";
+import { BiCopyright } from "react-icons/bi";
+import { IoLocationSharp } from "react-icons/io5";
+import { FiCheckCircle } from "react-icons/fi";
 import icon1 from "../../img/icon-1.png";
 import icon2 from "../../img/icon-2.png";
 import icon3 from "../../img/icon-3.png";
@@ -180,9 +187,14 @@ function MainPage() {
           </div>
           <hr />
         </div>
-        <div className="content" style={{ textAlign: "center" }}>
-          <h3>What we offer?</h3>
-          <div className="mt-5 mb-5">
+        <div
+          className="content"
+          style={{ textAlign: "center", marginBottom: -20 }}
+        >
+          <h3>
+            <b>What we offer?</b>
+          </h3>
+          <div className="mt-5">
             <p>
               Here at MyCruit, we provide a free platform for hassle-free
               recruitments. MyCruit will reduce the workload of the placement
@@ -199,8 +211,53 @@ function MainPage() {
               style={{ width: "100%" }}
               className="carousal-wave"
             ></img>
-            <h1>Student</h1>
-            <img src={StudentLaptop} style={{ height: 400 }}></img>
+            <div className="content flex " style={{ marginTop: 70 }}>
+              <img
+                src={StudentLaptop}
+                style={{ height: 400, marginRight: 70 }}
+              ></img>
+              <div>
+                <h1
+                  style={{
+                    textAlign: "center",
+                    marginBottom: 20,
+                    marginTop: -60,
+                  }}
+                >
+                  Institute
+                </h1>
+                <p style={{ textAlign: "center", marginBottom: 30 }}>
+                  Our first product caters to the institue and helps them manage
+                  their placement processes efficiently.
+                </p>
+                <div className="flex mt-4">
+                  <div className="properties">
+                    <div>
+                      <UserOutlined
+                        style={{ fontSize: 30, color: "#9253f8" }}
+                      />
+                    </div>
+                    <p>Create profile</p>
+                  </div>
+                  <div className="properties">
+                    <div>
+                      <CarryOutOutlined
+                        style={{ fontSize: 30, color: "#9253f8" }}
+                      />
+                    </div>
+                    <p>Apply to jobs</p>
+                  </div>
+                  <div className="properties">
+                    <div>
+                      <FilePdfOutlined
+                        style={{ fontSize: 30, color: "#9253f8" }}
+                      />
+                    </div>
+                    <p>Generate Resume</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="carousel">
             <img
@@ -208,13 +265,61 @@ function MainPage() {
               style={{ width: "100%" }}
               className="carousal-wave"
             ></img>
-            <h1>Company</h1>
-            <img src={CompanyLaptop} style={{ height: 400 }}></img>
+            <div className="content flex " style={{ marginTop: 70 }}>
+              <img
+                src={CompanyLaptop}
+                style={{ height: 400, marginRight: 70 }}
+              ></img>
+              <div>
+                <h1
+                  style={{
+                    textAlign: "center",
+                    marginBottom: 20,
+                    marginTop: -60,
+                  }}
+                >
+                  Company
+                </h1>
+                <p style={{ textAlign: "center", marginBottom: 30 }}>
+                  Our second product caters to the company and helps them manage
+                  their campus recruitment processes efficiently.
+                </p>
+                <div className="flex mt-4">
+                  <div className="properties">
+                    <div>
+                      <UserOutlined
+                        style={{ fontSize: 30, color: "#9253f8" }}
+                      />
+                    </div>
+                    <p>Create profile</p>
+                  </div>
+                  <div className="properties">
+                    <div>
+                      <UploadOutlined
+                        style={{ fontSize: 30, color: "#9253f8" }}
+                      />
+                    </div>
+                    <p>Post jobs</p>
+                  </div>
+                  <div className="properties">
+                    <div>
+                      <FiCheckCircle
+                        style={{
+                          fontSize: 30,
+                          color: "#9253f8",
+                        }}
+                      />
+                    </div>
+                    <p>Shortlist/Select Students</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Carousel>
       </div>
 
-      <div id="faq" style={{ height: 700, paddingTop: 20 }}>
+      <div id="faq" className="faq" style={{ height: 700, paddingTop: 20 }}>
         <h1 className="title" style={{ marginBottom: 50 }}>
           Frequently asked questions?
         </h1>

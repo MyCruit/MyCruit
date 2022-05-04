@@ -282,8 +282,6 @@ p {
   margin: 0 auto;
   margin-bottom: 50px;
   width: 85em;
-  /* height: 1000px; */
-  /* text-align: center ; */
 }
 
 .carouselStyle {
@@ -298,11 +296,11 @@ p {
   );
 }
 
-/* .wavediv{
-  height: 100%;
-  overflow: hidden;
-  background: #9253f8;
-} */
+.properties {
+  text-align: center;
+  padding: 10px;
+  margin-right: 30px;
+}
 
 .about-pic {
   width: 500px;
@@ -323,7 +321,7 @@ p {
 
 .carousal-wave {
   position: absolute;
-  top: 0%;
+  top: 10%;
   z-index: -1;
 }
 
@@ -356,11 +354,6 @@ p {
   margin-bottom: 50px;
   width: 85em;
 }
-
-/* .main-page2 {
-  background: #f0f2f5;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px -50px 36px -28px inset;
-} */
 
 /* Login & Registration */
 
