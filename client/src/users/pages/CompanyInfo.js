@@ -12,7 +12,7 @@ function CompanyInfo() {
   return (
     <DefaultLayout>
       {company && (
-        <div className="cprofile1 bs">
+        <div className="cprofile1 bs" style={{ height: 430 }}>
           <div className="flex">
             {ShowLogo("InfoPhoto", company)}
             <h3 style={{ textTransform: "uppercase" }}>
